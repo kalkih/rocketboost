@@ -1,0 +1,50 @@
+%button {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  padding: 0.8em 1.6em;
+  border: 2px solid transparent;
+  background: rgba(255,255,255,0.2);
+  border-radius: $border-radius;
+  border-radius: 200px;
+  transition: background .5s, border-color .25s;
+  font-size: 1.2em;
+  display: inline-block;
+  text-align: center;
+  text-transform: uppercase;
+  color: $primary-text-color;
+  letter-spacing: .25em;
+
+  > *, &:after {
+    transition: opacity .25s;
+  }
+
+  &:hover,
+  &.loading {
+    transition: opacity .25s;
+    background: transparent;
+    border-color: transparent;
+    transition: border-color 0s;
+    border-color: rgba(255,255,255,0.5);
+  }
+
+  &.loading {
+    pointer-events: none;
+    border-color: transparent;
+
+    .button__text {
+      opacity: 0;
+    }
+    &:after {
+      opacity: 1;
+    }
+  }
+  @extend %spinner;
+  &:after {
+    left: 50%;
+    top: .6em;
+    margin-left: -.75em;
+  }
+}
+
+

@@ -1,0 +1,146 @@
+.launch-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  padding: 1.4em;
+  background: $card-background;
+  border-radius: $border-radius;
+  box-shadow: $card-shadow;
+  min-width: 0;
+  text-align: center;
+  border: 1px solid transparent;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  width: 100%;
+
+  &.--placeholder {
+    @extend %placeholder;
+    min-height: 265px;
+  }
+
+  &:hover {
+    .launch-card__desc {
+      opacity: 0;
+    }
+    .launch-card__more {
+      opacity: 1;
+    }
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 1.8em;
+    margin-top: 0;
+    margin-bottom: 1em;
+    width: 100%;
+
+    &--primary {
+      flex: 1;
+
+      &.--theme-mars {
+        color: $mars-text-color;
+      }
+      &.--theme-moon {
+        color: $moon-text-color;
+      }
+      &.--theme-saturn {
+        color: $saturn-text-color;
+      }
+      &.--theme-earth {
+        color: $earth-text-color;
+      }
+      &.--theme-neptune {
+        color: $neptune-text-color;
+      }
+      &.--theme-uranus {
+        color: $uranus-text-color;
+      }
+
+      &:after {
+        content: ' \2022 ';
+        opacity: .6;
+        color: $primary-text-color;
+      }
+    }
+    &--secondary {
+      transition: opacity .1s;
+      flex: 1;
+      font-weight: 500;
+    }
+  }
+  &__main {
+    width: 100%;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    justify-content: flex-end;
+  }
+  &__description {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    font-size: 1.2em;
+    min-height: calc((1.2em * 2) + (.3em * 2));
+    display: flex;
+    align-items: center;
+    margin-top: .6em;
+  }
+  &__desc {
+    opacity: 1;
+    display: flex;
+    display: -webkit-box;
+    max-width: 500px;
+    max-height: calc((1.2em * 3) + (.3em * 3));
+    line-height: 1.4em;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: opacity .25s;
+    margin: 1em auto;
+  }
+  &__more {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 1.4em;
+    white-space: nowrap;
+    transition: opacity .25s;
+  }
+  .tbd, .timeago {
+    font-size: 1.8em;
+    font-weight: 500;
+  }
+  .tbd, .timeago, .ticker {
+    width: 100%;
+    margin: auto 0;
+  }
+  &__tags {
+    display: flex;
+    flex-wrap: nowrap;
+    max-width: 100%;
+    margin-top: 1em;
+    max-width: 100%;
+    ali
+
+    > * {
+      flex-shrink: 3;
+      min-width: 0;
+    }
+
+    > *:first-child {
+      flex-shrink: 1;
+    }
+
+    > *:last-child {
+      flex-shrink: 0;
+    }
+  }
+}

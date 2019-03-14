@@ -1,0 +1,20 @@
+<svg class="stars" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 340">
+  <g fill="#FFF">
+    <circle cx="14.5" cy="57.5" r="10.5"/>
+    <circle cx="65" cy="176" r="7.5"/>
+    <circle cx="197.5" cy="28.5" r="10.5"/>
+    <circle cx="285" cy="186" r="7.5"/>
+    <circle cx="470" cy="10" r="7.5"/>
+    <circle cx="849.5" cy="201.5" r="5.5"/>
+    <circle cx="810.5" cy="28.5" r="10.5"/>
+    <circle cx="727" cy="308" r="7.5"/>
+    <circle cx="727" cy="135" r="7.5"/>
+    <circle cx="604" cy="82" r="7.5"/>
+    <circle cx="10" cy="330" r="7.5"/>
+    <circle cx="480" cy="298" r="7.5"/>
+    <circle cx="183.5" cy="312.5" r="5.5"/>
+    <circle cx="445.5" cy="134.5" r="10.5"/>
+    <circle cx="579.5" cy="250.5" r="10.5"/>
+    <circle cx="364.5" cy="236.5" r="5.5"/>
+  </g>
+</svg>

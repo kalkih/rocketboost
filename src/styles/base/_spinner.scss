@@ -1,0 +1,18 @@
+%spinner {
+  &:after {
+    content: '';
+    position: absolute;
+    width: 1.5em;
+    height: 1.5em;
+    border: 0.15em solid rgba(255,255,255,.5);
+    border-radius: 50%;
+    border-top-color: #fff;
+    opacity: 0;
+    animation: spin 1s ease-in-out infinite;
+    -webkit-animation: spin 1s ease-in-out infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+}

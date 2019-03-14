@@ -1,29 +1,26 @@
-# launchx
+# 🚀 rocketboost
+
+Rocket launch PWA built with VueJS, VueX & ❤️
 
 ## Project setup
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Compile & hot-reload for development
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Compile & minify for production
 ```
 npm run build
 ```
 
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
+### Lint & fix errors
 ```
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## License
+This project is under the MIT license.

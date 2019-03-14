@@ -1,0 +1,49 @@
+&.--theme-mars {
+  &:before {
+    background: $mars-color;
+  }
+  .the-navbar {
+    background-color: rgba(darken($mars-color, 25%), .8);
+  }
+  .the-footer .surface {
+    background: darken($mars-color, 15%);
+  }
+}
+&.--theme-saturn {
+  &:before {
+    background: $saturn-color;
+  }
+  .the-navbar {
+    background-color: rgba(darken($saturn-color, 25%), .8);
+  }
+  .the-footer .surface {
+    background: lighten($saturn-color, 25%);
+  }
+}
+&.--theme-neptune {
+  &:before {
+    background: $neptune-color;
+  }
+  .the-navbar {
+    background-color: rgba(darken($neptune-color, 25%), .8);
+  }
+  .the-footer .surface {
+    background: darken($neptune-color, 25%);
+  }
+}
+&.--theme-earth {
+  &:before {
+    background: $earth-color;
+  }
+}
+&.--theme-moon {
+  &:before {
+    background: $moon-color;
+  }
+  .the-navbar {
+    background-color: rgba(darken($moon-color, 25%), .8);
+  }
+  .the-footer .surface {
+    background: lighten($moon-color, 25%);
+  }
+}

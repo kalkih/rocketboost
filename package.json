@@ -1,15 +1,25 @@
 {
-  "name": "launchx",
+  "name": "rocketboost",
   "version": "0.1.0",
-  "private": true,
+  "description": "Rocket launch PWA built with VueJS",
+  "author": "Karl Kihlström <mrkihlstrom@gmail.com>",
+  "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build:report": "vue-cli-service build --report",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.15",
+    "@fortawesome/free-solid-svg-icons": "^5.7.2",
+    "@fortawesome/vue-fontawesome": "^0.1.5",
+    "axios": "^0.18.0",
+    "intersection-observer": "^0.5.1",
     "register-service-worker": "^1.5.2",
-    "vue": "^2.5.21",
+    "smoothscroll-polyfill": "^0.4.3",
+    "vue": "^2.6.10",
+    "vue-observe-visibility": "^0.4.3",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },
@@ -22,8 +32,12 @@
     "babel-eslint": "^10.0.1",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
-    "node-sass": "^4.9.0",
-    "sass-loader": "^7.0.1",
-    "vue-template-compiler": "^2.5.21"
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+    "vue-cli-plugin-webpack-bundle-analyzer": "^1.2.0",
+    "vue-svg-loader": "^0.12.0",
+    "vue-template-compiler": "^2.6.10",
+    "vue-timeago": "^5.1.1",
+    "webpack-bundle-analyzer": "^3.1.0"
   }
 }

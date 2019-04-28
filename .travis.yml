@@ -5,6 +5,7 @@ cache: npm
 before_script:
   - cp .env.production .env.production.local
   - sed -i 's/^VUE_APP_API_URL.*$/VUE_APP_API_URL=$VUE_APP_API_URL/' .env.production.local
+  - sed -i 's/^BASE_URL.*$/BASE_URL=$BASE_URL/' .env.production.local
 
 script:
   - npm run build

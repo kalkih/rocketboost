@@ -1,6 +1,6 @@
-# 🚀 rocketboost
+# 🚀 &nbsp; Rocketboost &nbsp; [![Travis](https://img.shields.io/travis/kalkih/rocketboost.svg?style=flat-square)](https://travis-ci.org/kalkih/rocketboost)
 
-Rocket launch PWA built with VueJS, VueX & ❤️
+Rocket launch tracking PWA built with VueJS, VueX & ❤️
 
 ## Project setup
 ```

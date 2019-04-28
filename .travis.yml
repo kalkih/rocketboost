@@ -1,5 +1,20 @@
 language: node_js
 node_js: lts/*
 cache: npm
+
+before_script:
+  - cp .env.production .env.production.local
+  - sed -i 's/^VUE_APP_API_URL.*$/VUE_APP_API_URL=$VUE_APP_API_URL/' .env.production.local
+
 script:
   - npm run build
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: dist/
+  target_branch: gh-pages
+  keep_history: false
+  on:
+    branch: master

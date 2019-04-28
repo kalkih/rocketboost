@@ -2,6 +2,8 @@
 
 Rocket launch tracking PWA built with VueJS, VueX & ❤️
 
+## [Live version](https://rocket.karls.app)
+
 ## Project setup
 ```
 npm install

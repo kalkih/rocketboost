@@ -17,10 +17,12 @@ const THEME_MAP = {
 
 const STATUS_MAP = {
   1: 'Go for launch',
-  2: 'TBD',
+  2: 'Estimated',
   3: 'Successful',
   4: 'Failed',
+  5: 'Unknown',
   6: 'In flight',
+  7: 'Unknown',
 }
 
 export {

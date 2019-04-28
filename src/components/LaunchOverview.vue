@@ -7,7 +7,6 @@
         <span class="launch-overview__title--primary">{{ launch.rocket.name }}</span>
         <span class="launch-overview__title--secondary">{{ launch.mission.short }}</span>
       </h2>
-      <div class="launch-overview__status" v-if="launch.tbddate">Estimated</div>
       <div class="launch-overview__status" v-if="status">{{ status }}</div>
       <ticker :timestamp="launch.net" />
       <!-- <div class="launch-overview__status" v-if="probability">Probability {{ probability }}%</div> -->

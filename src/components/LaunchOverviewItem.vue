@@ -28,7 +28,7 @@ export default {
     flex: 1;
     font-size: 1.2em;
     font-weight: 500;
-    color: $primary-text-color;
+    color: var(--primary-text-color);
     cursor: default;
     overflow: hidden;
 
@@ -38,7 +38,7 @@ export default {
 
     &.--link {
       cursor: pointer;
-      border-radius: $border-radius;
+      border-radius: var(--border-radius);
 
       &:after {
         content: '';
@@ -48,12 +48,12 @@ export default {
         width: 0px;
         height: 0px;
         border-left: .6em solid transparent;
-        border-bottom: .6em solid $primary-text-color;
+        border-bottom: .6em solid var(--primary-text-color);
         opacity: .25;
       }
 
       &:hover {
-        background: $card-background--hover;
+        background: var(--card-background--hover);
 
         span {
           opacity: .9;

@@ -214,7 +214,7 @@ export default {
     .surface {
       display: flex;
       align-items: flex-end;
-      background: $surface-color;
+      background: var(--surface-color);
       width: 100%;
       height: 20vw;
       border-radius: 100% 100% 100% 100% / 100% 100% 0% 0%;

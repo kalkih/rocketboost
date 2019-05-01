@@ -220,7 +220,7 @@ export default {
         content: '';
         height: 1px;
         width: 100%;
-        background: $primary-text-color;
+        background: var(--primary-text-color);
         opacity: .5;
       }
       .--text {

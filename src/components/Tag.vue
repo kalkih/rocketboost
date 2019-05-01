@@ -28,8 +28,8 @@ export default {
     font-size: 1.1em;
     padding: .4em .6em;
     margin: 0 .8em;
-    border-radius: $border-radius;
-    color: $primary-text-color;
+    border-radius: var(--border-radius);
+    color: var(--primary-text-color);
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -60,7 +60,7 @@ export default {
       top: .35em;
       left: .4em;
       font-size: 1.2em;
-      color: $primary-text-color;
+      color: var(--primary-text-color);
     }
 
     &:before {

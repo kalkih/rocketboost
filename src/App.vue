@@ -46,6 +46,8 @@ export default {
 <style lang="scss">
   @import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700');
   @import url('https://fonts.googleapis.com/css?family=Varela+Round');
+
+  @import './styles/variables';
   * {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -62,10 +64,10 @@ export default {
     font-size: 12px;
     min-height: 100%;
     height: 100%;
-    background-color: $surface-color;
+    background-color: var(--surface-color);
   }
   #app {
-    @import './styles/themes.scss';
+    @import './styles/themes';
     min-height: 100%;
     display: flex;
     flex-direction: column;
@@ -110,8 +112,8 @@ export default {
       z-index: -8;
     }
     &:before {
+      background: var(--background-color);
       transition: background 1s;
-      background: $background;
       z-index: -9;
     }
 
@@ -128,7 +130,7 @@ export default {
     }
   }
   a {
-    color: $primary-color;
+    color: var(--accent-color);
     text-decoration: none;
     transition: opacity .2s;
     -webkit-tap-highlight-color: transparent;

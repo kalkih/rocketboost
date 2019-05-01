@@ -50,6 +50,11 @@ export default {
       ]
     },
   },
+  watch: {
+    theme () {
+      document.body.className = `--theme-${this.theme}`
+    },
+  },
 }
 </script>
 
@@ -65,6 +70,17 @@ export default {
     height: 100%;
   }
   body {
+    &.--theme-default {
+      #app {
+        @extend %theme-dynamic;
+      }
+    }
+    &.--theme-dark {
+      @extend %theme-dark;
+    }
+    &.--theme-light {
+      @extend %theme-light;
+    }
     font-family:
       'Montserrat',
       'Helvetica Neue',
@@ -80,7 +96,6 @@ export default {
     background-color: var(--surface-color);
   }
   #app {
-    @extend %theme-dynamic;
     min-height: 100%;
     display: flex;
     flex-direction: column;

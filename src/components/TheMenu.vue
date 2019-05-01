@@ -19,13 +19,18 @@
         </li>
       </ul>
     </nav>
+    <the-theme-switch/>
   </div>
 </template>
 
 <script>
+import TheThemeSwitch from './TheThemeSwitch'
 import { mapActions } from 'vuex'
 export default {
   name: 'TheMenu',
+  components: {
+    TheThemeSwitch,
+  },
   watch: {
     $route (to, from) {
       this.setMenu(false)
@@ -65,7 +70,7 @@ export default {
     }
     nav {
       position: absolute;
-      bottom: 25vw;
+      bottom: calc(60px + 15vw);
       width: 100%;
       height: 70%;
       font-size: 2.5em;
@@ -113,6 +118,14 @@ export default {
           }
         }
       }
+    }
+    .the-theme-switch {
+      position: absolute;
+      bottom: 0;
+      padding: 2em;
+      animation: fade-in .35s ease forwards;
+      animation-delay: .45s;
+      opacity: 0;
     }
   }
 </style>

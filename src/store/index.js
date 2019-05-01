@@ -8,7 +8,8 @@ const debug = process.env.NODE_ENV !== 'production'
 
 const state = {
   currentThreadID: null,
-  theme: 'red',
+  theme: 'default',
+  pageTheme: 'earth',
   menuActive: false,
   searchActive: false,
 }
@@ -21,6 +22,9 @@ export default new Vuex.Store({
   actions: {
     setTheme ({ commit }, theme) {
       commit('setTheme', theme)
+    },
+    setPageTheme ({ commit }, theme) {
+      commit('setPageTheme', theme)
     },
     toggleMenu ({ commit }) {
       commit('toggleMenu')
@@ -38,6 +42,9 @@ export default new Vuex.Store({
   mutations: {
     setTheme (state, theme) {
       state.theme = theme
+    },
+    setPageTheme (state, theme) {
+      state.pageTheme = theme
     },
     toggleMenu (state) {
       state.menuActive = !state.menuActive

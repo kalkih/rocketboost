@@ -128,10 +128,10 @@ export default {
         font-weight: 300;
         border-radius: var(--border-radius);
         padding: .2em;
-        background: rgba(255,255,255,0.05);
+        background: var(--search-input-background);
 
         &:focus {
-          background: rgba(255,255,255,0.1);
+          background: var(--search-input-background--focus);
         }
       }
     }

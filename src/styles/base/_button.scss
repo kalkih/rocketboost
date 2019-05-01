@@ -4,14 +4,14 @@
   user-select: none;
   padding: 0.8em 1.6em;
   border: 2px solid transparent;
-  background: rgba(255,255,255,0.2);
+  background: var(--button-background-color);
   border-radius: var(--button-border-radius, --border-radius);
   transition: background .5s, border-color .25s;
   font-size: 1.2em;
   display: inline-block;
   text-align: center;
   text-transform: uppercase;
-  color: var(--primary-text-color);
+  color: var(--button-color, --primary-text-color);
   letter-spacing: .25em;
 
   > *, &:after {
@@ -20,11 +20,12 @@
 
   &:hover,
   &.loading {
+    color: var(--button-color--hover, --primary-text-color);
     transition: opacity .25s;
-    background: transparent;
+    background: var(--button-background-color--hover);
     border-color: transparent;
     transition: border-color 0s;
-    border-color: rgba(255,255,255,0.5);
+    border-color: var(--button-border-color);
   }
 
   &.loading {

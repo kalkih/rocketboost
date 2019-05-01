@@ -1,6 +1,6 @@
 %button-reversed {
   @extend %button;
-  border: 1px solid rgba(255,255,255,0.5);
+  border: 1px solid var(--button-border-color);
   background: transparent;
   transition: background .5s, border-color .25s;
 
@@ -10,13 +10,13 @@
 
   &:hover,
   &.loading {
-    background: rgba(255,255,255,0.2);
+    background: var(--button-background-color);
     border-color: transparent;
     transition: border-color .5s;
   }
 
   &.loading {
-    background: rgba(255, 255, 255, 0.4);
+    background: var(--button-border-color);
 
     &:after {
       opacity: 1;

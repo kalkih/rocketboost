@@ -46,8 +46,6 @@ export default {
 <style lang="scss">
   @import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700');
   @import url('https://fonts.googleapis.com/css?family=Varela+Round');
-
-  @import './styles/variables';
   * {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -57,7 +55,12 @@ export default {
     height: 100%;
   }
   body {
-    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family:
+      'Montserrat',
+      'Helvetica Neue',
+      Helvetica,
+      Arial,
+      sans-serif;
     color: white;
     padding: 0;
     margin: 0;
@@ -67,7 +70,7 @@ export default {
     background-color: var(--surface-color);
   }
   #app {
-    @import './styles/themes';
+    @extend %theme-dynamic;
     min-height: 100%;
     display: flex;
     flex-direction: column;

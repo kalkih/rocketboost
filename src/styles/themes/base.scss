@@ -6,8 +6,11 @@
   --surface-color: #218c74;
   --card-shadow: none;
   --card-background: none;
-  --card-background--hover: rgba(255,255,255,.05);
+  --card-background--hover: none;
+  --card-border-color: transparent;
+  --card-border-color--hover: transparent;
   --border-radius: 2px;
+  --button-border-radius: 200px;
 
   --blue: #54a0ff;
   --red: #ff6b6b;

@@ -14,6 +14,7 @@
   -webkit-tap-highlight-color: transparent;
   user-select: none;
   width: 100%;
+  border-color: var(--card-border-color, transparent);
 
   &.--placeholder {
     @extend %placeholder;
@@ -21,6 +22,9 @@
   }
 
   &:hover {
+    background: var(--card-background--hover);
+    border-color: var(--card-border-color--hover, transparent);
+
     .launch-card__desc {
       opacity: 0;
     }

@@ -5,8 +5,7 @@
   padding: 0.8em 1.6em;
   border: 2px solid transparent;
   background: rgba(255,255,255,0.2);
-  border-radius: var(--border-radius);
-  border-radius: 200px;
+  border-radius: var(--button-border-radius, --border-radius);
   transition: background .5s, border-color .25s;
   font-size: 1.2em;
   display: inline-block;

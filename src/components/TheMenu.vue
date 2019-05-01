@@ -103,7 +103,7 @@ export default {
 
         a {
           opacity: .75;
-          color: $primary-text-color;
+          color: var(--primary-text-color);
 
           &:hover {
             opacity: 1;

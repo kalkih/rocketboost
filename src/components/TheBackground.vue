@@ -81,7 +81,7 @@ export default {
       top: 20px;
 
       circle {
-        fill: $yellow;
+        fill: var(--yellow);
       }
     }
 

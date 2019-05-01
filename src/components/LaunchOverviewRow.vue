@@ -34,7 +34,7 @@ export default {
       text-transform: uppercase;
       font-weight: 500;
       letter-spacing: .075em;
-      border-bottom: 1px solid rgba($primary-text-color, .5);
+      border-bottom: 1px solid rgba(var(--primary-text-color), .5);
       padding-bottom: 1em;
     }
 

@@ -5,14 +5,14 @@
   padding: 0.8em 1.6em;
   border: 2px solid transparent;
   background: rgba(255,255,255,0.2);
-  border-radius: $border-radius;
+  border-radius: var(--border-radius);
   border-radius: 200px;
   transition: background .5s, border-color .25s;
   font-size: 1.2em;
   display: inline-block;
   text-align: center;
   text-transform: uppercase;
-  color: $primary-text-color;
+  color: var(--primary-text-color);
   letter-spacing: .25em;
 
   > *, &:after {

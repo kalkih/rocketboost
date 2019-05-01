@@ -4,9 +4,9 @@
   align-items: center;
   flex-flow: column;
   padding: 1.4em;
-  background: $card-background;
-  border-radius: $border-radius;
-  box-shadow: $card-shadow;
+  background: var(--card-background);
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
   min-width: 0;
   text-align: center;
   border: 1px solid transparent;
@@ -61,7 +61,7 @@
       &:after {
         content: ' \2022 ';
         opacity: .6;
-        color: $primary-text-color;
+        color: var(--primary-text-color);
       }
     }
     &--secondary {

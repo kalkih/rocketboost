@@ -72,7 +72,7 @@ export default {
     position: fixed;
     width: 100%;
     z-index: 10;
-    background-color: $background-navbar;
+    background-color: var(--navbar-color);
     user-select: none;
     transition: background 0s, background-color .25s;
     font-size: 10px;
@@ -87,7 +87,6 @@ export default {
     }
 
     &__container {
-      background: $primary-color;
       background: none;
       padding: 1.5em;
       display: flex;
@@ -103,7 +102,7 @@ export default {
     &__back {
       position: absolute;
       font-size: 1.6em;
-      color: $primary-text-color;
+      color: var(--primary-text-color);
       cursor: pointer;
       padding: .2em 1em .2em 0;
       animation: reveal .2s;
@@ -119,7 +118,7 @@ export default {
       margin: 0;
       font-weight: 600;
       letter-spacing: .1em;
-      color: $primary-text-color;
+      color: var(--primary-text-color);
       align-self: flex-start;
       transition: transform .2s, opacity .2s;
       -webkit-tap-highlight-color: transparent;
@@ -148,7 +147,7 @@ export default {
 
       > * {
         font-weight: 700;
-        color: $primary-text-color;
+        color: var(--primary-text-color);
         opacity: .75;
         margin: 0 .4em;
         transition: opacity .25s;
@@ -159,7 +158,7 @@ export default {
         }
 
         &.router-link-exact-active {
-          color: $primary-text-color;
+          color: var(--primary-text-color);
           opacity: 1;
         }
       }

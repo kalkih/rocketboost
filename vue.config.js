@@ -1,3 +1,5 @@
+const dev = process.env.NODE_ENV === 'development'
+
 module.exports = {
   publicPath: process.env.BASE_URL,
   css: {
@@ -12,6 +14,12 @@ module.exports = {
   pwa: {
     themeColor: '#070515',
     msTileColor: '#070515',
+  },
+  pluginOptions: {
+    webpackBundleAnalyzer: {
+      openAnalyzer: false,
+      analyzerMode: dev ? 'server' : 'disabled',
+    },
   },
   chainWebpack: (config) => {
     const svgRule = config.module.rule('svg')

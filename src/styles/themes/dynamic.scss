@@ -1,5 +1,5 @@
 %theme-dynamic {
-  &.--theme-mars {
+  &.--page-theme-mars {
     &:before {
       background: $mars-color;
     }
@@ -10,7 +10,7 @@
       background: darken($mars-color, 15%);
     }
   }
-  &.--theme-saturn {
+  &.--page-theme-saturn {
     &:before {
       background: $saturn-color;
     }
@@ -21,7 +21,7 @@
       background: lighten($saturn-color, 25%);
     }
   }
-  &.--theme-neptune {
+  &.--page-theme-neptune {
     &:before {
       background: $neptune-color;
     }
@@ -32,12 +32,12 @@
       background: darken($neptune-color, 25%);
     }
   }
-  &.--theme-earth {
+  &.--page-theme-earth {
     &:before {
       background: $earth-color;
     }
   }
-  &.--theme-moon {
+  &.--page-theme-moon {
     &:before {
       background: $moon-color;
     }

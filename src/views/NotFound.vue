@@ -11,10 +11,10 @@
 export default {
   name: 'NotFound',
   created () {
-    this.$store.dispatch('setTheme', 'moon')
+    this.$store.dispatch('setPageTheme', 'moon')
   },
   destroyed () {
-    this.$store.dispatch('setTheme', 'default')
+    this.$store.dispatch('setPageTheme', 'default')
   },
 }
 </script>

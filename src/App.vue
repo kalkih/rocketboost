@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :class="['--theme-' + theme, { 'menu-open': menu, 'search-open': search }]">
+  <div id="app" :class="classes">
     <the-search-screen v-if="search" />
     <the-menu v-if="menu" />
     <the-navbar/>
@@ -36,9 +36,19 @@ export default {
     },
     ...mapState({
       theme: state => state.theme,
+      pageTheme: state => state.pageTheme,
       search: state => state.searchActive,
       menu: state => state.menuActive,
     }),
+    classes () {
+      return [
+        '--page-theme-' + this.pageTheme,
+        {
+          'menu-open': this.menu,
+          'search-open': this.search,
+        },
+      ]
+    },
   },
 }
 </script>

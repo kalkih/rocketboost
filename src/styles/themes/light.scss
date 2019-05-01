@@ -1,0 +1,19 @@
+%theme-light {
+  --accent-color: #218c74;
+  --primary-text-color: #000;
+  --background-color: #eee;
+  --background-color-gradient: none;
+  --background-color-gradient: linear-gradient(rgba(255,255,255,.75), rgba(255,255,255,0));
+  --animated-background-opacity: .75;
+  --navbar-color: var(--background-color);
+  --surface-color: #7d7d7d;
+  --border-radius: 5px;
+
+  --card-background--hover: #ebebeb;
+
+  --button-background-color: #dedede;
+  --button-border-color: rgba(0,0,0,.25);
+
+  --search-input-background: rgba(0,0,0,0.05);
+  --search-input-background--focus: rgba(0,0,0,0.075);
+}

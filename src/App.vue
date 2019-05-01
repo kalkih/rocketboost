@@ -61,7 +61,7 @@ export default {
       Helvetica,
       Arial,
       sans-serif;
-    color: white;
+    color: var(--primary-text-color);
     padding: 0;
     margin: 0;
     font-size: 12px;
@@ -92,7 +92,7 @@ export default {
         }
       }
       > main .the-background {
-        opacity: 1;
+        opacity: var(--animated-background-opacity, 1);
         filter: blur(5px);
       }
     }
@@ -111,7 +111,7 @@ export default {
       position: fixed;
     }
     &:after {
-      background: linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,0));
+      background: var(--background-color-gradient, none);
       z-index: -8;
     }
     &:before {

@@ -14,16 +14,16 @@ import { mapActions, mapState } from 'vuex'
 export default {
   name: 'TheThemeSwitch',
   methods: {
-    ...mapActions([
-      'setTheme',
-    ]),
+    ...mapActions({
+      setTheme: 'theme/setTheme',
+    }),
     isActive (theme) {
       return theme === this.theme
     },
   },
   computed: {
     ...mapState({
-      theme: state => state.theme,
+      theme: state => state.theme.theme,
     }),
   },
 }

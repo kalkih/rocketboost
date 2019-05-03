@@ -35,8 +35,8 @@ export default {
       return this.search || this.menu
     },
     ...mapState({
-      theme: state => state.theme,
-      pageTheme: state => state.pageTheme,
+      theme: state => state.theme.theme,
+      pageTheme: state => state.theme.pageTheme,
       search: state => state.searchActive,
       menu: state => state.menuActive,
     }),

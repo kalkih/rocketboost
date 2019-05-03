@@ -8,10 +8,10 @@
 export default {
   name: 'about',
   created () {
-    this.$store.dispatch('setPageTheme', 'moon')
+    this.$store.dispatch('theme/setPageTheme', 'moon')
   },
   destroyed () {
-    this.$store.dispatch('setPageTheme', 'default')
+    this.$store.dispatch('theme/setPageTheme', 'default')
   },
   computed: {
     name: () => process.env.VUE_APP_NAME,

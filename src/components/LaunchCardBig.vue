@@ -60,7 +60,7 @@ export default {
     &__desc {
       max-width: 500px;
       max-height: calc((1.2em * 5) + (.3em * 5));
-      line-height: 1.4em;
+      line-height: 1.5em;
       -webkit-line-clamp: 5;
     }
     &__tags {

@@ -102,6 +102,13 @@ export default {
     min-height: 100%;
     height: 100%;
     background-color: var(--surface-color);
+
+    p {
+      font-weight: var(--paragraph-font-weight);
+      letter-spacing: .03em;
+      line-height: 1.25em;
+      opacity: var(--paragraph-opacity);
+    }
   }
   #app {
     min-height: 100%;

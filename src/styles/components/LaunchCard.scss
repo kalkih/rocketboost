@@ -93,11 +93,10 @@
     margin-top: .6em;
   }
   &__desc {
-    opacity: 1;
     display: flex;
     display: -webkit-box;
     max-width: 500px;
-    max-height: calc((1.2em * 3) + (.3em * 3));
+    max-height: calc((1.2em * 3) + (.2em * 3));
     line-height: 1.4em;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;

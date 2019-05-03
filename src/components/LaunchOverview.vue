@@ -169,7 +169,7 @@ export default {
     }
     &__desc {
       font-size: 1.2em;
-      line-height: 1.4em;
+      line-height: 1.5em;
     }
     &__details {
       max-width: 360px;

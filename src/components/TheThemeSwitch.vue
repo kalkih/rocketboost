@@ -1,6 +1,6 @@
 <template>
   <div class='the-theme-switch'>
-    <h3>Theme</h3>
+    <font-awesome-icon icon="glasses"/>
     <div class="the-theme-switch__switch">
       <span :class="{active: isActive('dark')}" @click="setTheme('dark')">Dark</span>
       <span :class="{active: isActive('default')}" @click="setTheme('default')">Default</span>
@@ -34,26 +34,34 @@ export default {
     font-size: 1.4em;
     text-align: center;
     width: 100%;
-    h3 {
-      font-weight: 700;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    user-select: none;
+
+    > svg {
+      margin: 1em;
       opacity: .75;
-      font-size: 1em;
     }
     &__switch {
+      display: flex;
+      overflow: hidden;
+
       > span {
         font-weight: 600;
         font-size: 0.9em;
         cursor: pointer;
-        padding: .4em;
-        margin: 0 .4em;
+        padding: .4em .8em;
         opacity: .75;
+        border-radius: var(--border-radius);
+        text-transform: lowercase;
 
         &:hover {
-          color: var(--accent-color);
+          background: var(--button-background-color);
         }
 
         &.active {
-          color: var(--accent-color);
+          background: var(--button-background-color);
           opacity: 1;
         }
       }

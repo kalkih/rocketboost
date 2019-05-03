@@ -4,6 +4,7 @@ import actions from './actions'
 import mutations from './mutations'
 import theme from './modules/theme'
 import launches from './modules/launches'
+import createPersistedState from 'vuex-persistedstate'
 
 Vue.use(Vuex)
 
@@ -21,6 +22,11 @@ export default new Vuex.Store({
     theme,
     launches,
   },
+  plugins: [
+    createPersistedState({
+      paths: ['theme'],
+    }),
+  ],
   actions: actions,
   mutations: mutations,
   strict: debug,

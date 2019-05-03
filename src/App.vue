@@ -50,10 +50,18 @@ export default {
       ]
     },
   },
-  watch: {
-    theme () {
+  methods: {
+    applyTheme () {
       document.body.className = `--theme-${this.theme}`
     },
+  },
+  watch: {
+    theme () {
+      this.applyTheme()
+    },
+  },
+  created () {
+    this.applyTheme()
   },
 }
 </script>

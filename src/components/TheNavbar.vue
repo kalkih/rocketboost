@@ -4,7 +4,7 @@
       <a class="the-navbar__back" v-if="this.$route.path !== '/'" @click="$router.go(-1)">
         <font-awesome-icon icon="chevron-left"/>
       </a>
-      <router-link to="/">
+      <router-link to="/" @click.native="reset()">
         <h1 class="the-navbar__title" v-bind:class="{ '--nested': this.$route.path !== '/' }">
           {{ title }}
         </h1>
@@ -52,6 +52,8 @@ export default {
     ...mapActions([
       'toggleMenu',
       'toggleSearch',
+      'setSearch',
+      'setMenu',
     ]),
     handleScroll (e) {
       if (window.scrollY > 60) {
@@ -59,6 +61,10 @@ export default {
       } else {
         this.isTop = true
       }
+    },
+    reset () {
+      this.setSearch(false)
+      this.setMenu(false)
     },
   },
   created () {

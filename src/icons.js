@@ -6,6 +6,8 @@ import {
   faBuilding,
   faSearch,
   faGlasses,
+  faTimes,
+  faBars,
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
@@ -15,4 +17,6 @@ library.add(
   faBuilding,
   faSearch,
   faGlasses,
+  faTimes,
+  faBars,
 )

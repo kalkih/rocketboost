@@ -17,24 +17,27 @@
       </button-row>
       <nav class="the-navbar__nav">
         <font-awesome-icon
-          icon="search"
+          :icon="search ? 'times' : 'search'"
+          class="search"
           :class="{ active: search }"
           @click="toggleSearch"/>
-        <hamburger :active="menu" @click.native="toggleMenu"/>
+        <font-awesome-icon
+          :icon="menu ? 'times' : 'bars'"
+          :class="{ active: menu }"
+          @click="toggleMenu"/>
       </nav>
     </div>
   </header>
 </template>
 
 <script>
-import Hamburger from './Hamburger.vue'
 import { mapActions, mapState } from 'vuex'
 import ButtonRow from './ButtonRow.vue'
 import BaseButton from './BaseButton.vue'
 
 export default {
   name: 'TheNavbar',
-  components: { BaseButton, ButtonRow, Hamburger },
+  components: { BaseButton, ButtonRow },
   data () {
     return {
       title: process.env.VUE_APP_NAME,
@@ -137,10 +140,18 @@ export default {
       align-items: center;
       justify-self: flex-end;
 
-      .hamburger {
+      svg {
+        height: 28px;
+        width: 26px;
         font-size: .9em;
       }
 
+      .search {
+        padding: 1px;
+      }
+      .search.active {
+        padding: 0;
+      }
       > .active {
         opacity: 1;
       }

@@ -5,7 +5,7 @@ import {
   faChevronLeft,
   faBuilding,
   faSearch,
-  faLink,
+  faGlasses,
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
@@ -14,5 +14,5 @@ library.add(
   faChevronLeft,
   faBuilding,
   faSearch,
-  faLink,
+  faGlasses,
 )

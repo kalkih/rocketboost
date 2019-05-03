@@ -13,12 +13,11 @@ export default {
     font-size: 13px;
     max-width: 980px;
     margin: 2em auto 0 auto;
-
-    &:before {
-      background: transparent;
-    }
+    background: none;
+    box-shadow: none;
 
     &:hover {
+      background: none;
       .launch-card__desc,
       .launch-card__more {
         transform: unset;

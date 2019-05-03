@@ -1,0 +1,31 @@
+:root {
+  --primary-text-color: white;
+  --accent-color: #54a0ff;
+  --background-color: #322b77;
+  --background-color-gradient: linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,0));
+  --navbar-color: rgba(13, 11, 31, .9);
+  --surface-color: #218c74;
+  --card-shadow: none;
+  --card-margin: 5px;
+  --card-margin--mobile: 0;
+  --card-background: none;
+  --card-background--hover: none;
+  --card-border-color: transparent;
+  --card-border-color--hover: transparent;
+  --border-radius: 2px;
+  --button-border-radius: 200px;
+  --button-background-color: rgba(255,255,255,0.2);
+  --button-background-color--hover: transparent;
+  --button-border-color: rgba(255,255,255,0.5);
+
+  --search-input-background: rgba(255,255,255,0.05);
+  --search-input-background--focus: rgba(255,255,255,0.1);
+
+  --blue: #54a0ff;
+  --red: #ff6b6b;
+  --yellow: #feca57;
+  --pink: #ff9ff3;
+  --green: #1dd1a1;
+  --blue-light: #48dbfb;
+  --dark: #1F1F28;
+}

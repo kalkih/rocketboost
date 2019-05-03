@@ -40,7 +40,7 @@ export default {
     }
 
     span {
-      background: $primary-text-color;
+      background: var(--primary-text-color);
       height: $height / 6;
       width: $width;
       position: absolute;

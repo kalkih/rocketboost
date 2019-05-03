@@ -117,7 +117,7 @@ export default {
 
       input {
         font-size: inherit;
-        color: $primary-text-color;
+        color: var(--primary-text-color);
         background: transparent;
         outline: none;
         border: 0;
@@ -126,12 +126,12 @@ export default {
         text-align: center;
         letter-spacing: .1em;
         font-weight: 300;
-        border-radius: $border-radius;
+        border-radius: var(--border-radius);
         padding: .2em;
-        background: rgba(255,255,255,0.05);
+        background: var(--search-input-background);
 
         &:focus {
-          background: rgba(255,255,255,0.1);
+          background: var(--search-input-background--focus);
         }
       }
     }

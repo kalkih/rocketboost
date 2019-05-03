@@ -220,7 +220,7 @@ export default {
         content: '';
         height: 1px;
         width: 100%;
-        background: $primary-text-color;
+        background: var(--primary-text-color);
         opacity: .5;
       }
       .--text {
@@ -239,14 +239,18 @@ export default {
       flex-flow: column;
       align-items: center;
 
+      > div {
+        margin: var(--card-margin--mobile);
+      }
+
       @media only screen and (min-width: 640px) {
         flex-flow: row;
         flex-wrap: wrap;
         justify-content: space-evenly;
 
         > div {
-          max-width: calc(50% - 20px);
-          margin: 5px;
+          max-width: calc(50% - calc(var(--card-margin) * 2));
+          margin: var(--card-margin) calc(var(--card-margin) / 2);
           flex: auto;
           align-self: stretch;
         }

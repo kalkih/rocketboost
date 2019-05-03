@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :class="['--theme-' + theme, { 'menu-open': menu, 'search-open': search }]">
+  <div id="app" :class="classes">
     <the-search-screen v-if="search" />
     <the-menu v-if="menu" />
     <the-navbar/>
@@ -35,10 +35,33 @@ export default {
       return this.search || this.menu
     },
     ...mapState({
-      theme: state => state.theme,
+      theme: state => state.theme.theme,
+      pageTheme: state => state.theme.pageTheme,
       search: state => state.searchActive,
       menu: state => state.menuActive,
     }),
+    classes () {
+      return [
+        '--page-theme-' + this.pageTheme,
+        {
+          'menu-open': this.menu,
+          'search-open': this.search,
+        },
+      ]
+    },
+  },
+  methods: {
+    applyTheme () {
+      document.body.className = `--theme-${this.theme}`
+    },
+  },
+  watch: {
+    theme () {
+      this.applyTheme()
+    },
+  },
+  created () {
+    this.applyTheme()
   },
 }
 </script>
@@ -55,17 +78,32 @@ export default {
     height: 100%;
   }
   body {
-    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color: white;
+    &.--theme-default {
+      #app {
+        @extend %theme-dynamic;
+      }
+    }
+    &.--theme-dark {
+      @extend %theme-dark;
+    }
+    &.--theme-light {
+      @extend %theme-light;
+    }
+    font-family:
+      'Montserrat',
+      'Helvetica Neue',
+      Helvetica,
+      Arial,
+      sans-serif;
+    color: var(--primary-text-color);
     padding: 0;
     margin: 0;
     font-size: 12px;
     min-height: 100%;
     height: 100%;
-    background-color: $surface-color;
+    background-color: var(--surface-color);
   }
   #app {
-    @import './styles/themes.scss';
     min-height: 100%;
     display: flex;
     flex-direction: column;
@@ -87,7 +125,7 @@ export default {
         }
       }
       > main .the-background {
-        opacity: 1;
+        opacity: var(--animated-background-opacity, 1);
         filter: blur(5px);
       }
     }
@@ -106,12 +144,12 @@ export default {
       position: fixed;
     }
     &:after {
-      background: linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,0));
+      background: var(--background-color-gradient, none);
       z-index: -8;
     }
     &:before {
+      background: var(--background-color);
       transition: background 1s;
-      background: $background;
       z-index: -9;
     }
 
@@ -128,7 +166,7 @@ export default {
     }
   }
   a {
-    color: $primary-color;
+    color: var(--accent-color);
     text-decoration: none;
     transition: opacity .2s;
     -webkit-tap-highlight-color: transparent;

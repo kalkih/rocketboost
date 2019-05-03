@@ -28,14 +28,14 @@ export default {
     font-size: 1.1em;
     padding: .4em .6em;
     margin: 0 .8em;
-    border-radius: $border-radius;
-    color: $primary-text-color;
+    border-radius: var(--border-radius);
+    color: var(--primary-text-color);
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
     position: relative;
     align-self: center;
-    background-color: rgba(255,255,255,0.2);
+    background-color: var(--button-background-color);
     max-width: 100%;
     text-align: left;
     border: 1px solid transparent;
@@ -60,7 +60,7 @@ export default {
       top: .35em;
       left: .4em;
       font-size: 1.2em;
-      color: $primary-text-color;
+      color: var(--primary-text-color);
     }
 
     &:before {
@@ -76,7 +76,7 @@ export default {
 
     &:hover {
       background-color: transparent;
-      border-color: rgba(255,255,255,0.5);
+      border-color: var(--button-border-color);
       transition: border-color 0s;
 
       &:before {

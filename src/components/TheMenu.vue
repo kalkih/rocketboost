@@ -122,7 +122,7 @@ export default {
     .the-theme-switch {
       position: absolute;
       bottom: 0;
-      padding: 2em;
+      padding: 1.2em;
       animation: fade-in .35s ease forwards;
       animation-delay: .45s;
       opacity: 0;

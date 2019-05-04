@@ -8,5 +8,11 @@ export default {
     status () {
       return STATUS_MAP[this.launch.status] || 0
     },
+    stream () {
+      return this.launch.vidURLs.split(',')[0]
+    },
+    active () {
+      return this.launch.status <= 2
+    },
   },
 }

@@ -11,6 +11,7 @@
       <ticker :timestamp="launch.net" />
       <!-- <div class="launch-overview__status" v-if="probability">Probability {{ probability }}%</div> -->
       <p class="launch-overview__desc">{{ launch.mission.description }}</p>
+      <base-button v-if="stream" :link="stream" :text="active ? 'Watch live' : 'Watch replay'" />
       <div class="launch-overview__details">
         <launch-overview-row title="DEBUG" v-if="dev">
           <launch-overview-item title="probability" :text="launch.probability.toString()" />
@@ -68,6 +69,7 @@
 <script>
 import { mapState } from 'vuex'
 import Ticker from './Ticker.vue'
+import BaseButton from './BaseButton'
 import LaunchOverviewRow from './LaunchOverviewRow'
 import LaunchOverviewItem from './LaunchOverviewItem'
 import launchMixin from '../mixins/launch.js'
@@ -78,6 +80,7 @@ export default {
     LaunchOverviewRow,
     LaunchOverviewItem,
     Ticker,
+    BaseButton,
   },
   mixins: [ launchMixin ],
   computed: {

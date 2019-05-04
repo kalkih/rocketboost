@@ -167,10 +167,11 @@ export default {
   .launch-list {
     display: flex;
     flex-flow: column;
+    align-items: center;
 
     &__content {
       max-width: 980px;
-      margin: 0 auto;
+      width: 100%;
       animation: fade-in .5s;
       display: flex;
       flex-flow: column;

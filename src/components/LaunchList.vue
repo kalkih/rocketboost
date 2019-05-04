@@ -5,7 +5,7 @@
       <span>{{ filter }}</span>
       <span>{{ search }}</span>
     </h1>
-    <launch-card-big v-if="featured" :launch="featured" />
+    <launch-card-featured v-if="featured" :launch="featured" />
     <div class="launch-list__content">
       <h2 class="launch-list__heading">
         <div class="--divider"></div>
@@ -49,11 +49,11 @@
 <script>
 import { mapState, mapActions } from 'vuex'
 import LaunchCard from './LaunchCard.vue'
-import LaunchCardBig from './LaunchCardBig.vue'
+import LaunchCardFeatured from './LaunchCardFeatured.vue'
 import BaseButton from './BaseButton.vue'
 
 export default {
-  components: { LaunchCard, LaunchCardBig, BaseButton },
+  components: { LaunchCard, LaunchCardFeatured, BaseButton },
   name: 'LaunchList',
   props: {
     state: {

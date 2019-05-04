@@ -165,6 +165,8 @@ export default {
 
 <style scoped lang="scss">
   .launch-list {
+    display: flex;
+    flex-flow: column;
 
     &__content {
       max-width: 980px;

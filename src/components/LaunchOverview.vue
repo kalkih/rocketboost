@@ -11,7 +11,12 @@
       <ticker :timestamp="launch.net" />
       <!-- <div class="launch-overview__status" v-if="probability">Probability {{ probability }}%</div> -->
       <p class="launch-overview__desc">{{ launch.mission.description }}</p>
-      <base-button v-if="stream" :link="stream" :text="active ? 'Watch live' : 'Watch replay'" />
+      <base-button
+        class="launch-overview__watch"
+        v-if="stream"
+        :link="stream"
+        :text="active ? 'Watch live' : 'Watch replay'">
+      </base-button>
       <div class="launch-overview__details">
         <launch-overview-row title="DEBUG" v-if="dev">
           <launch-overview-item title="probability" :text="launch.probability.toString()" />
@@ -120,6 +125,7 @@ export default {
     font-size: 13px;
     animation: fade-in .25s;
     margin-top: 2em;
+    width: 100%;
 
     > * {
       margin: $margin 0;
@@ -173,6 +179,11 @@ export default {
     &__desc {
       font-size: 1.2em;
       line-height: 1.5em;
+    }
+    &__watch {
+      font-size: 1em;
+      display: block;
+      white-space: pre;
     }
     &__details {
       max-width: 360px;

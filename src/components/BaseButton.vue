@@ -1,6 +1,5 @@
 <template>
   <a class="base-button" :class="{ loading, link }" @click="e => link && click(e)">
-    <div class="button__spinner"></div>
     <font-awesome-icon v-if="icon" class="button__icon" :icon="icon"/>
     <span class="button__text">{{ text }}</span>
   </a>

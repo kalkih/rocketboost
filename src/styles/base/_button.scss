@@ -36,11 +36,13 @@
       opacity: 0;
     }
     &:after {
+      display: block;
       opacity: 1;
     }
   }
   @extend %spinner;
   &:after {
+    display: none;
     left: 50%;
     top: .6em;
     margin-left: -.75em;

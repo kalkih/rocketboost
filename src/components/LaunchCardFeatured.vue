@@ -28,6 +28,7 @@ export default {
 
     &.--placeholder {
       min-height: 400px;
+      width: 100%;
 
       @media only screen and (min-width: 640px) {
         min-height: 395px;

@@ -1,17 +1,4 @@
 %placeholder {
-  $from: rgba(255,255,255,0.025);
-  $to: rgba(255,255,255,.05);
-  background: linear-gradient(to left, $from, $to, $from);
-  background-size: 200% 100%;
-  // animation: placeholder 1.25s linear infinite;
+  background: rgba(255,255,255,.075);
   pointer-events: none;
-
-  @keyframes placeholder {
-    0% {
-      background-position: 100% 0;
-    }
-    100% {
-      background-position: -100% 0;
-    }
-  }
 }

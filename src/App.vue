@@ -118,22 +118,24 @@ export default {
 
     > footer, > main > *  {
       transition: none;
-      transition: filter .5s;
+    }
+
+    > main > .the-background {
+      transition: opacity .05s;
     }
 
     &.menu-open,
     &.search-open {
       > main > * {
         opacity: 0;
-        transition: opacity .25s, filter .5s;
+        transition: opacity .25s;
 
         @media only screen and (min-width: 640px) {
           transition: opacity .25s;
         }
       }
       > main .the-background {
-        opacity: var(--animated-background-opacity, 1);
-        filter: blur(5px);
+        opacity: calc(var(--animated-background-opacity, 1) / 2);
       }
     }
 

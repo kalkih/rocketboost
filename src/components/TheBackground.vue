@@ -39,7 +39,7 @@ export default {
     width: 100%;
     top: 0;
     z-index: -8;
-    transition: filter .5s;
+    transition: opacity .25s;
     opacity: var(--animated-background-opacity, 1);
 
     &.--not-visible {

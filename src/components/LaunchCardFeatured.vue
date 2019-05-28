@@ -19,11 +19,6 @@ export default {
 
     &:hover {
       background: none;
-      .launch-card__desc,
-      .launch-card__more {
-        transform: unset;
-        opacity: 1;
-      }
     }
 
     &.--placeholder {
@@ -64,6 +59,11 @@ export default {
       max-height: calc((1.2em * 5) + (.3em * 5));
       line-height: 1.5em;
       -webkit-line-clamp: 5;
+
+      &.--hide {
+        transform: unset;
+        opacity: 1;
+      }
     }
     &__tags {
       flex-wrap: wrap;
@@ -75,9 +75,16 @@ export default {
         margin: .8em;
       }
     }
-    .ticker {
+    &__date {
+      height: 4.2em;
       @media only screen and (min-width: 640px) {
-        font-size: 3em;
+        height: 6em;
+      }
+
+      .ticker, .tbf, .timeago {
+        @media only screen and (min-width: 640px) {
+          font-size: 3em;
+        }
       }
     }
   }

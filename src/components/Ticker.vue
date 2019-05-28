@@ -116,7 +116,7 @@ export default {
 
       & > span {
         position: absolute;
-        bottom: -2.5em;
+        bottom: -2.4em;
         font-size: .4em;
         font-weight: 700;
         letter-spacing: initial;

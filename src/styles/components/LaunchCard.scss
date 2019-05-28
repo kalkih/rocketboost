@@ -24,13 +24,6 @@
   &:hover {
     background: var(--card-background--hover);
     border-color: var(--card-border-color--hover, transparent);
-
-    .launch-card__desc {
-      opacity: 0;
-    }
-    .launch-card__more {
-      opacity: 1;
-    }
   }
 
   &__title {
@@ -74,14 +67,6 @@
       font-weight: 500;
     }
   }
-  &__main {
-    width: 100%;
-    margin-bottom: 0;
-    display: flex;
-    align-items: center;
-    flex-flow: column;
-    justify-content: flex-end;
-  }
   &__description {
     position: relative;
     overflow: hidden;
@@ -90,7 +75,8 @@
     min-height: calc((1.2em * 2) + (.3em * 2));
     display: flex;
     align-items: center;
-    margin-top: .6em;
+    margin: 1em auto;
+    flex-grow: 1;
   }
   &__desc {
     display: flex;
@@ -103,35 +89,45 @@
     overflow: hidden;
     text-overflow: ellipsis;
     transition: opacity .25s;
-    margin: 1em auto;
+    margin: 0 auto;
+
+    &.--hide {
+      opacity: 0;
+    }
   }
   &__more {
-    opacity: 0;
+    opacity: 1;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate3d(-50%, -50%, 0);
     text-transform: uppercase;
     font-weight: 500;
     font-size: 1.4em;
     white-space: nowrap;
     transition: opacity .25s;
   }
-  .tbd, .timeago {
-    font-size: 1.8em;
-    font-weight: 500;
-  }
-  .tbd, .timeago, .ticker {
+  &__date {
+    height: 3.2em;
     width: 100%;
-    margin: auto 0;
+
+    > * {
+      position: absolute;
+      left: 0;
+      right: 0;
+    }
+    .tbd, .timeago {
+      line-height: 1.6em;
+      font-size: 1.8em;
+      font-weight: 500;
+    }
   }
   &__tags {
     display: flex;
     flex-wrap: nowrap;
     max-width: 100%;
-    margin-top: 1em;
     max-width: 100%;
-    ali
+    margin-top: 1em;
 
     > * {
       flex-shrink: 3;
@@ -145,5 +141,16 @@
     > *:last-child {
       flex-shrink: 0;
     }
+  }
+  .swap-leave-active,
+  .swap-enter-active {
+    transition: opacity .25s;
+  }
+  .swap-enter,
+  .swap-leave-to {
+    opacity: 0 !important;
+  }
+  .swap-enter-to, .swap-leave {
+    opacity: 1;
   }
 }

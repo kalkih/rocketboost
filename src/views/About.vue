@@ -1,12 +1,32 @@
 <template>
   <div class="about">
-    <h1><center>About {{ name }}</center></h1>
+    <div>
+      <h1><center>{{ name }}</center></h1>
+      <p>{{ name }} helps you keep track of upcoming & past rocket launches.</p>
+    </div>
+    <div>
+      <h1><center>Contact</center></h1>
+      <p><a :href="contact">{{ contact }}</a></p>
+    </div>
+    <div>
+      <p class="--fine">
+        <a href="https://github.com/kalkih/rocketboost">
+          <github/>
+          Check out the source on GitHub
+        </a>
+      </p>
+    </div>
   </div>
 </template>
 
 <script>
+import Github from '../assets/github.svg'
+
 export default {
   name: 'about',
+  components: {
+    Github,
+  },
   created () {
     this.$store.dispatch('theme/setPageTheme', 'moon')
   },
@@ -15,6 +35,64 @@ export default {
   },
   computed: {
     name: () => process.env.VUE_APP_NAME,
+    contact: () => process.env.VUE_APP_CONTACT,
+    mail () {
+      return 'mailto:' + this.contact
+    },
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.about {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-flow: column;
+  width: 100%;
+  min-height: 100%;
+  margin-top: 80px;
+  font-size: 1.25em;
+  font-weight: 400;
+  text-align: center;
+  z-index: 100;
+  font-weight: 500;
+
+  > div {
+    margin: 2em;
+  }
+
+  h1 {
+    margin: 0;
+  }
+
+  p {
+    font-weight: 500;
+    opacity: 1;
+
+    &.--fine {
+      font-weight: 500;
+      opacity: .9;
+      font-size: .8em;
+    }
+  }
+
+  a {
+    color: var(--primary-text-color);
+    display: flex;
+    flex-flow: column;
+
+    &:hover {
+      opacity: .75;
+    }
+  }
+
+  svg {
+    height: 2.5em;
+    margin-bottom: 1em;
+    fill: var(--primary-text-color);
+    transition: opacity .1s ease-out;
+  }
+}
+</style>

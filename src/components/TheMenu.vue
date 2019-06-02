@@ -55,6 +55,7 @@ export default {
     height: 100%;
     transition: opacity .35s, width .35s;
     z-index: 1;
+    overflow: hidden;
 
     li {
       animation: fade-in .35s ease forwards;

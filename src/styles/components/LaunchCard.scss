@@ -75,7 +75,7 @@
     min-height: calc((1.2em * 2) + (.3em * 2));
     display: flex;
     align-items: center;
-    margin: 1em auto;
+    margin: 1.5em auto;
     flex-grow: 1;
   }
   &__desc {
@@ -117,7 +117,7 @@
       right: 0;
     }
     .tbd, .timeago {
-      line-height: 1.6em;
+      line-height: 1.8em;
       font-size: 1.8em;
       font-weight: 500;
     }
@@ -127,7 +127,6 @@
     flex-wrap: nowrap;
     max-width: 100%;
     max-width: 100%;
-    margin-top: 1em;
 
     > * {
       flex-shrink: 3;

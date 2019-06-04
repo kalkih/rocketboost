@@ -34,13 +34,13 @@ export default {
       display: none;
     }
     &__title {
-      margin-bottom: 1em;
+      margin-bottom: .8em;
       display: flex;
       flex-flow: column;
       letter-spacing: 0.1em;
 
       &--primary {
-        margin-bottom: .2em;
+        margin-bottom: .4em;
         font-size: 1.2em;
 
         &:after {
@@ -52,13 +52,14 @@ export default {
       }
     }
     &__description {
-      margin-top: .6em;
+      margin: 1em 0;
     }
     &__desc {
       max-width: 500px;
       max-height: calc((1.2em * 5) + (.3em * 5));
       line-height: 1.5em;
       -webkit-line-clamp: 5;
+      opacity: .85;
 
       &.--hide {
         transform: unset;
@@ -76,9 +77,10 @@ export default {
       }
     }
     &__date {
-      height: 4.2em;
+      height: 3.4em;
+      margin: .6em 0;
       @media only screen and (min-width: 640px) {
-        height: 6em;
+        height: 5em;
       }
 
       .ticker, .tbf, .timeago {

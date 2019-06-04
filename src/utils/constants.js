@@ -5,6 +5,7 @@ const THEME_MAP = {
   'ASA': 'neptune',
   'ISRO': 'saturn',
   'OS': 'moon',
+  'ILS': 'moon',
   'RL': 'earth',
   'ISA': 'earth',
   'CASC': 'mars',
@@ -13,6 +14,8 @@ const THEME_MAP = {
   'VKS': 'mars',
   'VO': 'mars',
   'KhSC': 'mars',
+  'iSpace': 'mars',
+  'CHNR': 'mars',
 }
 
 const STATUS_MAP = {

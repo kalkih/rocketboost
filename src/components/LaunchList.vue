@@ -5,7 +5,7 @@
       <span>{{ filter }}</span>
       <span>{{ search }}</span>
     </h1>
-    <launch-card-featured v-if="featured" :launch="featured" />
+    <launch-card-featured v-if="featured" :launch="featured" :forced="true" />
     <div class="launch-list__content">
       <h2 class="launch-list__heading">
         <div class="--divider"></div>

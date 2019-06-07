@@ -77,13 +77,19 @@ export default {
       }
     }
     &__date {
-      height: 3.4em;
+      min-height: 3.4em;
       margin: .6em 0;
       @media only screen and (min-width: 640px) {
-        height: 5em;
+        min-height: 5em;
       }
 
-      .ticker, .tbf, .timeago {
+      .tbd, .timeago {
+        @media only screen and (min-width: 640px) {
+          font-size: 2.4em;
+        }
+      }
+
+      .ticker {
         @media only screen and (min-width: 640px) {
           font-size: 3em;
         }

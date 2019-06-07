@@ -118,6 +118,7 @@ export default {
 
     > footer, > main > *  {
       transition: none;
+      transition: opacity .15s ease-out;
     }
 
     > main > .the-background {

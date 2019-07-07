@@ -1,3 +1,6 @@
+const SitemapWebpackPlugin = require('sitemap-webpack-plugin').default
+const routerPaths = require('./src/router/sitemap').default.map(r => r.path)
+
 const dev = process.env.NODE_ENV === 'development'
 
 module.exports = {
@@ -37,5 +40,10 @@ module.exports = {
           ],
         },
       })
+    config
+      .plugin('sitemap')
+      .use(new SitemapWebpackPlugin(process.env.BASE_URL, routerPaths, {
+        changeFreq: 'always',
+      }))
   },
 }

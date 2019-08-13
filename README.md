@@ -24,5 +24,17 @@ npm run build
 npm run lint
 ```
 
+## Configuration
+Copy the base environment and edit the .local copy
+```
+cp .env.production .env.production.local
+```
+
+### Example environment
+```env
+VUE_APP_API_URL=https://api.example.app
+BASE_URL=https://example.app
+````
+
 ## License
 This project is under the MIT license.

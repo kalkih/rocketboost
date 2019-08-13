@@ -56,7 +56,6 @@ export default {
   font-size: 1.25em;
   font-weight: 400;
   text-align: center;
-  z-index: 100;
   font-weight: 500;
 
   > div {

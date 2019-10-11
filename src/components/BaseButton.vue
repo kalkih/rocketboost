@@ -41,6 +41,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  @import '../styles/base/_button';
   .base-button {
     @extend %button;
   }

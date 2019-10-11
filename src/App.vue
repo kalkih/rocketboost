@@ -67,129 +67,71 @@ export default {
 </script>
 
 <style lang="scss">
-  @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700');
-  @import url('https://fonts.googleapis.com/css?family=Varela+Round');
-  * {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    box-sizing: border-box;
+@import './styles/base/_base';
+
+#app {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  > footer, > main > *  {
+    transition: none;
+    transition: opacity .15s ease-out;
   }
-  html {
-    height: 100%;
+
+  > main > .the-background {
+    transition: opacity .05s;
   }
-  body {
-    &.--theme-default {
-      #app {
-        @extend %theme-dynamic;
+
+  &.menu-open,
+  &.search-open {
+    > main > * {
+      opacity: 0;
+      transition: opacity .25s;
+
+      @media only screen and (min-width: 640px) {
+        transition: opacity .25s;
       }
     }
-    &.--theme-dark {
-      @extend %theme-dark;
-    }
-    &.--theme-light {
-      @extend %theme-light;
-    }
-    font-family:
-      'Montserrat',
-      'Helvetica Neue',
-      Helvetica,
-      Arial,
-      sans-serif;
-    color: var(--primary-text-color);
-    padding: 0;
-    margin: 0;
-    font-size: 12px;
-    min-height: 100%;
-    height: 100%;
-    background-color: var(--surface-color);
-
-    p {
-      font-weight: var(--paragraph-font-weight);
-      letter-spacing: .03em;
-      line-height: 1.25em;
-      opacity: var(--paragraph-opacity);
+    > main .the-background {
+      opacity: calc(var(--animated-background-opacity, 1) / 2);
     }
   }
-  #app {
-    min-height: 100%;
+
+  &.search-open > footer {
+    .rocket, .shadow, .clouds {
+      opacity: 0;
+      transition: opacity .25s;
+    }
+  }
+
+  &:before, &:after {
+    content: '';
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+  }
+  &:after {
+    background: var(--background-color-gradient, none);
+    z-index: -8;
+  }
+  &:before {
+    background: var(--background-color);
+    transition: background 1s;
+    z-index: -9;
+  }
+
+  > main {
+    flex: 1;
+    position: relative;
+    padding-top: 60px;
     display: flex;
-    flex-direction: column;
-    overflow: hidden;
-
-    > footer, > main > *  {
-      transition: none;
-      transition: opacity .15s ease-out;
-    }
-
-    > main > .the-background {
-      transition: opacity .05s;
-    }
-
-    &.menu-open,
-    &.search-open {
-      > main > * {
-        opacity: 0;
-        transition: opacity .25s;
-
-        @media only screen and (min-width: 640px) {
-          transition: opacity .25s;
-        }
-      }
-      > main .the-background {
-        opacity: calc(var(--animated-background-opacity, 1) / 2);
-      }
-    }
-
-    &.search-open > footer {
-      .rocket, .shadow, .clouds {
-        opacity: 0;
-        transition: opacity .25s;
-      }
-    }
-
-    &:before, &:after {
-      content: '';
-      height: 100vh;
-      width: 100%;
-      position: fixed;
-    }
-    &:after {
-      background: var(--background-color-gradient, none);
-      z-index: -8;
-    }
-    &:before {
-      background: var(--background-color);
-      transition: background 1s;
-      z-index: -9;
-    }
-
-    > main {
-      flex: 1;
-      position: relative;
-      padding-top: 60px;
-      display: flex;
-      flex-flow: column;
-    }
-
-    > footer {
-      position: relative;
-    }
+    flex-flow: column;
   }
-  a {
-    color: var(--accent-color);
-    text-decoration: none;
-    transition: opacity .2s;
-    -webkit-tap-highlight-color: transparent;
+
+  > footer {
+    position: relative;
   }
-  h1 {
-    font-weight: 500;
-  }
-  h2 {
-    font-weight: 400;
-  }
-  .ellipsis {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
+}
 </style>

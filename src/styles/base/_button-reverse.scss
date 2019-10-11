@@ -1,4 +1,6 @@
 %button-reversed {
+  @import './_button';
+
   @extend %button;
   border: 1px solid var(--button-border-color);
   background: transparent;
@@ -26,8 +28,6 @@
       opacity: 0;
     }
   }
-
-  @extend %spinner;
   &:after {
     left: 50%;
     top: .6em;

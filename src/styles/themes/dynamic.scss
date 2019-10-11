@@ -1,4 +1,6 @@
 %theme-dynamic {
+  @import '../setup/_variables';
+  
   &.--page-theme-mars {
     &:before {
       background: $mars-color;

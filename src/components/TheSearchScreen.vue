@@ -59,6 +59,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  @import '../styles/base/_spinner';
+
   .the-search-screen {
     position: fixed;
     bottom: 0;

@@ -112,6 +112,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  @import '../styles/base/_spinner';
   $margin: 20px;
 
   .launch-overview {

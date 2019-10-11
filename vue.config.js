@@ -5,15 +5,6 @@ const dev = process.env.NODE_ENV === 'development'
 
 module.exports = {
   publicPath: process.env.BASE_URL,
-  css: {
-    loaderOptions: {
-      sass: {
-        data: `
-          @import "@/styles/global.scss";
-        `,
-      },
-    },
-  },
   pwa: {
     themeColor: '#070515',
     msTileColor: '#070515',

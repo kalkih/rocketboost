@@ -24,12 +24,9 @@
         </transition>
       </div>
       <div class="launch-card__description">
-        <p class="launch-card__desc" :class="{'--hide': hover }">
+        <p class="launch-card__desc">
           {{ launch.mission.description }}
         </p>
-        <transition name="swap">
-          <span v-if="hover" class="launch-card__more" :key="hover">Read more</span>
-        </transition>
       </div>
       <div class="launch-card__tags">
         <tag :text="launch.rocket.name" icon="rocket" :route="`/rocket/${encodeURIComponent(launch.rocket.name)}`"/>

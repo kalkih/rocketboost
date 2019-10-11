@@ -72,7 +72,6 @@
     overflow: hidden;
     width: 100%;
     font-size: 1.2em;
-    min-height: calc((1.2em * 2) + (.3em * 2));
     display: flex;
     align-items: center;
     margin: 1.5em auto;
@@ -90,22 +89,6 @@
     text-overflow: ellipsis;
     transition: opacity .25s;
     margin: 0 auto;
-
-    &.--hide {
-      opacity: 0;
-    }
-  }
-  &__more {
-    opacity: 1;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate3d(-50%, -50%, 0);
-    text-transform: uppercase;
-    font-weight: 500;
-    font-size: 1.4em;
-    white-space: nowrap;
-    transition: opacity .25s;
   }
   &__date {
     height: 3.2em;

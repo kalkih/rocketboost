@@ -115,6 +115,12 @@ export default {
       width: 2em;
 
       & > span {
+        font-family:
+          'Montserrat',
+          'Helvetica Neue',
+          Helvetica,
+          Arial,
+          sans-serif;
         position: absolute;
         bottom: -2.4em;
         font-size: .4em;

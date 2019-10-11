@@ -232,9 +232,10 @@ export default {
     }
 
     .base-button {
-      margin: 40px 0;
+      margin: 60px 0;
       font-weight: 500;
       align-self: center;
+      padding: 1.4em 2.6em;
     }
 
     &__section {

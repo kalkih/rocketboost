@@ -163,7 +163,6 @@ export default {
       }
 
       > * {
-        font-weight: 700;
         color: var(--primary-text-color);
         opacity: .75;
         margin: 0 .4em;

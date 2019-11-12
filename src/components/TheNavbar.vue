@@ -145,6 +145,7 @@ export default {
       display: flex;
       align-items: center;
       justify-self: flex-end;
+      -webkit-tap-highlight-color: transparent;
 
       svg {
         height: 28px;

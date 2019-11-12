@@ -3,7 +3,7 @@
     <div class="shadow"></div>
     <rocket @click="scrollToTop" class="rocket"/>
     <div class="surface"></div>
-    <!-- <div class="clouds">
+    <div class="clouds">
       <cloud1/>
       <cloud4/>
       <cloud2/>
@@ -12,25 +12,25 @@
       <cloud1/>
       <cloud3/>
       <cloud4/>
-    </div> -->
+    </div>
   </footer>
 </template>
 
 <script>
 import Rocket from '../assets/rocket.svg'
-// import Cloud1 from '../assets/cloud-1.svg'
-// import Cloud2 from '../assets/cloud-2.svg'
-// import Cloud3 from '../assets/cloud-3.svg'
-// import Cloud4 from '../assets/cloud-4.svg'
+import Cloud1 from '../assets/cloud-1.svg'
+import Cloud2 from '../assets/cloud-2.svg'
+import Cloud3 from '../assets/cloud-3.svg'
+import Cloud4 from '../assets/cloud-4.svg'
 
 export default {
   name: 'TheFooter',
   components: {
     Rocket,
-    // Cloud1,
-    // Cloud2,
-    // Cloud3,
-    // Cloud4,
+    Cloud1,
+    Cloud2,
+    Cloud3,
+    Cloud4,
   },
   props: {
     fullscreen: {

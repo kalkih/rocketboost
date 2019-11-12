@@ -39,9 +39,9 @@
             :text="launch.location.pads[0].name" />
         </launch-overview-row>
         <launch-overview-row title="Launch window">
-          <launch-overview-item title="Start" :text="localTime(launch.windowstart)" />
+          <launch-overview-item title="Open" :text="localTime(launch.windowstart)" />
           <launch-overview-item title="NET" :text="localTime(launch.net)" />
-          <launch-overview-item title="End" :text="localTime(launch.windowend)" />
+          <launch-overview-item title="Close" :text="localTime(launch.windowend)" />
         </launch-overview-row>
         <launch-overview-row title="Launch vehicle">
           <launch-overview-item

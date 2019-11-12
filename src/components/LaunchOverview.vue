@@ -185,6 +185,8 @@ export default {
       font-size: 1em;
       display: block;
       white-space: pre;
+      padding: 1.4em 2em;
+      font-weight: 600;
     }
     &__details {
       max-width: 360px;

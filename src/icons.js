@@ -8,7 +8,12 @@ import {
   faGlasses,
   faTimes,
   faBars,
+  faStar,
 } from '@fortawesome/free-solid-svg-icons'
+
+import {
+  faStar as farStar,
+} from '@fortawesome/free-regular-svg-icons'
 
 library.add(
   faRocket,
@@ -19,4 +24,6 @@ library.add(
   faGlasses,
   faTimes,
   faBars,
+  faStar,
+  farStar
 )

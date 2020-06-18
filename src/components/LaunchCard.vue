@@ -38,11 +38,11 @@
 </template>
 
 <script>
-import Tag from './Tag.vue'
-import Ticker from './Ticker.vue'
+import { mapActions } from 'vuex'
 import theme from '../mixins/themes.js'
 import launchMixin from '../mixins/launch.js'
-import { mapActions } from 'vuex'
+import Tag from './Tag'
+import Ticker from './Ticker'
 
 export default {
   components: { Tag, Ticker },

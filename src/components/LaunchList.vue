@@ -1,10 +1,16 @@
 <template>
   <div class="launch-list">
-    <h1 class="launch-list__header" v-if="title">
+    <div class="launch-list__header" v-if="title">
       <font-awesome-icon v-if="icon" :icon="icon"/>
-      <span>{{ filter }}</span>
-      <span>{{ search }}</span>
-    </h1>
+      <h1>
+        <span>{{ filter }}</span>
+        <span>{{ search }}</span>
+      </h1>
+      <subscribe-button
+        v-if="state && filter"
+        :id="filter" :topic="state"
+      />
+    </div>
     <launch-card-featured v-if="featured" :launch="featured" :forced="true" />
     <div class="launch-list__content">
       <h2 class="launch-list__heading">
@@ -20,7 +26,7 @@
             :launch="launch"
           />
         </section>
-        <base-button v-if="more.next" @click.native="fetchMoreNext" text="Load more" :loading="loading.next" />
+        <base-button class="launch-list__more-button" v-if="more.next" @click.native="fetchMoreNext" text="Load more" :loading="loading.next" />
         <h3 v-else class="launch-list__heading --medium">phew... that was the last one!</h3>
       </template>
       <h3 v-else class="launch-list__heading --tall">No upcoming Launches</h3>
@@ -38,7 +44,7 @@
             :ticker="false"
           />
         </section>
-        <base-button v-if="more.past" @click.native="fetchMorePast" text="Load more" :loading="loading.past" />
+        <base-button class="launch-list__more-button" v-if="more.past" @click.native="fetchMorePast" text="Load more" :loading="loading.past" />
         <h3 v-else class="launch-list__heading --medium">phew... that was the last one!</h3>
       </template>
       <h3 v-else class="launch-list__heading --tall">No past launches</h3>
@@ -48,12 +54,13 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
-import LaunchCard from './LaunchCard.vue'
-import LaunchCardFeatured from './LaunchCardFeatured.vue'
-import BaseButton from './BaseButton.vue'
+import LaunchCard from './LaunchCard'
+import LaunchCardFeatured from './LaunchCardFeatured'
+import BaseButton from './BaseButton'
+import SubscribeButton from './SubscribeButton'
 
 export default {
-  components: { LaunchCard, LaunchCardFeatured, BaseButton },
+  components: { LaunchCard, LaunchCardFeatured, BaseButton, SubscribeButton },
   name: 'LaunchList',
   props: {
     state: {
@@ -124,6 +131,13 @@ export default {
     }),
   },
   methods: {
+    ...mapActions({
+      getMoreNext: 'launches/getMoreNextLaunches',
+      getMorePast: 'launches/getMorePastLaunches',
+      unsetState: 'launches/unsetState',
+      getNext: 'launches/getNextLaunches',
+      getPast: 'launches/getPastLaunches',
+    }),
     fetchMoreNext: async function () {
       this.loading.next = true
       const fetched = await this.getMoreNext({
@@ -144,13 +158,6 @@ export default {
       if (fetched === 0) this.more.past = false
       this.loading.past = false
     },
-    ...mapActions({
-      getMoreNext: 'launches/getMoreNextLaunches',
-      getMorePast: 'launches/getMorePastLaunches',
-      unsetState: 'launches/unsetState',
-      getNext: 'launches/getNextLaunches',
-      getPast: 'launches/getPastLaunches',
-    }),
   },
   created: async function () {
     const { state, getQuery, filter } = this
@@ -178,7 +185,6 @@ export default {
     }
 
     &__header {
-      font-size: calc(.8em + 5vw);
       display: flex;
       flex-flow: column;
       justify-content: center;
@@ -186,15 +192,21 @@ export default {
       text-align: center;
       min-height: calc(35vh - 77px);
       margin: 0 10px;
+      font-size: 1.6em;
+      padding: 1em 0;
 
       @media only screen and (min-width: 640px) {
         min-height: calc(40vh - 77px);
-        font-size: 4em;
+        font-size: 2em;
       }
 
       svg {
-        margin-bottom: .4em;
-        font-size: 1.4em;
+        font-size: 4em;
+      }
+
+      .base-button {
+        font-size: .6em;
+        margin: 0;
       }
     }
 
@@ -231,7 +243,7 @@ export default {
       }
     }
 
-    .base-button {
+    &__more-button {
       margin: 60px 0;
       font-weight: 500;
       align-self: center;

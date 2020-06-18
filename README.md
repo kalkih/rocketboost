@@ -33,6 +33,7 @@ cp .env.production .env.production.local
 ### Example environment
 ```env
 VUE_APP_API_URL=https://api.example.app
+VUE_APP_API_VAPID_PUBLIC_KEY=BIMSlo01XNTmTFT0rcrMluhMl0Vbls-t6DAXtbRBiFW_z_n9kF9KlxsEiyujlAEZhDDEJsxMlMxT86_OXxKNQeU
 BASE_URL=https://example.app
 ````
 

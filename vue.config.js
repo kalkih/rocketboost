@@ -8,6 +8,11 @@ module.exports = {
   pwa: {
     themeColor: '#070515',
     msTileColor: '#070515',
+    workboxPluginMode: 'InjectManifest',
+    workboxOptions: {
+      swSrc: './src/sw.js',
+      swDest: 'service-worker.js',
+    },
   },
   pluginOptions: {
     webpackBundleAnalyzer: {

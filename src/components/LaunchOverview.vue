@@ -3,6 +3,9 @@
     class="launch-overview"
     :class="[{ '--placeholder': launch.placeholder }]">
     <template v-if="launch.id">
+      <div class="launch-overview__subscribe">
+        <subscribe-button class="--right" :id="launch.id"/>
+      </div>
       <h2 class="launch-overview__title">
         <span class="launch-overview__title--primary">{{ launch.rocket.name }}</span>
         <span class="launch-overview__title--secondary">{{ launch.mission.short }}</span>
@@ -75,6 +78,7 @@
 import { mapState } from 'vuex'
 import Ticker from './Ticker.vue'
 import BaseButton from './BaseButton'
+import SubscribeButton from './SubscribeButton'
 import LaunchOverviewRow from './LaunchOverviewRow'
 import LaunchOverviewItem from './LaunchOverviewItem'
 import launchMixin from '../mixins/launch.js'
@@ -86,6 +90,7 @@ export default {
     LaunchOverviewItem,
     Ticker,
     BaseButton,
+    SubscribeButton,
   },
   mixins: [ launchMixin ],
   computed: {
@@ -121,11 +126,11 @@ export default {
     align-items: center;
     flex-flow: column;
     padding: 1.4em;
+    padding-top: 0;
     min-width: 0;
     text-align: center;
     font-size: 13px;
     animation: fade-in .25s;
-    margin-top: 2em;
     width: 100%;
 
     > * {
@@ -147,6 +152,19 @@ export default {
       &:after {
         top: 50%;
         opacity: 1;
+      }
+    }
+
+    &__subscribe {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      font-size: .6em;
+      margin-top: 0;
+
+      @media only screen and (min-width: 640px) {
+        margin-top: $margin;
+        font-size: .8em;
       }
     }
 
@@ -179,7 +197,7 @@ export default {
     }
     &__desc {
       font-size: 1.2em;
-      line-height: 1.5em;
+      line-height: 2em;
     }
     &__watch {
       font-size: 1em;

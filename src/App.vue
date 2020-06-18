@@ -14,12 +14,13 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+import notificationService from './services/notificationService'
 import TheNavbar from './components/TheNavbar.vue'
 import TheFooter from './components/TheFooter.vue'
 import TheMenu from './components/TheMenu.vue'
 import TheSearchScreen from './components/TheSearchScreen.vue'
 import TheBackground from './components/TheBackground.vue'
-import { mapState } from 'vuex'
 
 export default {
   name: 'App',
@@ -60,8 +61,9 @@ export default {
       this.applyTheme()
     },
   },
-  created () {
+  async created () {
     this.applyTheme()
+    notificationService.setupNotificationWatcher()
   },
 }
 </script>

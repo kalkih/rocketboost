@@ -1,0 +1,2 @@
+[context.dev]
+  environment = { VUE_APP_API_URL = "https://api-dev.karls.app/api", VUE_APP_NAME = "Rocketboost DEV" }

@@ -21,7 +21,12 @@ const state = {
   endpoint: '',
 }
 
-const getters = {}
+const getters = {
+  providers: (state) => state.all.filter(sub => sub.topic === TOPIC.PROVIDER),
+  locations: (state) => state.all.filter(sub => sub.topic === TOPIC.LOCATION),
+  rockets: (state) => state.all.filter(sub => sub.topic === TOPIC.ROCKET),
+  launches: (state) => state.all.filter(sub => sub.topic === TOPIC.LAUNCH),
+}
 
 const actions = {
   async subscribe ({ commit, dispatch }, { id, topic = TOPIC.LAUNCH }) {
@@ -51,6 +56,9 @@ const actions = {
     } catch (error) {
       throw error
     }
+  },
+  unsubscribeAll ({ commit }) {
+    commit('clearSubscriptions')
   },
   getSubscription ({ state }, { id, topic = TOPIC.LAUNCH }) {
     const subscription = state.all.find(sub => sub.topic === topic && sub.id === id)

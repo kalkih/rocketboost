@@ -14,6 +14,7 @@ const handlePush = async (event) => {
     icon: '/img/icons/android-chrome-any-192x192.png',
     badge: '/img/icons/android-chrome-any-192x192.png',
     timestamp,
+    vibrate: 100,
   }
   return self.registration.showNotification(title, options)
 }

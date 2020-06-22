@@ -4,7 +4,7 @@ import { register } from 'register-service-worker'
 
 if (process.env.NODE_ENV === 'production') {
   register(`${process.env.BASE_URL}service-worker.js`, {
-    async ready (registration) {
+    async ready () {
       console.log(
         'App is being served from cache by a service worker.\n' +
         'For more details, visit https://goo.gl/AFskqB'
@@ -12,22 +12,9 @@ if (process.env.NODE_ENV === 'production') {
     },
     registered (registration) {
       console.log('Service worker has been registered.')
-      registration.addEventListener('push', (event) => {
-        console.log('push')
-        if (event.data) {
-          console.log('Push event!! ', event.data.text())
-        } else {
-          console.log('Push event but no data')
-        }
-      })
-      self.addEventListener('push', (event) => {
-        console.log('push')
-        if (event.data) {
-          console.log('Push event!! ', event.data.text())
-        } else {
-          console.log('Push event but no data')
-        }
-      })
+      setInterval(() => {
+        registration.update()
+      }, 1000 * 60 * 60)
     },
     cached () {
       console.log('Content has been cached for offline use.')
@@ -37,6 +24,8 @@ if (process.env.NODE_ENV === 'production') {
     },
     updated () {
       console.log('New content is available; please refresh.')
+      const channel = new BroadcastChannel('sw-updated')
+      channel.postMessage()
     },
     offline () {
       console.log('No internet connection found. App is running in offline mode.')

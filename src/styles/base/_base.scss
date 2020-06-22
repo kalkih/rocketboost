@@ -62,3 +62,37 @@ p {
   text-overflow: ellipsis;
   overflow: hidden;
 }
+
+.rocketboost-heading {
+  display: block;
+  position: relative;
+  text-align: center;
+  font-size: 1.8em;
+  margin: 1em 10px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+
+  &.--tall {
+    height: 6em;
+  }
+
+  &.--medium {
+    height: 4em;
+    text-transform: initial;
+  }
+
+  .--divider {
+    content: '';
+    height: 1px;
+    width: 100%;
+    background: var(--primary-text-color);
+    opacity: .5;
+  }
+  .--text {
+    margin: 0 .6em;
+  }
+}

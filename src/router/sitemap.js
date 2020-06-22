@@ -6,6 +6,9 @@ const paths = [
     path: '/search',
   },
   {
+    path: '/subscriptions',
+  },
+  {
     path: '/lsp/SpaceX',
   },
   {

@@ -83,8 +83,7 @@ const mutations = {
   addSubscription (state, { topic, id, subscription }) {
     state.all.push({ topic, id, subscription })
   },
-  removeSubscription (state, { topic, id }) {
-    state.all = state.all.filter(sub => sub.topic !== topic && sub.id !== id)
+    state.all = state.all.filter(sub => !(sub.topic === topic && sub.id === id))
   },
   setEndpoint (state, endpoint) {
     state.endpoint = endpoint

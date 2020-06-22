@@ -9,6 +9,13 @@ const PUSH_OPTIONS = {
   applicationServerKey: base64VapidPublicKey,
 }
 
+const TOPIC = {
+  LAUNCH: 'launch',
+  LOCATION: 'location',
+  PROVIDER: 'lsp',
+  ROCKET: 'rocket',
+}
+
 const state = {
   all: [],
   endpoint: '',
@@ -17,7 +24,7 @@ const state = {
 const getters = {}
 
 const actions = {
-  async subscribe ({ commit, dispatch }, { id, topic = 'launch' }) {
+  async subscribe ({ commit, dispatch }, { id, topic = TOPIC.LAUNCH }) {
     try {
       const subscription = await dispatch('getPushSubscription')
 
@@ -31,7 +38,7 @@ const actions = {
       throw error
     }
   },
-  async unsubscribe ({ commit, dispatch }, { id, topic = 'launch' }) {
+  async unsubscribe ({ commit, dispatch }, { id, topic = TOPIC.LAUNCH }) {
     try {
       const subscription = await dispatch('getSubscription', { id, topic })
 
@@ -45,14 +52,14 @@ const actions = {
       throw error
     }
   },
-  getSubscription ({ _commit, state }, { id, topic = 'launch' }) {
+  getSubscription ({ state }, { id, topic = TOPIC.LAUNCH }) {
     const subscription = state.all.find(sub => sub.topic === topic && sub.id === id)
     if (!subscription) {
       throw new Error('Subscription was not found')
     }
     return subscription
   },
-  isSubscribedTo ({ _commit, state }, { id, topic = 'launch' }) {
+  isSubscribedTo ({ state }, { id, topic = TOPIC.LAUNCH }) {
     return !!(state.all.find(sub => sub.topic === topic && sub.id === id))
   },
   async getPushSubscription ({ commit, state }) {
@@ -83,6 +90,7 @@ const mutations = {
   addSubscription (state, { topic, id, subscription }) {
     state.all.push({ topic, id, subscription })
   },
+  removeSubscription (state, { topic = TOPIC.LAUNCH, id }) {
     state.all = state.all.filter(sub => !(sub.topic === topic && sub.id === id))
   },
   setEndpoint (state, endpoint) {

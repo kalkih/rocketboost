@@ -1,5 +1,5 @@
 <template>
-  <a class="base-button subscribe-button" :class="{ '--subscribed': isSubscribed }" @click="handleClick()">
+  <a class="base-button subscribe-button" :class="{ '--subscribed': isSubscribed }" @click.stop="handleClick()">
     <font-awesome-icon v-if="isSubscribed" class="button__icon" icon="star"/>
     <font-awesome-icon v-else class="button__icon" :icon="['far', 'star']"/>
     <span class="button__text">{{ statusText }}</span>
@@ -116,8 +116,9 @@ export default {
   .base-button {
     @extend %button;
     font-weight: 600;
-    padding: .8em 1.6em;
+    padding: .8em 1.2em;
     animation: pop-reverse .35s;
+    display: flex;
 
     &.--right {
       transform-origin: right;

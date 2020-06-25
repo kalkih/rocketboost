@@ -72,18 +72,14 @@ export default {
       if (Notification.permission !== PERMISSION.GRANTED) {
         // Check if promise based permission request is available
         if (await this.isRequestPermissionPromiseSupported()) {
-          try {
-            const permission = await Notification.requestPermission()
-            if (permission !== PERMISSION.GRANTED) {
-              throw new Error('Permission denied')
-            }
-            if (!('permission' in Notification)) {
-              Notification.permission = permission
-            }
-            return this.handleClick()
-          } catch (error) {
-            throw error
+          const permission = await Notification.requestPermission()
+          if (permission !== PERMISSION.GRANTED) {
+            throw new Error('Permission denied')
           }
+          if (!('permission' in Notification)) {
+            Notification.permission = permission
+          }
+          return this.handleClick()
         } else {
           Notification.requestPermission(permission => {
             if (permission !== PERMISSION.GRANTED) {

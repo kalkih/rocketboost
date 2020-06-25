@@ -3,6 +3,7 @@
     <div>
       <h1><center>{{ name }}</center></h1>
       <p>{{ name }} helps you keep track of upcoming & past rocket launches.</p>
+      <small>Version {{ version }}</small>
     </div>
     <div>
       <h1><center>Contact</center></h1>
@@ -36,6 +37,7 @@ export default {
   computed: {
     name: () => process.env.VUE_APP_NAME,
     contact: () => process.env.VUE_APP_CONTACT,
+    version: () => process.env.VUE_APP_VERSION,
     mail () {
       return 'mailto:' + this.contact
     },
@@ -60,6 +62,10 @@ export default {
 
   > div {
     margin: 2em;
+  }
+
+  small {
+    opacity: .75;
   }
 
   h1 {

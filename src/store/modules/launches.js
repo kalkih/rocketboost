@@ -20,6 +20,12 @@ const state = {
 const getters = {}
 
 const actions = {
+  async refresh ({ commit, state }, payload) {
+    const noOfNextLaunchesToGet = state[payload.state].next.length || 5
+    const noOfPastLaunchesToGet = state[payload.state].past.length || 4
+    commit('setNext', { launches: await api.getNext(noOfNextLaunchesToGet, { ...payload }), payload })
+    commit('setPast', { launches: await api.getPast(noOfPastLaunchesToGet, { ...payload }), payload })
+  },
   async getPastLaunches ({ commit }, payload) {
     commit('setPast', { launches: await api.getPast(4, { ...payload }), payload })
   },
@@ -75,8 +81,7 @@ const mutations = {
       state[payload.state].id = payload.filterValue
     }
     if (payload.state === 'home') {
-      state[payload.state].next
-        .splice(0, launches.length, ...launches)
+      state[payload.state].next = [...launches]
     } else {
       state[payload.state].next = launches
     }

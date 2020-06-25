@@ -26,7 +26,7 @@ export default new Vuex.Store({
   },
   plugins: [
     createPersistedState({
-      paths: ['theme', 'subscriptions'],
+      paths: ['launches', 'theme', 'subscriptions'],
     }),
   ],
   actions: actions,

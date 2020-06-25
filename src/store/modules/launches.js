@@ -1,3 +1,4 @@
+import { cloneDeep } from 'lodash'
 import api from '../../api/launch'
 import { placeholder } from './schemas'
 
@@ -10,11 +11,11 @@ const defaults = {
 const state = {
   current: placeholder,
   id: '',
-  home: JSON.parse(JSON.stringify(defaults)),
-  rocket: JSON.parse(JSON.stringify(defaults)),
-  location: JSON.parse(JSON.stringify(defaults)),
-  lsp: JSON.parse(JSON.stringify(defaults)),
-  search: JSON.parse(JSON.stringify(defaults)),
+  home: cloneDeep(defaults),
+  rocket: cloneDeep(defaults),
+  location: cloneDeep(defaults),
+  lsp: cloneDeep(defaults),
+  search: cloneDeep(defaults),
 }
 
 const getters = {}
@@ -103,7 +104,7 @@ const mutations = {
   },
   unset (state, opts) {
     if (state[opts.state].filter !== opts.filter) {
-      state[opts.state] = JSON.parse(JSON.stringify(defaults))
+      state[opts.state] = cloneDeep(defaults)
     }
   },
 }

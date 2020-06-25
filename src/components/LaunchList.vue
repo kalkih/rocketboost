@@ -128,6 +128,9 @@ export default {
       featured (state) {
         return this.state === 'home' ? state.launches[this.state].next[0] : null
       },
+      id (state) {
+        return state.launches[this.state].id
+      },
     }),
   },
   methods: {
@@ -137,6 +140,7 @@ export default {
       unsetState: 'launches/unsetState',
       getNext: 'launches/getNextLaunches',
       getPast: 'launches/getPastLaunches',
+      refresh: 'launches/refresh',
     }),
     fetchMoreNext: async function () {
       this.loading.next = true
@@ -160,12 +164,11 @@ export default {
     },
   },
   created: async function () {
-    const { state, getQuery, filter } = this
-    if (this.state !== 'home' && this.state !== 'search') {
+    const { state, getQuery, filter, id } = this
+    if (id !== filter && (this.state !== 'home' && this.state !== 'search')) {
       await this.unsetState({ state, filter })
     }
-    this.getNext({ state, ...getQuery })
-    this.getPast({ state, ...getQuery })
+    this.refresh({ state, ...getQuery })
   },
 }
 </script>

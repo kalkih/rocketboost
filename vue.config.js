@@ -1,6 +1,7 @@
 const SitemapWebpackPlugin = require('sitemap-webpack-plugin').default
 const routerPaths = require('./src/router/sitemap').default.map(r => r.path)
 
+process.env.VUE_APP_VERSION = require('./package.json').version
 const dev = process.env.NODE_ENV === 'development'
 
 module.exports = {

@@ -21,6 +21,9 @@ module.exports = {
       analyzerMode: dev ? 'server' : 'disabled',
     },
   },
+  devServer: {
+    historyApiFallback: true,
+  },
   chainWebpack: (config) => {
     const svgRule = config.module.rule('svg')
     svgRule.uses.clear()

@@ -3,14 +3,12 @@
     <the-search-screen v-if="search"/>
     <the-menu v-if="menu"/>
     <the-navbar/>
-    <template v-if="true">
     <main>
       <the-background/>
       <router-view :key="$route.fullPath"/>
     </main>
     <the-footer :fullscreen="menu"/>
     <the-toast-list/>
-    </template>
   </div>
 </template>
 

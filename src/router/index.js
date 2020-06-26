@@ -8,6 +8,7 @@ import List from '../views/List.vue'
 Vue.use(Router)
 
 const router = new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -65,7 +66,7 @@ const router = new Router({
       component: NotFound,
       meta: { title: '404: Not found' },
     },
-    { path: '*', redirect: '/404' },
+    { path: '/*', redirect: '/404' },
   ],
   scrollBehavior (to, from, savedPosition) {
     if (savedPosition) {

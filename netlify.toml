@@ -1,2 +1,7 @@
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200 
+
 [context.dev]
   environment = { VUE_APP_API_URL = "https://api-dev.karls.app/api", VUE_APP_NAME = "Rocketboost DEV" }

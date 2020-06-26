@@ -1,7 +1,7 @@
 <template>
   <div id="app" :class="classes">
-    <the-search-screen v-if="search" />
-    <the-menu v-if="menu" />
+    <the-search-screen v-if="search"/>
+    <the-menu v-if="menu"/>
     <the-navbar/>
     <template v-if="true">
     <main>
@@ -9,6 +9,7 @@
       <router-view :key="$route.fullPath"/>
     </main>
     <the-footer :fullscreen="menu"/>
+    <the-toast-list/>
     </template>
   </div>
 </template>
@@ -21,6 +22,7 @@ import TheFooter from './components/TheFooter.vue'
 import TheMenu from './components/TheMenu.vue'
 import TheSearchScreen from './components/TheSearchScreen.vue'
 import TheBackground from './components/TheBackground.vue'
+import TheToastList from './components/TheToastList.vue'
 
 export default {
   name: 'App',
@@ -30,6 +32,7 @@ export default {
     TheMenu,
     TheSearchScreen,
     TheBackground,
+    TheToastList,
   },
   computed: {
     fullscreen () {

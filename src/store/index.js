@@ -5,6 +5,7 @@ import mutations from './mutations'
 import theme from './modules/theme'
 import launches from './modules/launches'
 import subscriptions from './modules/subscriptions'
+import toasts from './modules/toasts'
 import createPersistedState from 'vuex-persistedstate'
 
 Vue.use(Vuex)
@@ -20,13 +21,14 @@ const state = {
 export default new Vuex.Store({
   state,
   modules: {
-    theme,
     launches,
     subscriptions,
+    theme,
+    toasts,
   },
   plugins: [
     createPersistedState({
-      paths: ['launches', 'theme', 'subscriptions'],
+      paths: ['launches', 'subscriptions', 'theme'],
     }),
   ],
   actions: actions,

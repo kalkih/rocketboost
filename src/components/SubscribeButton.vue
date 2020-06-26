@@ -8,6 +8,7 @@
 
 <script>
 import { mapActions, mapState } from 'vuex'
+import { NOTIFICATIONS_NOT_SUPPORTED, NOTIFICATION_PERMISSION_DENIED } from '@/lang/errors'
 
 const PERMISSION = {
   GRANTED: 'granted',
@@ -47,21 +48,24 @@ export default {
       isSubscribedTo: 'subscriptions/isSubscribedTo',
       subscribe: 'subscriptions/subscribe',
       unsubscribe: 'subscriptions/unsubscribe',
+      addToast: 'toasts/add',
     }),
     async handleClick () {
       if (Notification.permission !== PERMISSION.GRANTED) {
         try {
           await this.requestPermission()
         } catch (error) {
-          // Warning message
-          // Go into settings and allow notification for process.env.VUE_APP_NAME
-          console.log(error)
+          this.addToast({ text: NOTIFICATION_PERMISSION_DENIED })
         }
         return
       }
       const subscription = { topic: this.topic, id: this.id }
       this.loading = true
-      this.isSubscribed ? await this.unsubscribe(subscription) : await this.subscribe(subscription)
+      try {
+        this.isSubscribed ? await this.unsubscribe(subscription) : await this.subscribe(subscription)
+      } catch {
+        this.addToast({ text: NOTIFICATIONS_NOT_SUPPORTED })
+      }
       this.loading = false
     },
     // Should break out to notificationService

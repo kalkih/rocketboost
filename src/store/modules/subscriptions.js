@@ -72,6 +72,9 @@ const actions = {
   },
   async getPushSubscription ({ commit, state }) {
     try {
+      if (!navigator.serviceWorker.controller) {
+        throw new Error()
+      }
       const swreg = await navigator.serviceWorker.ready
       let subscription = {}
       subscription = await swreg.pushManager.getSubscription()

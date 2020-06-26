@@ -9,6 +9,7 @@ import {
   faTimes,
   faBars,
   faStar,
+  faShareAlt,
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -25,5 +26,6 @@ library.add(
   faTimes,
   faBars,
   faStar,
-  farStar
+  farStar,
+  faShareAlt,
 )

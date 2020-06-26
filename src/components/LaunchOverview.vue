@@ -3,7 +3,8 @@
     class="launch-overview"
     :class="[{ '--placeholder': launch.placeholder }]">
     <template v-if="launch.id">
-      <div class="launch-overview__subscribe">
+      <div class="launch-overview__actions">
+        <share-button :title="launch.rocket.name" :text="launch.mission.short"/>
         <subscribe-button class="--right" :id="launch.id"/>
       </div>
       <h2 class="launch-overview__title">
@@ -79,6 +80,7 @@ import { mapState } from 'vuex'
 import Ticker from './Ticker.vue'
 import BaseButton from './BaseButton'
 import SubscribeButton from './SubscribeButton'
+import ShareButton from './ShareButton'
 import LaunchOverviewRow from './LaunchOverviewRow'
 import LaunchOverviewItem from './LaunchOverviewItem'
 import launchMixin from '../mixins/launch.js'
@@ -91,6 +93,7 @@ export default {
     Ticker,
     BaseButton,
     SubscribeButton,
+    ShareButton,
   },
   mixins: [ launchMixin ],
   computed: {
@@ -155,9 +158,9 @@ export default {
       }
     }
 
-    &__subscribe {
+    &__actions {
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
       width: 100%;
       font-size: .6em;
       margin-top: 0;

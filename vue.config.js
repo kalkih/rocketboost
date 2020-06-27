@@ -5,7 +5,7 @@ process.env.VUE_APP_VERSION = require('./package.json').version
 const dev = process.env.NODE_ENV === 'development'
 
 module.exports = {
-  publicPath: process.env.BASE_URL,
+  publicPath: '/',
   pwa: {
     themeColor: '#070515',
     msTileColor: '#070515',

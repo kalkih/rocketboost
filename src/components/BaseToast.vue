@@ -1,5 +1,5 @@
 <template>
-  <div class="base-toast" :class="[`--${type}`]" @click="(action && action()) || dismiss(id)">
+  <div class="base-toast" :class="[`--${type}`]" @click="(action && action()) || dismiss(id)" v-touch-feedback>
     <p v-if="title">{{ title }}</p>
     <span>{{ text }}</span>
   </div>
@@ -42,7 +42,7 @@ export default {
   text-align: center;
   transition: opacity .15s;
 
-  &:hover {
+  &.--hover {
     opacity: var(--notification-opacity--hover);
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <a class="base-button" :class="{ loading, link }" @click="e => link && click(e)">
+  <a class="base-button" :class="{ loading, link }" @click="e => link && click(e)" v-touch-feedback>
     <font-awesome-icon v-if="icon" class="button__icon" :icon="icon"/>
     <span class="button__text">{{ text }}</span>
   </a>

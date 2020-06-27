@@ -3,22 +3,22 @@
     <nav>
       <ul>
         <li>
-          <router-link to="/" @click.native="setMenu(false)">
+          <router-link to="/" @click.native="setMenu(false)" v-touch-feedback>
             Home
           </router-link>
         </li>
         <li>
-          <a href="#" to="/" @click="toggleSearch">
+          <a href="#" to="/" @click="toggleSearch" v-touch-feedback>
             Search
           </a>
         </li>
         <li>
-          <router-link to="/subscriptions">
+          <router-link to="/subscriptions" v-touch-feedback>
             Subscriptions
           </router-link>
         </li>
         <li>
-          <router-link to="/about">
+          <router-link to="/about" v-touch-feedback>
             About
           </router-link>
         </li>
@@ -116,7 +116,7 @@ export default {
           opacity: .75;
           color: var(--primary-text-color);
 
-          &:hover {
+          &.--hover {
             opacity: 1;
           }
           &.router-link-exact-active {

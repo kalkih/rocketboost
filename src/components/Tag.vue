@@ -1,5 +1,5 @@
 <template>
-  <a class="tag" @click="more">
+  <a class="tag" @click="more" v-touch-feedback>
     <font-awesome-icon :icon="icon"/>
     <span>{{ text }}</span>
   </a>
@@ -41,9 +41,10 @@ export default {
     border: 1px solid transparent;
     min-width: calc(1em + (.65em * 2));
     letter-spacing: 0.025em;
-    transition: background-color .1s, border-color 1s;
+    transition: background-color .1s, border-color 1s, transform .25s;
 
-    &:first-child, &:last-child {
+    &:first-child,
+    &:last-child {
       margin: 0;
     }
 
@@ -74,7 +75,7 @@ export default {
       border-right: 1px solid rgba(0,0,0,0.25);
     }
 
-    &:hover {
+    &.--hover {
       background-color: transparent;
       border-color: var(--button-border-color);
       transition: border-color 0s;

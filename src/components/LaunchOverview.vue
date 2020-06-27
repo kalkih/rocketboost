@@ -9,7 +9,7 @@
       <ticker :timestamp="launch.net" />
       <div class="launch-overview__actions">
         <share-button :title="launch.rocket.name" :text="launchTitle"/>
-        <subscribe-button class="--right" :id="launch.id" :label="launch.mission.short"/>
+        <subscribe-button :id="launch.id" :label="launch.mission.short"/>
       </div>
       <!-- <div class="launch-overview__status" v-if="probability">Probability {{ probability }}%</div> -->
       <p class="launch-overview__desc">{{ launch.mission.description }}</p>

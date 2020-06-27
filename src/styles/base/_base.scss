@@ -63,6 +63,12 @@ p {
   overflow: hidden;
 }
 
+.--pressed {
+  transform: scale(0.95);
+  will-change: transform;
+  transition: transform .15s;
+}
+
 .rocketboost-heading {
   display: block;
   position: relative;

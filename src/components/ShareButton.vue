@@ -1,5 +1,5 @@
 <template>
-  <a class="base-button share-button" @click.stop="share()" v-if="supported">
+  <a class="base-button share-button" @click.stop="share()" v-if="supported" v-touch-feedback>
     <font-awesome-icon class="button__icon" icon="share-alt"/>
     <span class="button__text">Share</span>
   </a>
@@ -54,7 +54,7 @@ export default {
       transform-origin: left;
     }
 
-    &:hover {
+    &.--hover {
       background-color: rgba($saturn-text-color, .65);
     }
 
@@ -65,7 +65,7 @@ export default {
         color: $saturn-text-color;
       }
 
-      &:hover {
+      &.--hover {
         background-color: rgba($mars-text-color, .5);
       }
     }

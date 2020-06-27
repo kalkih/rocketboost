@@ -150,7 +150,6 @@ export default {
       bottom: 0;
       top: 0;
       overflow: visible;
-      font-size: 3em;
 
       &:after {
         top: 50%;

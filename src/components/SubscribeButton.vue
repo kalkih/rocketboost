@@ -32,6 +32,7 @@ export default {
       type: String,
       default: 'launch',
     },
+    label: String,
   },
   computed: {
     ...mapState({
@@ -59,7 +60,7 @@ export default {
         }
         return
       }
-      const subscription = { topic: this.topic, id: this.id }
+      const subscription = { topic: this.topic, id: this.id, label: this.label }
       this.loading = true
       try {
         this.isSubscribed ? await this.unsubscribe(subscription) : await this.subscribe(subscription)

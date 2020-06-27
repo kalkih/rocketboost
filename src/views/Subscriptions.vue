@@ -14,7 +14,7 @@
           <div class="--divider"></div>
         </h2>
         <div class="subscription__list">
-          <div class="subscription__item" @click="handleClick(sub.topic, sub.id)" v-for="sub in providerSubscriptions" :key="sub.id">
+          <div class="subscription__item" @click="navigateTo(sub.topic, sub.id)" v-for="sub in providerSubscriptions" :key="sub.id">
             <h3 class="subscription__item__title ellipsis">{{ sub.id }}</h3>
             <subscribe-button class="--right" :id="sub.id" :topic="sub.topic" />
           </div>
@@ -27,7 +27,7 @@
           <div class="--divider"></div>
         </h2>
         <div class="subscription__list">
-          <div class="subscription__item" @click="handleClick(sub.topic, sub.id)" v-for="sub in rocketSubscriptions" :key="sub.id">
+          <div class="subscription__item" @click="navigateTo(sub.topic, sub.id)" v-for="sub in rocketSubscriptions" :key="sub.id">
             <h3 class="subscription__item__title ellipsis">{{ sub.id }}</h3>
             <subscribe-button class="--right" :id="sub.id" :topic="sub.topic" />
           </div>
@@ -40,7 +40,7 @@
           <div class="--divider"></div>
         </h2>
         <div class="subscription__list">
-          <div class="subscription__item" @click="handleClick(sub.topic, sub.id)" v-for="sub in locationSubscriptions" :key="sub.id">
+          <div class="subscription__item" @click="navigateTo(sub.topic, sub.id)" v-for="sub in locationSubscriptions" :key="sub.id">
             <h3 class="subscription__item__title ellipsis">{{ sub.id }}</h3>
             <subscribe-button class="--right" :id="sub.id" :topic="sub.topic" />
           </div>
@@ -53,9 +53,9 @@
           <div class="--divider"></div>
         </h2>
         <div class="subscription__list">
-          <div class="subscription__item" @click="handleClick(sub.topic, sub.id)" v-for="sub in launchSubscriptions" :key="sub.id">
-            <h3 class="subscription__item__title ellipsis">{{ sub.id }}</h3>
-            <subscribe-button class="--right" :id="sub.id" :topic="sub.topic" />
+          <div class="subscription__item" @click="navigateTo(sub.topic, sub.id)" v-for="sub in launchSubscriptions" :key="sub.id">
+            <h3 class="subscription__item__title ellipsis">{{ sub.label || sub.id }}</h3>
+            <subscribe-button :id="sub.id" :topic="sub.topic" :label="sub.label" />
           </div>
         </div>
       </template>
@@ -103,7 +103,7 @@ export default {
     ...mapActions({
       unsubscribeAll: 'subscriptions/unsubscribeAll',
     }),
-    handleClick (topic, id) {
+    navigateTo (topic, id) {
       this.$router.push({ path: `/${topic}/${encodeURIComponent(id)}` })
     },
   },

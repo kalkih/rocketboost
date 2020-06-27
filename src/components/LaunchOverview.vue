@@ -1,16 +1,16 @@
 <template>
   <div class="launch-overview">
     <template v-if="launch.id">
-      <div class="launch-overview__actions">
-        <share-button :title="launch.rocket.name" :text="launch.mission.short"/>
-        <subscribe-button class="--right" :id="launch.id"/>
-      </div>
       <h2 class="launch-overview__title">
         <span class="launch-overview__title--primary">{{ launch.rocket.name }}</span>
         <span class="launch-overview__title--secondary">{{ launch.mission.short }}</span>
       </h2>
       <div class="launch-overview__status" v-if="status">{{ status }}</div>
       <ticker :timestamp="launch.net" />
+      <div class="launch-overview__actions">
+        <share-button :title="launch.rocket.name" :text="launch.mission.short"/>
+        <subscribe-button class="--right" :id="launch.id"/>
+      </div>
       <!-- <div class="launch-overview__status" v-if="probability">Probability {{ probability }}%</div> -->
       <p class="launch-overview__desc">{{ launch.mission.description }}</p>
       <base-button
@@ -140,14 +140,26 @@ export default {
 
     &__actions {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
       width: 100%;
-      font-size: .6em;
-      margin-top: 0;
+      font-size: .8em;
+      margin: 0;
+      margin-top: -2em + #{$margin};
+
+      > * {
+        margin-right: 1em;
+        margin-top: 2em;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
 
       @media only screen and (min-width: 640px) {
-        margin-top: $margin;
+        justify-content: space-between;
         font-size: .8em;
+        padding: 0 $margin * 2;
       }
     }
 

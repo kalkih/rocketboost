@@ -1,5 +1,5 @@
 <template>
-  <a class="base-button share-button" @click.stop="share()">
+  <a class="base-button share-button" @click.stop="share()" v-if="supported">
     <font-awesome-icon class="button__icon" icon="share-alt"/>
     <span class="button__text">Share</span>
   </a>

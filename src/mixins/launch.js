@@ -14,5 +14,8 @@ export default {
     active () {
       return this.launch.status <= 2
     },
+    launchTitle () {
+      return `${this.launch.rocket.name} - ${this.launch.mission.short}`
+    },
   },
 }

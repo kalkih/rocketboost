@@ -29,12 +29,12 @@ const getters = {
 }
 
 const actions = {
-  async subscribe ({ commit, dispatch }, { id, topic = TOPIC.LAUNCH }) {
+  async subscribe ({ commit, dispatch }, { id, topic = TOPIC.LAUNCH, label }) {
     try {
       const subscription = await dispatch('getPushSubscription')
 
       try {
-        commit('addSubscription', { id, topic, subscription })
+        commit('addSubscription', { id, topic, label, subscription })
         await api.subscribeTopic(id, topic, subscription)
       } catch (error) {
         commit('removeSubscription', { id, topic, subscription })
@@ -43,7 +43,7 @@ const actions = {
       throw error
     }
   },
-  async unsubscribe ({ commit, dispatch }, { id, topic = TOPIC.LAUNCH }) {
+  async unsubscribe ({ commit, dispatch }, { id, topic = TOPIC.LAUNCH, label }) {
     try {
       const subscription = await dispatch('getSubscription', { id, topic })
 
@@ -51,7 +51,7 @@ const actions = {
         commit('removeSubscription', { id, topic })
         await await api.unsubscribeTopic(id, topic, subscription.subscription)
       } catch (error) {
-        commit('addSubscription', { id, topic, subscription })
+        commit('addSubscription', { id, topic, subscription, label })
       }
     } catch (error) {
       throw error
@@ -98,8 +98,8 @@ const actions = {
 }
 
 const mutations = {
-  addSubscription (state, { topic, id, subscription }) {
-    state.all.push({ topic, id, subscription })
+  addSubscription (state, { topic, id, subscription, label }) {
+    state.all.push({ topic, id, subscription, label })
   },
   removeSubscription (state, { topic = TOPIC.LAUNCH, id }) {
     state.all = state.all.filter(sub => !(sub.topic === topic && sub.id === id))

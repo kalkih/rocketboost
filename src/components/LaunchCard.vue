@@ -14,7 +14,7 @@
       </h3>
       <div class="launch-card__date">
         <transition name="swap">
-          <template v-if="!launch.tbddate || hover || forced">
+          <template v-if="launch.net">
             <ticker v-if="ticker" :timestamp="launch.net" key="ticker"/>
             <timeago v-else class="timeago" :datetime="launch.net" :auto-update="60 * 5" key="past" />
           </template>

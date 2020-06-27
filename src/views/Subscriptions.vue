@@ -14,9 +14,9 @@
           <div class="--divider"></div>
         </h2>
         <div class="subscription__list">
-          <div class="subscription__item" @click="navigateTo(sub.topic, sub.id)" v-for="sub in providerSubscriptions" :key="sub.id">
+          <div class="subscription__item" @click="navigateTo(sub.topic, sub.id)" v-for="sub in providerSubscriptions" :key="sub.id" v-touch-feedback>
             <h3 class="subscription__item__title ellipsis">{{ sub.id }}</h3>
-            <subscribe-button class="--right" :id="sub.id" :topic="sub.topic" />
+            <subscribe-button :id="sub.id" :topic="sub.topic" />
           </div>
         </div>
       </template>
@@ -27,9 +27,9 @@
           <div class="--divider"></div>
         </h2>
         <div class="subscription__list">
-          <div class="subscription__item" @click="navigateTo(sub.topic, sub.id)" v-for="sub in rocketSubscriptions" :key="sub.id">
+          <div class="subscription__item" @click="navigateTo(sub.topic, sub.id)" v-for="sub in rocketSubscriptions" :key="sub.id" v-touch-feedback>
             <h3 class="subscription__item__title ellipsis">{{ sub.id }}</h3>
-            <subscribe-button class="--right" :id="sub.id" :topic="sub.topic" />
+            <subscribe-button :id="sub.id" :topic="sub.topic" />
           </div>
         </div>
       </template>
@@ -40,9 +40,9 @@
           <div class="--divider"></div>
         </h2>
         <div class="subscription__list">
-          <div class="subscription__item" @click="navigateTo(sub.topic, sub.id)" v-for="sub in locationSubscriptions" :key="sub.id">
+          <div class="subscription__item" @click="navigateTo(sub.topic, sub.id)" v-for="sub in locationSubscriptions" :key="sub.id" v-touch-feedback>
             <h3 class="subscription__item__title ellipsis">{{ sub.id }}</h3>
-            <subscribe-button class="--right" :id="sub.id" :topic="sub.topic" />
+            <subscribe-button :id="sub.id" :topic="sub.topic" />
           </div>
         </div>
       </template>
@@ -53,9 +53,9 @@
           <div class="--divider"></div>
         </h2>
         <div class="subscription__list">
-          <div class="subscription__item" @click="navigateTo(sub.topic, sub.id)" v-for="sub in launchSubscriptions" :key="sub.id">
+          <div class="subscription__item" @click="navigateTo(sub.topic, sub.id)" v-for="sub in launchSubscriptions" :key="sub.id" v-touch-feedback>
             <h3 class="subscription__item__title ellipsis">{{ sub.label || sub.id }}</h3>
-            <subscribe-button :id="sub.id" :topic="sub.topic" :label="sub.label" />
+            <subscribe-button :id="sub.id" :topic="sub.topic" />
           </div>
         </div>
       </template>
@@ -155,7 +155,7 @@ export default {
       margin-bottom: 0;
     }
 
-    &:hover {
+    &.--hover {
       background-color: rgba(255,255,255,0.1);
       border-color: rgba(255,255,255,0.2);
     }

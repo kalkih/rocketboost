@@ -7,7 +7,7 @@
   border: 2px solid transparent;
   background: var(--button-background-color);
   border-radius: var(--button-border-radius, --border-radius);
-  transition: background .5s, border-color .25s;
+  transition: background .5s, border-color .25s, transform .25s;
   font-size: 1.2em;
   display: inline-block;
   text-align: center;
@@ -19,7 +19,7 @@
     transition: opacity .25s;
   }
 
-  &:hover,
+  &.--hover,
   &.loading {
     color: var(--button-color--hover, --primary-text-color);
     transition: opacity .25s;

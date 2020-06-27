@@ -1,5 +1,5 @@
 <template>
-  <a class="base-button subscribe-button" :class="{ '--subscribed': isSubscribed }" @click.stop="handleClick()">
+  <a class="base-button subscribe-button" :class="{ '--subscribed': isSubscribed }" @click.stop="handleClick()" v-touch-feedback>
     <font-awesome-icon v-if="isSubscribed" class="button__icon" icon="star"/>
     <font-awesome-icon v-else class="button__icon" :icon="['far', 'star']"/>
     <span class="button__text">{{ statusText }}</span>
@@ -122,7 +122,6 @@ export default {
     @extend %button;
     font-weight: 600;
     padding: .8em 1.2em;
-    animation: pop-reverse .35s;
     display: flex;
 
     &.--right {
@@ -133,18 +132,17 @@ export default {
       transform-origin: left;
     }
 
-    &:hover {
+    &.--hover {
       background-color: rgba($saturn-text-color, .65);
     }
 
     &.--subscribed {
-      animation: pop .35s;
 
       .button__icon {
         color: $saturn-text-color;
       }
 
-      &:hover {
+      &.--hover {
         background-color: rgba($mars-text-color, .5);
       }
     }
@@ -152,18 +150,6 @@ export default {
     .button__icon {
       margin-right: .8em;
       margin-bottom: .1em;
-    }
-
-    @keyframes pop {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-
-    @keyframes pop-reverse {
-      0% { transform: scale(1); }
-      50% { transform: scale(.95); }
-      100% { transform: scale(1); }
     }
   }
 </style>

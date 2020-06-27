@@ -1,11 +1,11 @@
 <template>
   <header class='the-navbar' :class="{ '--is-top': isTop }">
     <div class='the-navbar__container'>
-      <a class="the-navbar__back" v-if="this.$route.path !== '/'" @click="$router.go(-1)">
+      <a class="the-navbar__back" v-if="this.$route.path !== '/'" @click="$router.go(-1)" v-touch-feedback>
         <font-awesome-icon icon="chevron-left"/>
       </a>
       <router-link to="/" @click.native="reset()">
-        <h1 class="the-navbar__title" v-bind:class="{ '--nested': this.$route.path !== '/' }">
+        <h1 class="the-navbar__title" v-bind:class="{ '--nested': this.$route.path !== '/' }" v-touch-feedback>
           {{ title }}
         </h1>
       </router-link>
@@ -119,7 +119,7 @@ export default {
       -webkit-tap-highlight-color: transparent;
       transform: translateZ(0);
 
-      &:hover {
+      &.--hover {
         opacity: .75;
       }
     }
@@ -136,7 +136,7 @@ export default {
         transform: translateX(1.4em);
       }
 
-      &:hover {
+      &.--hover {
         opacity: .75;
       }
     }

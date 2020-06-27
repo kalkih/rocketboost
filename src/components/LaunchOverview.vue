@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="launch-overview"
-    :class="[{ '--placeholder': launch.placeholder }]">
+  <div class="launch-overview">
     <template v-if="launch.id">
       <div class="launch-overview__actions">
         <share-button :title="launch.rocket.name" :text="launch.mission.short"/>
@@ -138,23 +136,6 @@ export default {
 
     > * {
       margin: $margin 0;
-    }
-
-    &.--placeholder {
-      animation: none;
-      @extend %spinner;
-      height: 100%;
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      top: 0;
-      overflow: visible;
-
-      &:after {
-        top: 50%;
-        opacity: 1;
-      }
     }
 
     &__actions {

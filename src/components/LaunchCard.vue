@@ -15,7 +15,7 @@
       <div class="launch-card__date">
         <transition name="swap">
           <template v-if="launch.net">
-            <ticker v-if="ticker" :timestamp="launch.net" key="ticker"/>
+            <ticker v-if="ticker && !tickerThreshold" :timestamp="launch.net" key="ticker"/>
             <timeago v-else class="timeago" :datetime="launch.net" :auto-update="60 * 5" key="past" />
           </template>
           <span class="tbd" v-else key="tbd">
@@ -44,6 +44,8 @@ import launchMixin from '../mixins/launch.js'
 import Tag from './Tag'
 import Ticker from './Ticker'
 
+const THREE_MONTHS_IN_MS = 1000 * 60 * 60 * 24 * 29 * 3
+
 export default {
   components: { Tag, Ticker },
   mixins: [ theme, launchMixin ],
@@ -62,6 +64,11 @@ export default {
     return {
       hover: false,
     }
+  },
+  computed: {
+    tickerThreshold () {
+      return new Date(this.launch.net) - new Date() > THREE_MONTHS_IN_MS
+    },
   },
   methods: {
     more () {

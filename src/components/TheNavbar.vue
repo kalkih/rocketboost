@@ -1,19 +1,21 @@
 <template>
   <header class='the-navbar' :class="{ '--is-top': isTop }">
     <div class='the-navbar__container'>
-      <a class="the-navbar__back" v-if="this.$route.path !== '/'" @click="$router.go(-1)" v-touch-feedback>
+      <a class="the-navbar__back" v-if="isNested" @click="$router.go(-1)" v-touch-feedback>
         <font-awesome-icon icon="chevron-left"/>
       </a>
-      <router-link to="/" @click.native="reset()">
-        <h1 class="the-navbar__title" v-bind:class="{ '--nested': this.$route.path !== '/' }" v-touch-feedback>
+      <router-link to="/" @click.native="reset()" v-touch-feedback>
+        <h1 class="the-navbar__title" :class="{ '--nested': isNested }">
           {{ title }}
         </h1>
       </router-link>
       <button-row>
-        <base-button text="#SpaceX" link="/lsp/SpaceX" />
-        <base-button text="#Arianespace" link="/lsp/Arianespace" />
-        <base-button text="#ULA" link="/lsp/United Launch Alliance" />
-        <base-button text="#ISRO" link="/lsp/Indian Space Research Organization" />
+        <base-button
+          v-for="{ tag, route } in TOP_TAGS"
+          :key="tag"
+          :text="tag"
+          :link="route"
+        />
       </button-row>
       <nav class="the-navbar__nav">
         <font-awesome-icon
@@ -35,6 +37,13 @@ import { mapActions, mapState } from 'vuex'
 import ButtonRow from './ButtonRow.vue'
 import BaseButton from './BaseButton.vue'
 
+const TOP_TAGS = [
+  { tag: '#SpaceX', route: '/lsp/SpaceX' },
+  { tag: '#Arianespace', route: '/lsp/Arianespace' },
+  { tag: '#ULA', route: '/lsp/United Launch Alliance' },
+  { tag: '#ISRO', route: '/lsp/Indian Space Research Organization' },
+]
+
 export default {
   name: 'TheNavbar',
   components: { BaseButton, ButtonRow },
@@ -42,11 +51,15 @@ export default {
     return {
       title: process.env.VUE_APP_NAME,
       isTop: true,
+      TOP_TAGS,
     }
   },
   computed: mapState({
     search: state => state.searchActive,
     menu: state => state.menuActive,
+    isNested () {
+      return this.$route.path !== '/'
+    },
   }),
   methods: {
     ...mapActions([
@@ -68,10 +81,10 @@ export default {
     },
   },
   created () {
-    window.addEventListener('scroll', this.handleScroll)
+    window.addEventListener('scroll', this.handleScroll, { passive: true })
   },
   destroyed () {
-    window.removeEventListener('scroll', this.handleScroll)
+    window.removeEventListener('scroll', this.handleScroll, { passive: true })
   },
 }
 </script>
@@ -117,7 +130,6 @@ export default {
       animation: reveal .2s;
       padding: 0 .4em;
       -webkit-tap-highlight-color: transparent;
-      transform: translateZ(0);
 
       &.--hover {
         opacity: .75;

@@ -10,6 +10,7 @@ import {
   faBars,
   faStar,
   faShareAlt,
+  faEllipsisH,
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -28,4 +29,5 @@ library.add(
   faStar,
   farStar,
   faShareAlt,
+  faEllipsisH,
 )

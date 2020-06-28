@@ -2,11 +2,7 @@
   <div
     class="launch-card"
     :class="[{ '--placeholder': launch.placeholder }]"
-    @click="more"
-    @mouseover="setHover(true)"
-    @mouseleave="setHover(false)"
-    @touchstart="setHover(true)"
-    @touchend="setHover(false)">
+    @click="more">
     <template v-if="!launch.placeholder">
       <h3 class="launch-card__title">
         <span class="launch-card__title--primary" :class="theme">{{ launch.rocket.name }}</span>
@@ -60,11 +56,6 @@ export default {
       default: false,
     },
   },
-  data () {
-    return {
-      hover: false,
-    }
-  },
   computed: {
     tickerThreshold () {
       return new Date(this.launch.net) - new Date() > THREE_MONTHS_IN_MS
@@ -79,9 +70,6 @@ export default {
       setCurrentLaunch: 'launches/setCurrentLaunch',
       unsetState: 'launches/unsetState',
     }),
-    setHover (state) {
-      this.hover = state
-    },
   },
 }
 </script>

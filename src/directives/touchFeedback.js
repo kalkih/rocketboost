@@ -12,12 +12,12 @@ const reset = (event) => {
 
 export default {
   bind (el) {
-    el.addEventListener('mousedown', down, false)
-    el.addEventListener('mouseup', reset, false)
-    el.addEventListener('touchstart', down, false)
-    el.addEventListener('touchend', reset, false)
-    el.addEventListener('mouseleave', reset, false)
-    el.addEventListener('mouseover', hover, false)
+    el.addEventListener('mousedown', down, { capture: true })
+    el.addEventListener('mouseup', reset, { capture: true })
+    el.addEventListener('touchstart', down, { capture: true, passive: true })
+    el.addEventListener('touchend', reset, { capture: true, passive: true })
+    el.addEventListener('mouseleave', reset, { capture: true })
+    el.addEventListener('mouseover', hover, { capture: true })
   },
   unbind (el) {
     el.removeEventListener('mousedown', down)

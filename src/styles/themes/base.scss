@@ -5,7 +5,7 @@
   --accent-color: #54a0ff;
   --background-color: #322b77;
   --background-color-gradient: linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,0));
-  --navbar-color: rgba(13, 11, 31, 1);
+  --navbar-color: rgba(13, 11, 31, .95);
   --surface-color: #218c74;
   --card-shadow: none;
   --card-margin: 5px;
@@ -27,6 +27,10 @@
   --notification-border-color: rgba(255,255,255,0);
   --notification-text-color: #000;
   --notification-opacity--hover: .75;
+
+  --ripple-color: rgba(255,255,255,.5);
+
+  --shadow-color:rgba(0,0,0,.75);
 
   --blue: #54a0ff;
   --red: #ff6b6b;

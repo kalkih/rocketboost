@@ -46,7 +46,7 @@ export default {
       .stars,
       .planet,
       .planet.--moon,
-       > g {
+      > g {
         animation-play-state: paused;
       }
     }

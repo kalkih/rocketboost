@@ -10,7 +10,7 @@
           {{ title }}
         </h1>
       </router-link>
-      <button-row>
+      <button-row class="the-navbar__trending">
         <base-button
           v-for="{ tag, route } in TOP_TAGS"
           :key="tag"
@@ -157,12 +157,37 @@ export default {
         opacity: .75;
       }
     }
+
+    &__trending {
+      > * {
+        display: none;
+      }
+      > *:nth-child(-n+1) {
+        display: block;
+      }
+      @media only screen and (min-width: 480px) {
+        > *:nth-child(-n+2) {
+          display: block;
+        }
+      }
+      @media only screen and (min-width: 640px) {
+        > *:nth-child(-n+3) {
+          display: block;
+        }
+      }
+      @media only screen and (min-width: 960px) {
+        > *:nth-child(-n+4) {
+          display: block;
+        }
+      }
+    }
     &__nav {
       font-size: 2em;
       display: flex;
       align-items: center;
       justify-self: flex-end;
       -webkit-tap-highlight-color: transparent;
+      margin-left: .6em;
 
       svg {
         height: 28px;

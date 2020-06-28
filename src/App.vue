@@ -9,6 +9,7 @@
     </main>
     <the-footer :fullscreen="menu"/>
     <the-toast-list/>
+    <the-bottom-bar/>
   </div>
 </template>
 
@@ -17,6 +18,7 @@ import { mapState } from 'vuex'
 import notificationService from './services/notificationService'
 import TheNavbar from './components/TheNavbar.vue'
 import TheFooter from './components/TheFooter.vue'
+import TheBottomBar from './components/TheBottomBar.vue'
 import TheMenu from './components/TheMenu.vue'
 import TheSearchScreen from './components/TheSearchScreen.vue'
 import TheBackground from './components/TheBackground.vue'
@@ -27,6 +29,7 @@ export default {
   components: {
     TheNavbar,
     TheFooter,
+    TheBottomBar,
     TheMenu,
     TheSearchScreen,
     TheBackground,
@@ -73,10 +76,46 @@ export default {
 @import './styles/base/_base';
 
 #app {
-  min-height: 100%;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  min-height: 100%;
+
+  @media only screen and (min-width: 640px) {
+    .the-bottom-bar {
+      display: none;
+    }
+  }
+
+  .the-menu,
+  .the-search-screen {
+    height: calc(100% - var(--bottom-mobile-margin));
+
+    @media only screen and (min-width: 640px) {
+      height: 100%;
+    }
+  }
+
+  .the-navbar__nav {
+    display: none;
+    @media only screen and (min-width: 640px) {
+      display: block;
+    }
+  }
+
+  .the-toast-list {
+    margin-bottom: calc(var(--bottom-mobile-margin) + 2em);
+    @media only screen and (min-width: 640px) {
+      margin-bottom: 2em;
+    }
+  }
+
+  .the-footer {
+    margin-bottom: var(--bottom-mobile-margin);
+    @media only screen and (min-width: 640px) {
+      margin-bottom: 0;
+    }
+  }
 
   > footer, > main > *  {
     transition: none;

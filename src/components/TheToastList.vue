@@ -37,6 +37,7 @@ export default {
   left: 0;
   right: 0;
   margin: 2em;
+  z-index: 99;
 
   @media only screen and (min-width: 640px) {
     left: unset;

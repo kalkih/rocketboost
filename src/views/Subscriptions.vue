@@ -14,7 +14,7 @@
           <div class="--divider"></div>
         </h2>
         <div class="subscription__list">
-          <div class="subscription__item" @click="navigateTo(sub.topic, sub.id)" v-for="sub in providerSubscriptions" :key="sub.id" v-touch-feedback>
+          <div class="subscription__item" @click.stop="navigateTo(sub.topic, sub.id)" v-for="sub in providerSubscriptions" :key="sub.id" v-touch-feedback>
             <h3 class="subscription__item__title ellipsis">{{ sub.id }}</h3>
             <subscribe-button :id="sub.id" :topic="sub.topic" />
           </div>
@@ -27,7 +27,7 @@
           <div class="--divider"></div>
         </h2>
         <div class="subscription__list">
-          <div class="subscription__item" @click="navigateTo(sub.topic, sub.id)" v-for="sub in rocketSubscriptions" :key="sub.id" v-touch-feedback>
+          <div class="subscription__item" @click.stop="navigateTo(sub.topic, sub.id)" v-for="sub in rocketSubscriptions" :key="sub.id" v-touch-feedback>
             <h3 class="subscription__item__title ellipsis">{{ sub.id }}</h3>
             <subscribe-button :id="sub.id" :topic="sub.topic" />
           </div>
@@ -40,7 +40,7 @@
           <div class="--divider"></div>
         </h2>
         <div class="subscription__list">
-          <div class="subscription__item" @click="navigateTo(sub.topic, sub.id)" v-for="sub in locationSubscriptions" :key="sub.id" v-touch-feedback>
+          <div class="subscription__item" @click.stop="navigateTo(sub.topic, sub.id)" v-for="sub in locationSubscriptions" :key="sub.id" v-touch-feedback>
             <h3 class="subscription__item__title ellipsis">{{ sub.id }}</h3>
             <subscribe-button :id="sub.id" :topic="sub.topic" />
           </div>
@@ -53,7 +53,7 @@
           <div class="--divider"></div>
         </h2>
         <div class="subscription__list">
-          <div class="subscription__item" @click="navigateTo(sub.topic, sub.id)" v-for="sub in launchSubscriptions" :key="sub.id" v-touch-feedback>
+          <div class="subscription__item" @click.stop="navigateTo(sub.topic, sub.id)" v-for="sub in launchSubscriptions" :key="sub.id" v-touch-feedback>
             <h3 class="subscription__item__title ellipsis">{{ sub.label || sub.id }}</h3>
             <subscribe-button :id="sub.id" :topic="sub.topic" />
           </div>

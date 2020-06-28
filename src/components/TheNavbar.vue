@@ -1,5 +1,6 @@
 <template>
-  <header class='the-navbar' :class="{ '--is-top': isTop }">
+  <header class='the-navbar'>
+    <div class="the-navbar__background" :style="{ opacity }"></div>
     <div class='the-navbar__container'>
       <a class="the-navbar__back" v-if="isNested" @click="$router.go(-1)" v-touch-feedback>
         <font-awesome-icon icon="chevron-left"/>
@@ -37,6 +38,8 @@ import { mapActions, mapState } from 'vuex'
 import ButtonRow from './ButtonRow.vue'
 import BaseButton from './BaseButton.vue'
 
+const NAVBAR_SCROLL_THRESHOLD = 60
+
 const TOP_TAGS = [
   { tag: '#SpaceX', route: '/lsp/SpaceX' },
   { tag: '#Arianespace', route: '/lsp/Arianespace' },
@@ -50,7 +53,7 @@ export default {
   data () {
     return {
       title: process.env.VUE_APP_NAME,
-      isTop: true,
+      opacity: 0,
       TOP_TAGS,
     }
   },
@@ -68,11 +71,11 @@ export default {
       'setSearch',
       'setMenu',
     ]),
-    handleScroll (e) {
-      if (window.scrollY > 60) {
-        this.isTop = false
+    onScroll (e) {
+      if (window.scrollY >= NAVBAR_SCROLL_THRESHOLD) {
+        this.opacity = 1
       } else {
-        this.isTop = true
+        this.opacity = window.scrollY / NAVBAR_SCROLL_THRESHOLD
       }
     },
     reset () {
@@ -81,10 +84,10 @@ export default {
     },
   },
   created () {
-    window.addEventListener('scroll', this.handleScroll, { passive: true })
+    window.addEventListener('scroll', this.onScroll, { passive: true })
   },
   destroyed () {
-    window.removeEventListener('scroll', this.handleScroll, { passive: true })
+    window.removeEventListener('scroll', this.onScroll, { passive: true })
   },
 }
 </script>
@@ -94,18 +97,20 @@ export default {
     position: fixed;
     width: 100%;
     z-index: 10;
-    background-color: var(--navbar-color);
     user-select: none;
-    transition: background 0s, background-color .25s;
     font-size: 10px;
 
     @media only screen and (min-width: 640px) {
       font-size: 12px;
     }
 
-    &.--is-top {
-      background-color: transparent !important;
-      transition: background .5s, background-color .25s;
+    &__background {
+      background: linear-gradient(to bottom, var(--navbar-color), rgba(255,255,255,0));
+      height: 125%;
+      pointer-events: none;
+      position: absolute;
+      width: 100%;
+      z-index: -1;
     }
 
     &__container {

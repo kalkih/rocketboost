@@ -6,7 +6,7 @@
       background: $mars-color;
     }
     .the-navbar {
-      background-color: rgba(darken($mars-color, 25%), .8);
+      --navbar-color: #{rgba(darken($mars-color, 25%), .9)};
     }
     .the-footer .surface {
       background: darken($mars-color, 15%);
@@ -17,7 +17,7 @@
       background: $saturn-color;
     }
     .the-navbar {
-      background-color: rgba(darken($saturn-color, 25%), .8);
+      --navbar-color: #{rgba(darken($saturn-color, 25%), .9)};
     }
     .the-footer .surface {
       background: lighten($saturn-color, 25%);
@@ -28,7 +28,7 @@
       background: $neptune-color;
     }
     .the-navbar {
-      background-color: rgba(darken($neptune-color, 25%), .8);
+      --navbar-color: #{rgba(darken($neptune-color, 25%), .9)};
     }
     .the-footer .surface {
       background: darken($neptune-color, 25%);
@@ -44,7 +44,7 @@
       background: $moon-color;
     }
     .the-navbar {
-      background-color: rgba(darken($moon-color, 25%), .8);
+      --navbar-color: #{rgba(darken($moon-color, 25%), .9)};
     }
     .the-footer .surface {
       background: lighten($moon-color, 25%);

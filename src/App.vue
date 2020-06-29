@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 import notificationService from './services/notificationService'
 import TheNavbar from './components/TheNavbar'
 import TheFooter from './components/TheFooter'
@@ -59,6 +59,9 @@ export default {
     applyTheme() {
       document.body.className = `--theme-${this.theme}`
     },
+    ...mapActions({
+      cleanLaunches: 'launches/cleanLaunches',
+    }),
   },
   watch: {
     theme() {
@@ -67,6 +70,7 @@ export default {
   },
   async created() {
     this.applyTheme()
+    this.cleanLaunches()
     notificationService.setupNotificationWatcher()
   },
 }

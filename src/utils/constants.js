@@ -28,4 +28,16 @@ const STATUS_MAP = {
   7: 'Unknown',
 }
 
-export { THEME_MAP, STATUS_MAP }
+const THEME = {
+  DEFAULT: 'default',
+  DARK: 'dark',
+  LIGHT: 'light',
+}
+
+const HEAD_COLORS = {
+  [THEME.DEFAULT]: '#0D0C1E',
+  [THEME.DARK]: '#000',
+  [THEME.LIGHT]: '#eee',
+}
+
+export { THEME_MAP, STATUS_MAP, THEME, HEAD_COLORS }

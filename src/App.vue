@@ -15,6 +15,7 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
+import { HEAD_COLORS } from '@/utils/constants'
 import notificationService from './services/notificationService'
 import TheNavbar from './components/TheNavbar'
 import TheFooter from './components/TheFooter'
@@ -58,6 +59,9 @@ export default {
   methods: {
     applyTheme() {
       document.body.className = `--theme-${this.theme}`
+      document
+        .querySelector('meta[name="theme-color"]')
+        .setAttribute('content', HEAD_COLORS[this.theme])
     },
     ...mapActions({
       cleanLaunches: 'launches/cleanLaunches',

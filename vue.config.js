@@ -8,8 +8,8 @@ const dev = process.env.NODE_ENV === 'development'
 module.exports = {
   publicPath: '/',
   pwa: {
-    themeColor: '#070515',
-    msTileColor: '#070515',
+    themeColor: '#0D0C1E',
+    msTileColor: '#0D0C1E',
     workboxPluginMode: 'InjectManifest',
     workboxOptions: {
       swSrc: './src/sw.js',

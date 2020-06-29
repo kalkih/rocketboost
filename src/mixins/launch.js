@@ -1,20 +1,20 @@
-import { STATUS_MAP } from '../utils/constants.js'
+import { STATUS_MAP } from '@/utils/constants'
 
 export default {
   computed: {
-    probability () {
+    probability() {
       return this.launch.probability === -1 ? 0 : this.launch.probability
     },
-    status () {
+    status() {
       return STATUS_MAP[this.launch.status] || 0
     },
-    stream () {
+    stream() {
       return this.launch.vidURLs.split(',')[0]
     },
-    active () {
+    active() {
       return this.launch.status <= 2
     },
-    launchTitle () {
+    launchTitle() {
       return `${this.launch.rocket.name} - ${this.launch.mission.short}`
     },
   },

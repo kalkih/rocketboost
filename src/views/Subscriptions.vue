@@ -2,7 +2,7 @@
   <div class="subscriptions">
     <div class="subscriptions__header">
       <h1>
-        <span> Subscriptions</span>
+        <span>Subscriptions</span>
       </h1>
       <base-button v-if="hasSubscriptions" @click.native="unsubscribeAll()" text="Remove all" />
     </div>
@@ -14,7 +14,13 @@
           <div class="--divider"></div>
         </h2>
         <div class="subscription__list">
-          <div class="subscription__item" @click.stop="navigateTo(sub.topic, sub.id)" v-for="sub in providerSubscriptions" :key="sub.id" v-touch-feedback>
+          <div
+            class="subscription__item"
+            @click.stop="navigateTo(sub.topic, sub.id)"
+            v-for="sub in providerSubscriptions"
+            :key="sub.id"
+            v-touch-feedback
+          >
             <h3 class="subscription__item__title ellipsis">{{ sub.id }}</h3>
             <subscribe-button :id="sub.id" :topic="sub.topic" />
           </div>
@@ -27,7 +33,13 @@
           <div class="--divider"></div>
         </h2>
         <div class="subscription__list">
-          <div class="subscription__item" @click.stop="navigateTo(sub.topic, sub.id)" v-for="sub in rocketSubscriptions" :key="sub.id" v-touch-feedback>
+          <div
+            class="subscription__item"
+            @click.stop="navigateTo(sub.topic, sub.id)"
+            v-for="sub in rocketSubscriptions"
+            :key="sub.id"
+            v-touch-feedback
+          >
             <h3 class="subscription__item__title ellipsis">{{ sub.id }}</h3>
             <subscribe-button :id="sub.id" :topic="sub.topic" />
           </div>
@@ -40,7 +52,13 @@
           <div class="--divider"></div>
         </h2>
         <div class="subscription__list">
-          <div class="subscription__item" @click.stop="navigateTo(sub.topic, sub.id)" v-for="sub in locationSubscriptions" :key="sub.id" v-touch-feedback>
+          <div
+            class="subscription__item"
+            @click.stop="navigateTo(sub.topic, sub.id)"
+            v-for="sub in locationSubscriptions"
+            :key="sub.id"
+            v-touch-feedback
+          >
             <h3 class="subscription__item__title ellipsis">{{ sub.id }}</h3>
             <subscribe-button :id="sub.id" :topic="sub.topic" />
           </div>
@@ -53,7 +71,13 @@
           <div class="--divider"></div>
         </h2>
         <div class="subscription__list">
-          <div class="subscription__item" @click.stop="navigateTo(sub.topic, sub.id)" v-for="sub in launchSubscriptions" :key="sub.id" v-touch-feedback>
+          <div
+            class="subscription__item"
+            @click.stop="navigateTo(sub.topic, sub.id)"
+            v-for="sub in launchSubscriptions"
+            :key="sub.id"
+            v-touch-feedback
+          >
             <h3 class="subscription__item__title ellipsis">{{ sub.label || sub.id }}</h3>
             <subscribe-button :id="sub.id" :topic="sub.topic" :label="sub.label" />
           </div>
@@ -77,7 +101,7 @@ export default {
     SubscribeButton,
     BaseButton,
   },
-  data () {
+  data() {
     return {
       providerSubscriptions: [],
       locationSubscriptions: [],
@@ -85,25 +109,27 @@ export default {
       launchSubscriptions: [],
     }
   },
-  created () {
+  created() {
     this.providerSubscriptions = this.$store.getters['subscriptions/providers']
     this.locationSubscriptions = this.$store.getters['subscriptions/locations']
     this.rocketSubscriptions = this.$store.getters['subscriptions/rockets']
     this.launchSubscriptions = this.$store.getters['subscriptions/launches']
   },
   computed: {
-    hasSubscriptions () {
-      return this.providerSubscriptions.length ||
+    hasSubscriptions() {
+      return (
+        this.providerSubscriptions.length ||
         this.locationSubscriptions.length ||
         this.rocketSubscriptions.length ||
         this.launchSubscriptions.length
+      )
     },
   },
   methods: {
     ...mapActions({
       unsubscribeAll: 'subscriptions/unsubscribeAll',
     }),
-    navigateTo (topic, id) {
+    navigateTo(topic, id) {
       this.$router.push({ path: `/${topic}/${encodeURIComponent(id)}` })
     },
   },
@@ -124,7 +150,7 @@ export default {
     width: 100%;
     display: flex;
     flex-direction: column;
-    font-size: .6em;
+    font-size: 0.6em;
 
     @media only screen and (min-width: 640px) {
       font-size: 1em;
@@ -144,9 +170,9 @@ export default {
     box-shadow: var(--card-shadow);
     border: 1px solid transparent;
     border-color: var(--card-border-color, transparent);
-    margin: .4em 0;
+    margin: 0.4em 0;
     -webkit-tap-highlight-color: transparent;
-    transition: border-color, background-color .25s;
+    transition: border-color, background-color 0.25s;
 
     &:first-child {
       margin-top: 0;
@@ -156,8 +182,8 @@ export default {
     }
 
     &.--hover {
-      background-color: rgba(255,255,255,0.1);
-      border-color: rgba(255,255,255,0.2);
+      background-color: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
     }
 
     &__title {
@@ -192,9 +218,9 @@ export default {
     padding: 1em 0;
 
     .base-button {
-      font-size: .6em;
+      font-size: 0.6em;
       font-weight: 600;
-      padding: .8em 1.2em;
+      padding: 0.8em 1.2em;
       margin: 0;
     }
 
@@ -210,10 +236,10 @@ export default {
   &__content {
     max-width: 980px;
     width: 100%;
-    animation: fade-in .5s;
+    animation: fade-in 0.5s;
     display: flex;
     flex-flow: column;
-    padding: 0 .6em;
+    padding: 0 0.6em;
 
     .nothing {
       font-size: 2.4em;

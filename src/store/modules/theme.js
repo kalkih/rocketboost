@@ -1,31 +1,31 @@
-const state = {
+const initialState = () => ({
   theme: 'default',
   pageTheme: 'earth',
-}
+})
 
 const getters = {}
 
 const actions = {
-  setTheme ({ commit }, theme) {
+  setTheme({ commit }, theme) {
     commit('setTheme', theme)
   },
-  setPageTheme ({ commit }, theme) {
+  setPageTheme({ commit }, theme) {
     commit('setPageTheme', theme)
   },
 }
 
 const mutations = {
-  setTheme (state, theme) {
+  setTheme(state, theme) {
     state.theme = theme
   },
-  setPageTheme (state, theme) {
+  setPageTheme(state, theme) {
     state.pageTheme = theme
   },
 }
 
 export default {
   namespaced: true,
-  state,
+  state: initialState(),
   getters,
   actions,
   mutations,

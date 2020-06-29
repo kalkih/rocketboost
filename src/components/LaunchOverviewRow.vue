@@ -19,36 +19,36 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .launch-overview-row {
-    margin: 4em 0;
+.launch-overview-row {
+  margin: 4em 0;
 
-    &:first-child {
-      margin-top: 0;
-    }
-    &:last-child {
-      margin-bottom: 0;
-    }
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
 
-    &__title {
-      font-size: 1.4em;
-      text-transform: uppercase;
-      font-weight: 500;
-      letter-spacing: .075em;
-      border-bottom: 1px solid var(--button-background-color);
-      padding-bottom: 1em;
-    }
+  &__title {
+    font-size: 1.4em;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.075em;
+    border-bottom: 1px solid var(--button-background-color);
+    padding-bottom: 1em;
+  }
 
-    &__content {
-      display: flex;
-      justify-content: space-around;
-      align-items: stretch;
-      margin: 1em 0;
-      flex-flow: column;
+  &__content {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    margin: 1em 0;
+    flex-flow: column;
 
-      @media only screen and (min-width: 640px) {
-        flex-flow: row;
-        min-width: 180px;
-      }
+    @media only screen and (min-width: 640px) {
+      flex-flow: row;
+      min-width: 180px;
     }
   }
+}
 </style>

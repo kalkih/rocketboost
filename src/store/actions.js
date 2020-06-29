@@ -1,14 +1,14 @@
 export default {
-  toggleMenu ({ commit }) {
+  toggleMenu({ commit }) {
     commit('toggleMenu')
   },
-  toggleSearch ({ commit }) {
+  toggleSearch({ commit }) {
     commit('toggleSearch')
   },
-  setSearch ({ commit }, status) {
+  setSearch({ commit }, status) {
     commit('setSearch', status)
   },
-  setMenu ({ commit }, status) {
+  setMenu({ commit }, status) {
     commit('setMenu', status)
   },
 }

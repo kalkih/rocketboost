@@ -1,7 +1,12 @@
 <template>
-  <a class="base-button subscribe-button" :class="{ '--subscribed': isSubscribed }" @click.stop="handleClick()" v-touch-feedback>
-    <font-awesome-icon v-if="isSubscribed" class="button__icon" icon="star"/>
-    <font-awesome-icon v-else class="button__icon" :icon="['far', 'star']"/>
+  <a
+    class="base-button subscribe-button"
+    :class="{ '--subscribed': isSubscribed }"
+    @click.stop="handleClick()"
+    v-touch-feedback
+  >
+    <font-awesome-icon v-if="isSubscribed" class="button__icon" icon="star" />
+    <font-awesome-icon v-else class="button__icon" :icon="['far', 'star']" />
     <span class="button__text">{{ statusText }}</span>
   </a>
 </template>
@@ -18,7 +23,7 @@ const PERMISSION = {
 
 export default {
   name: 'SubscribeButton',
-  data () {
+  data() {
     return {
       loading: false,
     }
@@ -36,11 +41,11 @@ export default {
   },
   computed: {
     ...mapState({
-      isSubscribed ({ subscriptions }) {
-        return !!(subscriptions.all.find(sub => sub.topic === this.topic && sub.id === this.id))
+      isSubscribed({ subscriptions }) {
+        return !!subscriptions.all.find((sub) => sub.topic === this.topic && sub.id === this.id)
       },
     }),
-    statusText () {
+    statusText() {
       return this.isSubscribed ? 'Subscribed' : 'Subscribe'
     },
   },
@@ -51,7 +56,7 @@ export default {
       unsubscribe: 'subscriptions/unsubscribe',
       addToast: 'toasts/add',
     }),
-    async handleClick () {
+    async handleClick() {
       if (Notification.permission !== PERMISSION.GRANTED) {
         try {
           await this.requestPermission()
@@ -63,46 +68,47 @@ export default {
       const subscription = { topic: this.topic, id: this.id, label: this.label }
       this.loading = true
       try {
-        this.isSubscribed ? await this.unsubscribe(subscription) : await this.subscribe(subscription)
+        if (this.isSubscribed) {
+          await this.unsubscribe(subscription)
+        } else {
+          await this.subscribe(subscription)
+        }
       } catch {
         this.addToast({ text: NOTIFICATIONS_NOT_SUPPORTED })
       }
       this.loading = false
     },
     // Should break out to notificationService
-    async requestPermission () {
+    async requestPermission() {
       if (!('Notification' in window)) {
         throw new Error('Notifications not supported in this browser')
       }
       if (Notification.permission !== PERMISSION.GRANTED) {
         // Check if promise based permission request is available
         if (await this.isRequestPermissionPromiseSupported()) {
-          try {
-            const permission = await Notification.requestPermission()
-            if (permission !== PERMISSION.GRANTED) {
-              throw new Error('Permission denied')
-            }
-            if (!('permission' in Notification)) {
-              Notification.permission = permission
-            }
-            return this.handleClick()
-          } catch (error) {
-            throw error
+          const permission = await Notification.requestPermission()
+          if (permission !== PERMISSION.GRANTED) {
+            throw new Error('Permission denied')
           }
-        } else {
-          Notification.requestPermission(permission => {
-            if (permission !== PERMISSION.GRANTED) {
-              throw new Error('Permission denied')
-            }
-            if (!('permission' in Notification)) {
-              Notification.permission = permission
-            }
-            return this.handleClick()
-          })
+          if (!('permission' in Notification)) {
+            Notification.permission = permission
+          }
+          return this.handleClick()
         }
+        // Fallback to callback method
+        Notification.requestPermission((permission) => {
+          if (permission !== PERMISSION.GRANTED) {
+            throw new Error('Permission denied')
+          }
+          if (!('permission' in Notification)) {
+            Notification.permission = permission
+          }
+          return this.handleClick()
+        })
       }
+      throw new Error('Permission denied')
     },
-    isRequestPermissionPromiseSupported () {
+    isRequestPermissionPromiseSupported() {
       try {
         Notification.requestPermission().then()
       } catch (_error) {
@@ -115,41 +121,40 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  @import '../styles/setup/_variables';
-  @import '../styles/base/_button';
+@import '../styles/setup/_variables';
+@import '../styles/base/_button';
 
-  .base-button {
-    @extend %button;
-    font-weight: 600;
-    padding: .8em 1.2em;
-    display: flex;
+.base-button {
+  @extend %button;
+  font-weight: 600;
+  padding: 0.8em 1.2em;
+  display: flex;
 
-    &.--right {
-      transform-origin: right;
-    }
+  &.--right {
+    transform-origin: right;
+  }
 
-    &.--left {
-      transform-origin: left;
+  &.--left {
+    transform-origin: left;
+  }
+
+  &.--hover {
+    background-color: rgba($saturn-text-color, 0.65);
+  }
+
+  &.--subscribed {
+    .button__icon {
+      color: $saturn-text-color;
     }
 
     &.--hover {
-      background-color: rgba($saturn-text-color, .65);
-    }
-
-    &.--subscribed {
-
-      .button__icon {
-        color: $saturn-text-color;
-      }
-
-      &.--hover {
-        background-color: rgba($mars-text-color, .5);
-      }
-    }
-
-    .button__icon {
-      margin-right: .8em;
-      margin-bottom: .1em;
+      background-color: rgba($mars-text-color, 0.5);
     }
   }
+
+  .button__icon {
+    margin-right: 0.8em;
+    margin-bottom: 0.1em;
+  }
+}
 </style>

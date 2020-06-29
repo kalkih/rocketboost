@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '../views/Home.vue'
-import Launch from '../views/Launch.vue'
-import NotFound from '../views/NotFound.vue'
-import List from '../views/List.vue'
+import Home from '../views/Home'
+import Launch from '../views/Launch'
+import NotFound from '../views/NotFound'
+import List from '../views/List'
 
 Vue.use(Router)
 
@@ -68,12 +68,11 @@ const router = new Router({
     },
     { path: '/*', redirect: '/404' },
   ],
-  scrollBehavior (to, from, savedPosition) {
+  scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition
-    } else {
-      return { x: 0, y: 0 }
     }
+    return { x: 0, y: 0 }
   },
 })
 

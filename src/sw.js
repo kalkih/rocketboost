@@ -1,6 +1,4 @@
-self.addEventListener('push', (event) => {
-  event.waitUntil(handlePush(event))
-})
+/* eslint-disable no-restricted-globals */
 
 const handlePush = async (event) => {
   const channel = new BroadcastChannel('sw-push')
@@ -18,6 +16,10 @@ const handlePush = async (event) => {
   }
   return self.registration.showNotification(title, options)
 }
+
+self.addEventListener('push', (event) => {
+  event.waitUntil(handlePush(event))
+})
 
 // workbox.clientsClaim()
 

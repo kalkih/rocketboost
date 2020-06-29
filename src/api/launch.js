@@ -1,24 +1,24 @@
 import Api from './index'
 
 export default {
-  async getNext (limit, query) {
-    const req = await Api().get('/launch/next/' + limit, {
+  async getNext(limit, query) {
+    const req = await Api().get(`/launch/next/${limit}`, {
       params: this.computeQuery(query),
     })
     return req.status === 200 ? req.data : []
   },
-  async getPast (limit, query) {
-    const req = await Api().get('/launch/past/' + limit, {
+  async getPast(limit, query) {
+    const req = await Api().get(`/launch/past/${limit}`, {
       params: this.computeQuery(query),
     })
     return req.status === 200 ? req.data : []
   },
-  async getLaunch (payload) {
-    const req = await Api().get('/launch/' + payload.id)
+  async getLaunch(payload) {
+    const req = await Api().get(`/launch/${payload.id}`)
     return req.status === 200 ? req.data : {}
   },
 
-  computeQuery (query) {
+  computeQuery(query) {
     return {
       ...(query.offset && { offset: query.offset }),
       ...(query.filterKey && { filterKey: query.filterKey }),

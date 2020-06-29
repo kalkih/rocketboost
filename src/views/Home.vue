@@ -1,12 +1,11 @@
 <template>
   <div class="launch">
-    <launch-list/>
+    <launch-list />
   </div>
 </template>
 
 <script>
-
-import LaunchList from '../components/LaunchList.vue'
+import LaunchList from '../components/LaunchList'
 
 export default {
   name: 'home',

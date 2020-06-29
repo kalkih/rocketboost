@@ -1,5 +1,5 @@
 <template>
-  <div class="launch">
+  <div class="content">
     <launch-overview />
   </div>
 </template>
@@ -16,7 +16,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.launch {
+.content {
   align-self: center;
   max-width: 980px;
   width: 100%;

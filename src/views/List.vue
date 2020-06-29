@@ -1,5 +1,5 @@
 <template>
-  <div class="launch">
+  <div class="content">
     <launch-list :state="state" :icon="icon" :query="query" :title="title" />
   </div>
 </template>

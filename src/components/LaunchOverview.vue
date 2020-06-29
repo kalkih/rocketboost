@@ -140,6 +140,11 @@ $margin: 20px;
   font-size: 13px;
   animation: fade-in 0.25s;
   width: 100%;
+  padding-top: 3em;
+
+  @media only screen and (min-width: 640px) {
+    padding-top: 6em;
+  }
 
   > * {
     margin: $margin 0;

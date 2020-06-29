@@ -201,14 +201,16 @@ export default {
     margin: 0 10px;
     font-size: 1.6em;
     padding: 1em 0;
+    margin-top: 1em;
 
     @media only screen and (min-width: 640px) {
       min-height: calc(40vh - 77px);
       font-size: 2em;
+      margin-top: 1.6em;
     }
 
     svg {
-      font-size: 4em;
+      font-size: 3em;
     }
 
     .base-button {
@@ -251,7 +253,7 @@ export default {
   }
 
   &__more-button {
-    margin: 60px 0;
+    margin: 3em 0;
     font-weight: 500;
     align-self: center;
     padding: 1.4em 2.6em;

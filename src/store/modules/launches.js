@@ -2,6 +2,8 @@ import { cloneDeep } from 'lodash'
 import api from '@/api/launch'
 import placeholder from './schemas'
 
+const DEFAULT_STATE = 'home'
+
 const defaults = {
   filter: '',
   next: Array(5).fill(placeholder),
@@ -52,6 +54,10 @@ const actions = {
   async getLaunch({ commit }, id) {
     commit('setCurrent', await api.getLaunch(id))
   },
+  async cleanLaunches({ commit, state }) {
+    commit('setNext', { launches: state[DEFAULT_STATE].next.slice(0, 5) })
+    commit('setPast', { launches: state[DEFAULT_STATE].past.slice(0, 4) })
+  },
   async getSearchResults({ commit }, payload) {
     commit('setSearch', payload.search)
     commit('setNext', { launches: await api.getNext(5, { ...payload }), payload })
@@ -69,28 +75,20 @@ const actions = {
 }
 
 const mutations = {
-  setPast(state, { launches, payload }) {
+  setPast(state, { launches, payload = { state: DEFAULT_STATE } }) {
     if (payload.filterValue) {
       state[payload.state].id = payload.filterValue
     }
-    if (payload.state === 'home') {
-      state[payload.state].past.splice(0, launches.length, ...launches)
-    } else {
-      state[payload.state].past = launches
-    }
+    state[payload.state].past = launches
   },
   addPast(state, { launches, payload }) {
     state[payload.state].past.push(...launches)
   },
-  setNext(state, { launches, payload }) {
+  setNext(state, { launches, payload = { state: DEFAULT_STATE } }) {
     if (payload.filterValue) {
       state[payload.state].id = payload.filterValue
     }
-    if (payload.state === 'home') {
-      state[payload.state].next = [...launches]
-    } else {
-      state[payload.state].next = launches
-    }
+    state[payload.state].next = launches
   },
   addNext(state, { launches, payload }) {
     state[payload.state].next.push(...launches)

@@ -1,22 +1,58 @@
 <template>
   <nav class="the-bottom-bar" :class="{ '--hide': hide }">
-    <div class="the-bottom-bar__item" @click="toggleSearch" v-touch-feedback>
-      <font-awesome-icon icon="search" />
-    </div>
-    <router-link class="the-bottom-bar__item" to="/" @click.native="navigate()" v-touch-feedback>
-      <font-awesome-icon icon="rocket" />
-    </router-link>
-    <router-link
-      class="the-bottom-bar__item"
-      to="/subscriptions"
-      @click.native="navigate()"
-      v-touch-feedback
-    >
-      <font-awesome-icon icon="star" />
-    </router-link>
-    <div class="the-bottom-bar__item" @click="toggleMenu" v-touch-feedback>
-      <font-awesome-icon icon="ellipsis-h" />
-    </div>
+    <ul>
+      <li
+        class="the-bottom-bar__item"
+        @click="toggleSearch"
+        v-touch-feedback
+        :class="{ '--active': search }"
+      >
+        <font-awesome-icon icon="search" v-if="!search" />
+        <font-awesome-icon icon="times" v-else />
+        <span>Search</span>
+      </li>
+      <router-link
+        tag="li"
+        class="the-bottom-bar__item"
+        :class="{ '--inactive': search || menu }"
+        to="/about"
+        @click.native="navigate()"
+        v-touch-feedback
+      >
+        <font-awesome-icon icon="building" />
+        <span>Providers</span>
+      </router-link>
+      <router-link
+        tag="li"
+        class="the-bottom-bar__item --large"
+        to="/"
+        @click.native="navigate()"
+        v-touch-feedback
+      >
+        <font-awesome-icon icon="rocket" />
+      </router-link>
+      <router-link
+        tag="li"
+        class="the-bottom-bar__item"
+        :class="{ '--inactive': search || menu }"
+        to="/subscriptions"
+        @click.native="navigate()"
+        v-touch-feedback
+      >
+        <font-awesome-icon icon="star" />
+        <span>Subs</span>
+      </router-link>
+      <li
+        class="the-bottom-bar__item"
+        @click="toggleMenu"
+        v-touch-feedback
+        :class="{ '--active': menu }"
+      >
+        <font-awesome-icon icon="ellipsis-h" v-if="!menu" />
+        <font-awesome-icon icon="chevron-down" v-else />
+        <span>More</span>
+      </li>
+    </ul>
   </nav>
 </template>
 
@@ -78,6 +114,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '../styles/setup/_variables';
+
 .the-bottom-bar {
   position: fixed;
   width: 100%;
@@ -86,17 +124,22 @@ export default {
   font-size: 10px;
   bottom: 0;
   background: var(--navbar-color);
-  backdrop-filter: blur(5px);
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
   font-size: 1.6em;
-  padding: 0.4em;
-  animation: reveal-bar 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
   transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transform: translateZ(0);
+
+  ul {
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0;
+    overflow: hidden;
+    padding: 0.4em;
+  }
 
   &.--hide {
-    transform: translateY(150%) !important;
+    transform: translateY(150%) translateZ(0) !important;
+    will-change: transform;
   }
 
   &:before {
@@ -110,33 +153,92 @@ export default {
   }
 
   &__item {
-    position: relative;
-    color: var(--primary-text-color);
-    transition: transform 0.15s;
+    align-items: center;
     border-radius: 60px;
-    padding: 0.6em;
+    color: var(--primary-text-color);
     display: flex;
-    transform-origin: center;
+    flex-direction: column;
     flex: 1;
     justify-content: center;
+    min-width: 0;
+    opacity: 0.5;
+    padding: 0.2em;
+    position: relative;
+    transform-origin: center;
+    transition: transform 0.15s;
 
     &:before {
+      background: var(--ripple-color);
       border-radius: 60px;
       content: '';
-      position: absolute;
-      background: var(--ripple-color);
+      height: 150%;
       margin-left: auto;
       margin-right: auto;
-      left: 0;
-      right: 0;
-      top: 0;
-      width: 2.2em;
-      height: 100%;
       opacity: 0;
-      transition: opacity 0.5s, transform 0.5s;
-      transform: scale(2);
-      transform-origin: center;
       pointer-events: none;
+      position: absolute;
+      transform-origin: center;
+      transform: scale(2);
+      transition: opacity 0.5s, transform 0.5s;
+      width: 3.5em;
+    }
+
+    span {
+      font-size: 0.7em;
+      margin-top: 0.2em;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: inline-block;
+    }
+
+    &.router-link-exact-active,
+    &.--active {
+      opacity: 1;
+
+      span {
+        opacity: 1;
+      }
+
+      svg {
+        transform: translateY(0);
+      }
+    }
+
+    svg,
+    &.--inactive svg {
+      transform: translateY(0.4em);
+      transition: transform 0.15s ease;
+    }
+
+    span,
+    &.--inactive span {
+      opacity: 0;
+      transition: opacity 0.15s;
+    }
+
+    &.--inactive {
+      opacity: 0.5;
+    }
+
+    &.--large {
+      font-size: 1.6em;
+      opacity: 1;
+
+      svg {
+        transform: unset;
+      }
+
+      &:before {
+        height: 175%;
+        width: 2.6em;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+    }
+
+    &.--hover {
+      opacity: 1;
     }
 
     &.--pressed {
@@ -152,14 +254,6 @@ export default {
 
     svg {
       display: block;
-    }
-  }
-  @keyframes reveal-bar {
-    0% {
-      transform: translateY(150%);
-    }
-    100% {
-      transform: translateY(0);
     }
   }
 }

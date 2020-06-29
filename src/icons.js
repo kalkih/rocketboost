@@ -3,6 +3,7 @@ import {
   faRocket,
   faGlobeAmericas,
   faChevronLeft,
+  faChevronDown,
   faBuilding,
   faSearch,
   faGlasses,
@@ -11,6 +12,7 @@ import {
   faStar,
   faShareAlt,
   faEllipsisH,
+  faHome,
 } from '@fortawesome/free-solid-svg-icons'
 
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons'
@@ -19,6 +21,7 @@ library.add(
   faRocket,
   faGlobeAmericas,
   faChevronLeft,
+  faChevronDown,
   faBuilding,
   faSearch,
   faGlasses,
@@ -28,4 +31,5 @@ library.add(
   farStar,
   faShareAlt,
   faEllipsisH,
+  faHome,
 )

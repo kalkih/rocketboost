@@ -1,19 +1,24 @@
 <template>
   <div class="about">
     <div>
-      <h1><center>{{ name }}</center></h1>
+      <h1>
+        <center>{{ name }}</center>
+      </h1>
       <p>{{ name }} helps you keep track of upcoming & past rocket launches.</p>
       <small>Version {{ version }}</small>
     </div>
     <div>
-      <h1><center>Contact</center></h1>
-      <p><a :href="contact">{{ contact }}</a></p>
+      <h1>
+        <center>Contact</center>
+      </h1>
+      <p>
+        <a :href="contact">{{ contact }}</a>
+      </p>
     </div>
     <div>
       <p class="--fine">
         <a href="https://github.com/kalkih/rocketboost">
-          <github/>
-          Check out the source on GitHub
+          <github />Check out the source on GitHub
         </a>
       </p>
     </div>
@@ -28,18 +33,18 @@ export default {
   components: {
     Github,
   },
-  created () {
+  created() {
     this.$store.dispatch('theme/setPageTheme', 'moon')
   },
-  destroyed () {
+  destroyed() {
     this.$store.dispatch('theme/setPageTheme', 'default')
   },
   computed: {
     name: () => process.env.VUE_APP_NAME,
     contact: () => process.env.VUE_APP_CONTACT,
     version: () => process.env.VUE_APP_VERSION,
-    mail () {
-      return 'mailto:' + this.contact
+    mail() {
+      return `mailto:${this.contact}`
     },
   },
 }
@@ -65,7 +70,7 @@ export default {
   }
 
   small {
-    opacity: .75;
+    opacity: 0.75;
   }
 
   h1 {
@@ -78,8 +83,8 @@ export default {
 
     &.--fine {
       font-weight: 500;
-      opacity: .9;
-      font-size: .8em;
+      opacity: 0.9;
+      font-size: 0.8em;
     }
   }
 
@@ -89,7 +94,7 @@ export default {
     flex-flow: column;
 
     &:hover {
-      opacity: .75;
+      opacity: 0.75;
     }
   }
 
@@ -97,7 +102,7 @@ export default {
     height: 2.5em;
     margin-bottom: 1em;
     fill: var(--primary-text-color);
-    transition: opacity .1s ease-out;
+    transition: opacity 0.1s ease-out;
   }
 }
 </style>

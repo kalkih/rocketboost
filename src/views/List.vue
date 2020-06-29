@@ -1,12 +1,11 @@
 <template>
   <div class="launch">
-    <launch-list :state="state" :icon="icon" :query="query" :title="title"/>
+    <launch-list :state="state" :icon="icon" :query="query" :title="title" />
   </div>
 </template>
 
 <script>
-
-import LaunchList from '../components/LaunchList.vue'
+import LaunchList from '../components/LaunchList'
 
 export default {
   name: 'list',

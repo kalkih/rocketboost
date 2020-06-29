@@ -1,16 +1,21 @@
 <template>
-  <nav class='the-bottom-bar' :class="{ '--hide': hide }">
+  <nav class="the-bottom-bar" :class="{ '--hide': hide }">
     <div class="the-bottom-bar__item" @click="toggleSearch" v-touch-feedback>
-      <font-awesome-icon icon="search"/>
+      <font-awesome-icon icon="search" />
     </div>
     <router-link class="the-bottom-bar__item" to="/" @click.native="navigate()" v-touch-feedback>
-      <font-awesome-icon icon="rocket"/>
+      <font-awesome-icon icon="rocket" />
     </router-link>
-    <router-link class="the-bottom-bar__item" to="/subscriptions" @click.native="navigate()" v-touch-feedback>
-      <font-awesome-icon icon="star"/>
+    <router-link
+      class="the-bottom-bar__item"
+      to="/subscriptions"
+      @click.native="navigate()"
+      v-touch-feedback
+    >
+      <font-awesome-icon icon="star" />
     </router-link>
     <div class="the-bottom-bar__item" @click="toggleMenu" v-touch-feedback>
-      <font-awesome-icon icon="ellipsis-h"/>
+      <font-awesome-icon icon="ellipsis-h" />
     </div>
   </nav>
 </template>
@@ -22,7 +27,7 @@ const BAR_SHOW_THRESHOLD = 60
 
 export default {
   name: 'TheBottomBar',
-  data () {
+  data() {
     return {
       previousScrollPosition: 0,
       hide: false,
@@ -30,24 +35,19 @@ export default {
   },
   computed: {
     ...mapState({
-      search: state => state.searchActive,
-      menu: state => state.menuActive,
+      search: (state) => state.searchActive,
+      menu: (state) => state.menuActive,
     }),
-    isNested () {
+    isNested() {
       return this.$route.path !== '/'
     },
   },
   methods: {
-    ...mapActions([
-      'toggleMenu',
-      'toggleSearch',
-      'setSearch',
-      'setMenu',
-    ]),
-    navigate () {
+    ...mapActions(['toggleMenu', 'toggleSearch', 'setSearch', 'setMenu']),
+    navigate() {
       this.reset()
     },
-    onScroll (e) {
+    onScroll() {
       if (window.innerHeight + window.scrollY > document.getElementById('app').offsetHeight - 60) {
         this.previousScrollPosition = window.scrollY
         this.hide = false
@@ -63,100 +63,104 @@ export default {
         this.hide = false
       }
     },
-    reset () {
+    reset() {
       this.setSearch(false)
       this.setMenu(false)
     },
   },
-  created () {
+  created() {
     window.addEventListener('scroll', this.onScroll, { passive: true })
   },
-  destroyed () {
+  destroyed() {
     window.removeEventListener('scroll', this.onScroll, { passive: true })
   },
 }
 </script>
 
 <style scoped lang="scss">
-  .the-bottom-bar {
-    position: fixed;
-    width: 100%;
-    z-index: 10;
-    user-select: none;
-    font-size: 10px;
-    bottom: 0;
-    background: var(--navbar-color);
-    backdrop-filter: blur(5px);
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    font-size: 1.6em;
-    padding: .4em;
-    animation: reveal-bar .25s cubic-bezier(.075, .820, .165, 1);
-    transition: transform .5s cubic-bezier(.075, .820, .165, 1);
+.the-bottom-bar {
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  user-select: none;
+  font-size: 10px;
+  bottom: 0;
+  background: var(--navbar-color);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 1.6em;
+  padding: 0.4em;
+  animation: reveal-bar 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 
-    &.--hide {
-      transform: translateY(150%) !important;
-    }
+  &.--hide {
+    transform: translateY(150%) !important;
+  }
+
+  &:before {
+    position: absolute;
+    content: '';
+    top: -16px;
+    height: 16px;
+    width: 100%;
+    background: linear-gradient(to top, var(--shadow-color), rgba(255, 255, 255, 0));
+    opacity: 0.25;
+  }
+
+  &__item {
+    position: relative;
+    color: var(--primary-text-color);
+    transition: transform 0.15s;
+    border-radius: 60px;
+    padding: 0.6em;
+    display: flex;
+    transform-origin: center;
+    flex: 1;
+    justify-content: center;
 
     &:before {
-      position: absolute;
+      border-radius: 60px;
       content: '';
-      top: -16px;
-      height: 16px;
-      width: 100%;
-      background: linear-gradient(to top, var(--shadow-color), rgba(255,255,255,0));
-      opacity: .25;
+      position: absolute;
+      background: var(--ripple-color);
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+      top: 0;
+      width: 2.2em;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.5s, transform 0.5s;
+      transform: scale(2);
+      transform-origin: center;
+      pointer-events: none;
     }
 
-    &__item {
-      position: relative;
-      color: var(--primary-text-color);
-      transition: transform .15s;
-      border-radius: 60px;
-      padding: .6em;
-      display: flex;
-      transform-origin: center;
-      flex: 1;
-      justify-content: center;
+    &.--pressed {
+      transform: scale(0.9);
+      transition: transform 0.1s;
 
       &:before {
-        border-radius: 60px;
-        content: '';
-        position: absolute;
-        background: var(--ripple-color);
-        margin-left: auto;
-        margin-right: auto;
-        left: 0;
-        right: 0;
-        top: 0;
-        width: 2.2em;
-        height: 100%;
-        opacity: 0;
-        transition: opacity .5s, transform .5s;
-        transform: scale(2);
-        transform-origin: center;
-        pointer-events: none;
-      }
-
-      &.--pressed {
-        transform: scale(.9);
-        transition: transform .1s;
-
-        &:before {
-          opacity: .25;
-          transform: scale(1.25);
-          transition: opacity .1s, transform .1s;
-        }
-      }
-
-      svg {
-        display: block;
+        opacity: 0.25;
+        transform: scale(1.25);
+        transition: opacity 0.1s, transform 0.1s;
       }
     }
-    @keyframes reveal-bar {
-      0% { transform: translateY(150%); }
-      100% { transform: translateY(0); }
+
+    svg {
+      display: block;
     }
   }
+  @keyframes reveal-bar {
+    0% {
+      transform: translateY(150%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+}
 </style>

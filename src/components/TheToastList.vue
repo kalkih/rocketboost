@@ -21,7 +21,7 @@ export default {
   components: { BaseToast },
   computed: {
     ...mapState({
-      toasts: state => state.toasts.messages,
+      toasts: (state) => state.toasts.messages,
     }),
   },
 }

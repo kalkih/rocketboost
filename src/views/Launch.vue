@@ -1,11 +1,11 @@
 <template>
   <div class="launch">
-    <launch-overview/>
+    <launch-overview />
   </div>
 </template>
 
 <script>
-import LaunchOverview from '../components/LaunchOverview.vue'
+import LaunchOverview from '../components/LaunchOverview'
 
 export default {
   name: 'launch',
@@ -16,9 +16,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .launch {
-    align-self: center;
-    max-width: 980px;
-    width: 100%;
-  }
+.launch {
+  align-self: center;
+  max-width: 980px;
+  width: 100%;
+}
 </style>

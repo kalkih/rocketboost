@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import createPersistedState from 'vuex-persistedstate'
 import actions from './actions'
 import mutations from './mutations'
 import theme from './modules/theme'
 import launches from './modules/launches'
 import subscriptions from './modules/subscriptions'
 import toasts from './modules/toasts'
-import createPersistedState from 'vuex-persistedstate'
 
 Vue.use(Vuex)
 
@@ -31,7 +31,7 @@ export default new Vuex.Store({
       paths: ['launches', 'subscriptions', 'theme'],
     }),
   ],
-  actions: actions,
-  mutations: mutations,
+  actions,
+  mutations,
   strict: debug,
 })

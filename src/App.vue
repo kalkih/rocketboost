@@ -1,28 +1,28 @@
 <template>
   <div id="app" :class="classes">
-    <the-search-screen v-if="search"/>
-    <the-menu v-if="menu"/>
-    <the-navbar/>
+    <the-search-screen v-if="search" />
+    <the-menu v-if="menu" />
+    <the-navbar />
     <main>
-      <the-background/>
-      <router-view :key="$route.fullPath"/>
+      <the-background />
+      <router-view :key="$route.fullPath" />
     </main>
-    <the-footer :fullscreen="menu"/>
-    <the-toast-list/>
-    <the-bottom-bar/>
+    <the-footer :fullscreen="menu" />
+    <the-toast-list />
+    <the-bottom-bar />
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
 import notificationService from './services/notificationService'
-import TheNavbar from './components/TheNavbar.vue'
-import TheFooter from './components/TheFooter.vue'
-import TheBottomBar from './components/TheBottomBar.vue'
-import TheMenu from './components/TheMenu.vue'
-import TheSearchScreen from './components/TheSearchScreen.vue'
-import TheBackground from './components/TheBackground.vue'
-import TheToastList from './components/TheToastList.vue'
+import TheNavbar from './components/TheNavbar'
+import TheFooter from './components/TheFooter'
+import TheBottomBar from './components/TheBottomBar'
+import TheMenu from './components/TheMenu'
+import TheSearchScreen from './components/TheSearchScreen'
+import TheBackground from './components/TheBackground'
+import TheToastList from './components/TheToastList'
 
 export default {
   name: 'App',
@@ -36,18 +36,18 @@ export default {
     TheToastList,
   },
   computed: {
-    fullscreen () {
+    fullscreen() {
       return this.search || this.menu
     },
     ...mapState({
-      theme: state => state.theme.theme,
-      pageTheme: state => state.theme.pageTheme,
-      search: state => state.searchActive,
-      menu: state => state.menuActive,
+      theme: (state) => state.theme.theme,
+      pageTheme: (state) => state.theme.pageTheme,
+      search: (state) => state.searchActive,
+      menu: (state) => state.menuActive,
     }),
-    classes () {
+    classes() {
       return [
-        '--page-theme-' + this.pageTheme,
+        `--page-theme-${this.pageTheme}`,
         {
           'menu-open': this.menu,
           'search-open': this.search,
@@ -56,16 +56,16 @@ export default {
     },
   },
   methods: {
-    applyTheme () {
+    applyTheme() {
       document.body.className = `--theme-${this.theme}`
     },
   },
   watch: {
-    theme () {
+    theme() {
       this.applyTheme()
     },
   },
-  async created () {
+  async created() {
     this.applyTheme()
     notificationService.setupNotificationWatcher()
   },
@@ -117,23 +117,24 @@ export default {
     }
   }
 
-  > footer, > main > *  {
+  > footer,
+  > main > * {
     transition: none;
-    transition: opacity .15s ease-out;
+    transition: opacity 0.15s ease-out;
   }
 
   > main > .the-background {
-    transition: opacity .05s;
+    transition: opacity 0.05s;
   }
 
   &.menu-open,
   &.search-open {
     > main > * {
       opacity: 0;
-      transition: opacity .25s;
+      transition: opacity 0.25s;
 
       @media only screen and (min-width: 640px) {
-        transition: opacity .25s;
+        transition: opacity 0.25s;
       }
     }
     > main .the-background {
@@ -142,13 +143,16 @@ export default {
   }
 
   &.search-open > footer {
-    .rocket, .shadow, .clouds {
+    .rocket,
+    .shadow,
+    .clouds {
       opacity: 0;
-      transition: opacity .25s;
+      transition: opacity 0.25s;
     }
   }
 
-  &:before, &:after {
+  &:before,
+  &:after {
     content: '';
     height: 100vh;
     width: 100%;

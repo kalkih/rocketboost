@@ -1,5 +1,10 @@
 <template>
-  <div class="base-toast" :class="[`--${type}`]" @click="(action && action()) || dismiss(id)" v-touch-feedback>
+  <div
+    class="base-toast"
+    :class="[`--${type}`]"
+    @click=";(action && action()) || dismiss(id)"
+    v-touch-feedback
+  >
     <p v-if="title">{{ title }}</p>
     <span>{{ text }}</span>
   </div>
@@ -7,6 +12,7 @@
 
 <script>
 import { mapActions } from 'vuex'
+
 export default {
   name: 'BaseToast',
   props: {
@@ -36,11 +42,11 @@ export default {
   color: var(--notification-text-color, --primary-text-color);
   cursor: pointer;
   font-weight: 500;
-  letter-spacing: .075em;
+  letter-spacing: 0.075em;
   line-height: 1.5em;
   padding: 1.2em 1.6em;
   text-align: center;
-  transition: opacity .15s;
+  transition: opacity 0.15s;
 
   &.--hover {
     opacity: var(--notification-opacity--hover);

@@ -7,7 +7,7 @@ const initialState = () => ({
   messages: [],
 })
 
-function createToast (id, title, text, type, dismissAfter) {
+function createToast(id, title, text, type, dismissAfter) {
   return {
     id,
     title,
@@ -18,22 +18,23 @@ function createToast (id, title, text, type, dismissAfter) {
 }
 
 const actions = {
-  add ({ commit }, { title, text, type = DEFAULT_TYPE, dismissAfter = DISMISS_DURATION }) {
-    const id = ++currentToastId
+  add({ commit }, { title, text, type = DEFAULT_TYPE, dismissAfter = DISMISS_DURATION }) {
+    currentToastId += 1
+    const id = currentToastId
     commit('add', createToast(id, title, text, type, dismissAfter))
     setTimeout(() => commit('remove', id), dismissAfter)
   },
-  remove ({ commit }, id) {
+  remove({ commit }, id) {
     commit('remove', id)
   },
 }
 
 const mutations = {
-  add (state, toast) {
+  add(state, toast) {
     state.messages.push(toast)
   },
-  remove (state, id) {
-    state.messages = state.messages.filter(m => m.id !== id)
+  remove(state, id) {
+    state.messages = state.messages.filter((m) => m.id !== id)
   },
 }
 

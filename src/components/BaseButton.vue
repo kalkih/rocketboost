@@ -1,6 +1,11 @@
 <template>
-  <a class="base-button" :class="{ loading, link }" @click="e => link && click(e)" v-touch-feedback>
-    <font-awesome-icon v-if="icon" class="button__icon" :icon="icon"/>
+  <a
+    class="base-button"
+    :class="{ loading, link }"
+    @click="(e) => link && click(e)"
+    v-touch-feedback
+  >
+    <font-awesome-icon v-if="icon" class="button__icon" :icon="icon" />
     <span class="button__text">{{ text }}</span>
   </a>
 </template>
@@ -17,18 +22,18 @@ export default {
       default: false,
     },
   },
-  data () {
+  data() {
     return {
       extRegex: /https?:\/\/((?:[\w\d-]+\.)+[\w\d]{2,})/i,
     }
   },
   computed: {
-    isExternal () {
+    isExternal() {
       return this.extRegex.exec(this.link) || false
     },
   },
   methods: {
-    click (e) {
+    click(e) {
       e.stopPropagation()
       if (this.isExternal) {
         window.open(this.link, '_blank')
@@ -41,8 +46,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  @import '../styles/base/_button';
-  .base-button {
-    @extend %button;
-  }
+@import '../styles/base/_button';
+.base-button {
+  @extend %button;
+}
 </style>

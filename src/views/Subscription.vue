@@ -96,7 +96,7 @@ import SubscribeButton from '../components/SubscribeButton'
 import BaseButton from '../components/BaseButton'
 
 export default {
-  name: 'subscriptions',
+  name: 'subscription',
   components: {
     SubscribeButton,
     BaseButton,

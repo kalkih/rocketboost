@@ -4,6 +4,7 @@ import Home from '../views/Home'
 import Launch from '../views/Launch'
 import NotFound from '../views/NotFound'
 import List from '../views/List'
+import Subscription from '../views/Subscription'
 
 Vue.use(Router)
 
@@ -52,7 +53,7 @@ const router = new Router({
     {
       path: '/subscriptions',
       name: 'subscriptions',
-      component: () => import(/* webpackChunkName: "subscriptions" */ '../views/Subscriptions.vue'),
+      component: Subscription,
       meta: { title: 'Subscriptions' },
     },
     {

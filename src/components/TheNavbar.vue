@@ -97,12 +97,23 @@ export default {
   }
 
   &__background {
-    background: linear-gradient(to bottom, var(--navbar-color), rgba(255, 255, 255, 0));
-    height: 125%;
+    backdrop-filter: blur(5px);
+    background: var(--navbar-color);
+    height: 100%;
     pointer-events: none;
     position: absolute;
     width: 100%;
     z-index: -1;
+
+    &:before {
+      position: absolute;
+      content: '';
+      bottom: -16px;
+      height: 16px;
+      width: 100%;
+      background: linear-gradient(to bottom, var(--shadow-color), rgba(255, 255, 255, 0));
+      opacity: 0.25;
+    }
   }
 
   &__container {

@@ -13,6 +13,7 @@ import {
   faShareAlt,
   faEllipsisH,
   faHome,
+  faQuestion,
 } from '@fortawesome/free-solid-svg-icons'
 
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons'
@@ -32,4 +33,5 @@ library.add(
   faShareAlt,
   faEllipsisH,
   faHome,
+  faQuestion,
 )

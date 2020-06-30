@@ -1,21 +1,33 @@
-const hover = (event) => {
+function hover(event) {
   event.currentTarget.classList.add('--hover')
+  // event.stopPropagation()
 }
-const down = (event) => {
+function down(event) {
   event.currentTarget.classList.add('--hover')
   event.currentTarget.classList.add('--pressed')
+  if (this.$$touch.stop) {
+    event.stopPropagation()
+    console.log('stop')
+  }
 }
-const reset = (event) => {
+function reset(event) {
   event.currentTarget.classList.remove('--hover')
   event.currentTarget.classList.remove('--pressed')
 }
 
 export default {
-  bind(el) {
+  bind(el, bindings) {
+    // eslint-disable-next-line no-param-reassign
+    el.$$touch = {
+      stop: bindings.modifiers.stop,
+    }
     el.addEventListener('mousedown', down, { capture: true })
     el.addEventListener('mouseup', reset, { capture: true })
-    el.addEventListener('touchstart', down, { capture: true, passive: true })
-    el.addEventListener('touchend', reset, { capture: true, passive: true })
+    el.addEventListener('touchstart', down, {
+      capture: false,
+      passive: true,
+    })
+    el.addEventListener('touchend', reset, { capture: false, passive: true })
     el.addEventListener('mouseleave', reset, { capture: true })
     el.addEventListener('mouseover', hover, { capture: true })
   },

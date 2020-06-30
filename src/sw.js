@@ -1,4 +1,9 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable no-restricted-globals */
+
+workbox.precaching.precacheAndRoute(self.__precacheManifest)
+workbox.routing.registerNavigationRoute('/')
 
 const handlePush = async (event) => {
   const channel = new BroadcastChannel('sw-push')
@@ -20,11 +25,3 @@ const handlePush = async (event) => {
 self.addEventListener('push', (event) => {
   event.waitUntil(handlePush(event))
 })
-
-// workbox.clientsClaim()
-
-// // The precaching code provided by Workbox.
-// self.__precacheManifest = [].concat(self.__precacheManifest || [])
-// workbox.precaching.suppressWarnings()
-// workbox.precaching.precacheAndRoute(self.__precacheManifest, {})
-// workbox.routing.registerNavigationRoute('/')

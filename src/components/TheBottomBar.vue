@@ -15,12 +15,12 @@
         tag="li"
         class="the-bottom-bar__item"
         :class="{ '--inactive': search || menu }"
-        to="/about"
+        to="/subscriptions"
         @click.native="navigate()"
         v-touch-feedback
       >
-        <font-awesome-icon icon="building" />
-        <span>Providers</span>
+        <font-awesome-icon icon="star" />
+        <span>Subs</span>
       </router-link>
       <router-link
         tag="li"
@@ -35,12 +35,12 @@
         tag="li"
         class="the-bottom-bar__item"
         :class="{ '--inactive': search || menu }"
-        to="/subscriptions"
+        to="/about"
         @click.native="navigate()"
         v-touch-feedback
       >
-        <font-awesome-icon icon="star" />
-        <span>Subs</span>
+        <font-awesome-icon icon="question" />
+        <span>About</span>
       </router-link>
       <li
         class="the-bottom-bar__item"

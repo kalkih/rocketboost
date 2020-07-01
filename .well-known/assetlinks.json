@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "me.kvrl.rocketboost",
+      "sha256_cert_fingerprints": [
+        "D7:53:67:2C:40:15:35:EE:E6:E0:5A:6C:31:68:3E:72:50:DA:5F:92:C2:22:61:08:6F:FD:BA:E2:39:6F:08:4B"
+      ]
+    }
+  }
+]

@@ -9,14 +9,3 @@ before_script:
 
 script:
   - npm run build
-
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  local_dir: dist/
-  target_branch: gh-pages
-  fqdn: $CUSTOM_DOMAIN
-  keep_history: false
-  on:
-    branch: master

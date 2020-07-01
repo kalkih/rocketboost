@@ -1,7 +1,12 @@
-[{
-  "relation": ["delegate_permission/common.handle_all_urls"],
-  "target" : {
-    "namespace": "android_app",
-    "package_name": "me.kvrl.rocketboost",
-    "sha256_cert_fingerprints": ["00:8A:F8:04:0E:33:B5:06:3C:3D:57:8F:D9:4C:3F:36:1B:FE:E2:74:1D:3F:7B:24:AB:5C:89:7A:54:2E:5F:20"] }
-}]
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "me.kvrl.rocketboost",
+      "sha256_cert_fingerprints": [
+        "D7:53:67:2C:40:15:35:EE:E6:E0:5A:6C:31:68:3E:72:50:DA:5F:92:C2:22:61:08:6F:FD:BA:E2:39:6F:08:4B"
+      ]
+    }
+  }
+]

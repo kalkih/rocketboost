@@ -46,7 +46,6 @@ export default {
   line-height: 1.5em;
   padding: 1.2em 1.6em;
   text-align: center;
-  transition: opacity 0.15s;
 
   &.--hover {
     opacity: var(--notification-opacity--hover);

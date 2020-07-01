@@ -1,5 +1,5 @@
 <template>
-  <div class="the-toast-list">
+  <transition-group class="the-toast-list" name="toast-list" tag="div">
     <BaseToast
       v-for="toast in toasts"
       :key="toast.id"
@@ -9,7 +9,7 @@
       :type="toast.type"
       :action="toast.action"
     />
-  </div>
+  </transition-group>
 </template>
 
 <script>
@@ -36,7 +36,7 @@ export default {
   bottom: 0;
   left: 0;
   right: 0;
-  margin: 2em;
+  margin: 0 1.6em;
   z-index: 99;
 
   @media only screen and (min-width: 640px) {
@@ -47,6 +47,14 @@ export default {
 
   .base-toast {
     margin-top: 1em;
+    transition: transform 0.15s, opacity 0.15s;
   }
+}
+.toast-list-enter,
+.toast-list-leave-to {
+  opacity: 0;
+}
+.toast-list-leave-active {
+  position: absolute;
 }
 </style>

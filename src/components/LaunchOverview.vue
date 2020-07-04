@@ -18,8 +18,7 @@
         v-if="stream"
         :link="stream"
         :text="active ? 'Watch live' : 'Watch replay'"
-      >
-      </base-button>
+      ></base-button>
       <div class="launch-overview__details">
         <launch-overview-row title="DEBUG" v-if="dev">
           <launch-overview-item title="probability" :text="launch.probability.toString()" />
@@ -176,7 +175,7 @@ $margin: 20px;
   }
 
   &__title {
-    font-weight: 500;
+    font-weight: 600;
     font-size: 1.8em;
     margin-top: 0;
     margin-bottom: $margin;
@@ -187,11 +186,10 @@ $margin: 20px;
     &--primary {
       transition: border 0.15s;
       font-size: 1.4em;
-      margin-bottom: 0.1em;
+      margin-bottom: 0.2em;
     }
     &--secondary {
       font-size: 1em;
-      font-weight: 500;
       opacity: 0.75;
     }
   }

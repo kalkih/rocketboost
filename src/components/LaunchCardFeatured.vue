@@ -47,9 +47,6 @@ export default {
         content: none;
       }
     }
-    &--secondary {
-      opacity: 0.9;
-    }
   }
   &__description {
     margin: 1em 0;
@@ -71,6 +68,7 @@ export default {
     max-width: 100%;
     justify-content: center;
     margin-top: 0;
+    font-size: 0.9em;
 
     > * {
       margin: 0.8em;

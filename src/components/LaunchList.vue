@@ -209,6 +209,10 @@ export default {
       margin-top: 1.6em;
     }
 
+    h1 {
+      font-weight: 600;
+    }
+
     svg {
       font-size: 3em;
     }

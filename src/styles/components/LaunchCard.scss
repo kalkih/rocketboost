@@ -30,7 +30,7 @@
   }
 
   &__title {
-    font-weight: 500;
+    font-weight: 600;
     font-size: 1.8em;
     margin-top: 0;
     margin-bottom: 1em;
@@ -60,14 +60,15 @@
 
       &:after {
         content: ' \2022 ';
-        opacity: .6;
+        opacity: 0.6;
         color: var(--primary-text-color);
       }
     }
     &--secondary {
-      transition: opacity .1s;
+      transition: opacity 0.1s;
       flex: 1;
-      font-weight: 500;
+      font-weight: 600;
+      opacity: var(--secondary-title-opacity);
     }
   }
   &__description {
@@ -84,13 +85,13 @@
     display: flex;
     display: -webkit-box;
     max-width: 500px;
-    max-height: calc((1.2em * 3) + (.2em * 3));
+    max-height: calc((1.2em * 3) + (0.2em * 3));
     line-height: 1.4em;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    transition: opacity .25s;
+    transition: opacity 0.25s;
     margin: 0 auto;
   }
   &__date {
@@ -102,7 +103,8 @@
       left: 0;
       right: 0;
     }
-    .tbd, .timeago {
+    .tbd,
+    .timeago {
       line-height: 1.8em;
       font-size: 1.8em;
       font-weight: 500;
@@ -129,13 +131,14 @@
   }
   .swap-leave-active,
   .swap-enter-active {
-    transition: opacity .25s;
+    transition: opacity 0.25s;
   }
   .swap-enter,
   .swap-leave-to {
     opacity: 0 !important;
   }
-  .swap-enter-to, .swap-leave {
+  .swap-enter-to,
+  .swap-leave {
     opacity: 1;
   }
 }

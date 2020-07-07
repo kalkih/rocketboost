@@ -35,12 +35,12 @@
         tag="li"
         class="the-bottom-bar__item"
         :class="{ '--inactive': search || menu }"
-        to="/about"
+        to="/providers"
         @click.native="navigate()"
         v-touch-feedback
       >
-        <font-awesome-icon icon="question" />
-        <span>About</span>
+        <font-awesome-icon icon="building" />
+        <span>Providers</span>
       </router-link>
       <li
         class="the-bottom-bar__item"

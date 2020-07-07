@@ -27,17 +27,17 @@
         <tag
           :text="launch.rocket.name"
           icon="rocket"
-          :route="`/rocket/${encodeURIComponent(launch.rocket.name)}`"
+          :route="`/rockets/${encodeURIComponent(launch.rocket.name)}`"
         />
         <tag
           :text="launch.location.short"
           icon="globe-americas"
-          :route="`/location/${encodeURIComponent(launch.location.name)}`"
+          :route="`/locations/${encodeURIComponent(launch.location.name)}`"
         />
         <tag
           :text="launch.lsp.short"
           icon="building"
-          :route="`/lsp/${encodeURIComponent(launch.lsp.name)}`"
+          :route="`/providers/${encodeURIComponent(launch.lsp.name)}`"
         />
       </div>
     </template>

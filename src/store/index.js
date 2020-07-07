@@ -7,6 +7,9 @@ import theme from './modules/theme'
 import launches from './modules/launches'
 import subscriptions from './modules/subscriptions'
 import toasts from './modules/toasts'
+import providers from './modules/providers'
+import rockets from './modules/rockets'
+import locations from './modules/locations'
 
 Vue.use(Vuex)
 
@@ -25,10 +28,13 @@ export default new Vuex.Store({
     subscriptions,
     theme,
     toasts,
+    providers,
+    rockets,
+    locations,
   },
   plugins: [
     createPersistedState({
-      paths: ['launches', 'subscriptions', 'theme'],
+      paths: ['launches', 'subscriptions', 'theme', 'providers', 'rockets', 'locations'],
     }),
   ],
   actions,

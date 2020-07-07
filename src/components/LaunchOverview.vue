@@ -29,7 +29,7 @@
         <launch-overview-row title="Launch provider">
           <launch-overview-item
             :text="launch.lsp.name"
-            :link="'/lsp/' + encodeURIComponent(launch.lsp.name)"
+            :link="'/providers/' + encodeURIComponent(launch.lsp.name)"
           />
           <launch-overview-item :text="launch.lsp.countryCode" />
         </launch-overview-row>
@@ -37,7 +37,7 @@
           <launch-overview-item
             title="Site"
             :text="launch.location.name"
-            :link="'/location/' + encodeURIComponent(launch.location.name)"
+            :link="'/locations/' + encodeURIComponent(launch.location.name)"
           />
           <launch-overview-item
             v-if="launch.location.pads[0].name"
@@ -54,7 +54,7 @@
           <launch-overview-item
             title="Rocket"
             :text="launch.rocket.name"
-            :link="'/rocket/' + encodeURIComponent(launch.rocket.name)"
+            :link="'/rockets/' + encodeURIComponent(launch.rocket.name)"
           />
           <launch-overview-item
             v-if="launch.rocket.configuration"

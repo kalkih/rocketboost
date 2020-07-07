@@ -17,6 +17,10 @@ export default {
     const req = await Api().get(`/launch/${payload.id}`)
     return req.status === 200 ? req.data : {}
   },
+  async getTopic(topic) {
+    const req = await Api().get(`/launch/${topic}`)
+    return req.status === 200 ? req.data : []
+  },
 
   computeQuery(query) {
     return {

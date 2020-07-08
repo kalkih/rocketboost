@@ -1,5 +1,6 @@
 const SitemapWebpackPlugin = require('sitemap-webpack-plugin').default
 const routerPaths = require('./src/router/sitemap').default.map((r) => r.path)
+const DumpEnvVarsWebpackPlugin = require('./DumpEnvVarsWebpackPlugin.js')
 
 process.env.VUE_APP_VERSION = require('./package.json').version
 
@@ -46,5 +47,6 @@ module.exports = {
         changeFreq: 'always',
       }),
     )
+    config.plugin('env').use(new DumpEnvVarsWebpackPlugin({ filename: 'env-vars.js' }))
   },
 }

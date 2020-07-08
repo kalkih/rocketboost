@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
+    "serve:dist": "http-server dist -p 8080 serve -s dist/index.html",
     "build": "vue-cli-service build",
     "build:watch": "vue-cli-service build --watch --mode production",
     "build:report": "vue-cli-service build --report",
@@ -41,6 +42,7 @@
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-vue": "^5.2.3",
+    "http-server": "^0.12.3",
     "node-sass": "^4.14.1",
     "prettier": "2.0.5",
     "sass-loader": "^7.1.0",

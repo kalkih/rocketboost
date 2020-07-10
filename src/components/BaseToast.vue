@@ -1,10 +1,5 @@
 <template>
-  <div
-    class="base-toast"
-    :class="[`--${type}`]"
-    @click=";(action && action()) || dismiss(id)"
-    v-touch-feedback
-  >
+  <div class="base-toast" :class="[`--${type}`]" @click="handleClick()" v-touch-feedback>
     <p v-if="title">{{ title }}</p>
     <span>{{ text }}</span>
   </div>
@@ -29,6 +24,12 @@ export default {
     ...mapActions({
       dismiss: 'toasts/remove',
     }),
+    handleClick() {
+      if (this.action) {
+        this.action()
+      }
+      this.dismiss(this.id)
+    },
   },
 }
 </script>

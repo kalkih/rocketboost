@@ -7,22 +7,28 @@ const initialState = () => ({
   messages: [],
 })
 
-function createToast(id, title, text, type, dismissAfter) {
+function createToast(id, title, text, type, dismissAfter, action) {
   return {
     id,
     title,
     text,
     type,
     dismissAfter,
+    action,
   }
 }
 
 const actions = {
-  add({ commit }, { title, text, type = DEFAULT_TYPE, dismissAfter = DISMISS_DURATION }) {
+  add(
+    { commit },
+    { title, text, type = DEFAULT_TYPE, dismissAfter = DISMISS_DURATION, action = undefined },
+  ) {
     currentToastId += 1
     const id = currentToastId
-    commit('add', createToast(id, title, text, type, dismissAfter))
-    setTimeout(() => commit('remove', id), dismissAfter)
+    commit('add', createToast(id, title, text, type, dismissAfter, action))
+    if (!action) {
+      setTimeout(() => commit('remove', id), dismissAfter)
+    }
   },
   remove({ commit }, id) {
     commit('remove', id)

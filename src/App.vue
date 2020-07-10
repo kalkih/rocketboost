@@ -17,6 +17,7 @@
 import { mapState, mapActions } from 'vuex'
 import { HEAD_COLORS } from '@/utils/constants'
 import notificationService from './services/notificationService'
+import updateService from './services/updateService'
 import TheNavbar from './components/TheNavbar'
 import TheFooter from './components/TheFooter'
 import TheBottomBar from './components/TheBottomBar'
@@ -76,6 +77,7 @@ export default {
     this.applyTheme()
     this.cleanLaunches()
     notificationService.setupNotificationWatcher()
+    updateService.setupUpdateWatcher()
   },
 }
 </script>

@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "serve:dist": "http-server dist -p 8080 serve -s dist/index.html",
+    "serve:dist": "vue-cli-service build && http-server dist -p 8080 serve -s dist/index.html",
     "build": "vue-cli-service build",
     "build:watch": "vue-cli-service build --watch --mode production",
     "build:report": "vue-cli-service build --report",

@@ -40,4 +40,9 @@ const HEAD_COLORS = {
   [THEME.LIGHT]: '#eee',
 }
 
-export { THEME_MAP, STATUS_MAP, THEME, HEAD_COLORS }
+const PUSH_TYPE = {
+  NET: 'net',
+  REMINDER: 'reminder',
+}
+
+export { THEME_MAP, STATUS_MAP, THEME, HEAD_COLORS, PUSH_TYPE }

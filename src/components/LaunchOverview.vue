@@ -6,7 +6,10 @@
         <span class="launch-overview__title--secondary">{{ launch.mission.short }}</span>
       </h2>
       <div class="launch-overview__status" v-if="status">{{ status }}</div>
-      <ticker :timestamp="launch.net" />
+      <template v-if="launch.net">
+        <ticker v-if="!tickerThreshold" :timestamp="launch.net" key="ticker" />
+        <timeago v-else class="timeago" :datetime="launch.net" :auto-update="60 * 5" key="time" />
+      </template>
       <div class="launch-overview__actions">
         <share-button :title="launch.rocket.name" :text="launchTitle" />
         <subscribe-button :id="launch.id" :label="launch.mission.short" />
@@ -88,6 +91,7 @@ import ShareButton from './ShareButton'
 import LaunchOverviewRow from './LaunchOverviewRow'
 import LaunchOverviewItem from './LaunchOverviewItem'
 import launchMixin from '../mixins/launch'
+import { TICKER_MAX_THRESHOLD } from '../utils/constants'
 
 export default {
   name: 'LaunchOverview',
@@ -109,6 +113,9 @@ export default {
     }),
     dev() {
       return process.env.NODE_ENV === 'development'
+    },
+    tickerThreshold() {
+      return Math.abs(new Date(this.launch.net) - new Date()) > TICKER_MAX_THRESHOLD
     },
   },
   methods: {
@@ -225,7 +232,13 @@ $margin: 20px;
       margin: 1em;
     }
   }
-  .ticker {
+  .timeago {
+    line-height: 1.8em;
+    font-size: 1.8em;
+    font-weight: 500;
+  }
+  .ticker,
+  .timeago {
     @media only screen and (min-width: 640px) {
       font-size: 3em;
     }

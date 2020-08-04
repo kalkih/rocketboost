@@ -50,8 +50,7 @@ import theme from '../mixins/themes'
 import launchMixin from '../mixins/launch'
 import Tag from './Tag'
 import Ticker from './Ticker'
-
-const THREE_MONTHS_IN_MS = 1000 * 60 * 60 * 24 * 29 * 3
+import { TICKER_MAX_THRESHOLD } from '../utils/constants'
 
 export default {
   components: { Tag, Ticker },
@@ -69,7 +68,7 @@ export default {
   },
   computed: {
     tickerThreshold() {
-      return new Date(this.launch.net) - new Date() > THREE_MONTHS_IN_MS
+      return new Date(this.launch.net) - new Date() > TICKER_MAX_THRESHOLD
     },
   },
   methods: {

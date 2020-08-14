@@ -5,7 +5,9 @@
     <the-navbar />
     <main>
       <the-background />
-      <router-view :key="$route.fullPath" />
+      <pull-to-refresh>
+        <router-view :key="$route.fullPath" />
+      </pull-to-refresh>
     </main>
     <the-footer :fullscreen="menu" />
     <the-toast-list />
@@ -25,6 +27,7 @@ import TheMenu from './components/TheMenu'
 import TheSearchScreen from './components/TheSearchScreen'
 import TheBackground from './components/TheBackground'
 import TheToastList from './components/TheToastList'
+import PullToRefresh from './components/PullToRefresh'
 
 export default {
   name: 'App',
@@ -36,6 +39,7 @@ export default {
     TheSearchScreen,
     TheBackground,
     TheToastList,
+    PullToRefresh,
   },
   computed: {
     fullscreen() {

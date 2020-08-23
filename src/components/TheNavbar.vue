@@ -6,9 +6,7 @@
         <font-awesome-icon icon="chevron-left" />
       </a>
       <router-link to="/" @click.native="reset()" v-touch-feedback>
-        <h1 class="the-navbar__title" :class="{ '--nested': isNested }">
-          {{ title }}
-        </h1>
+        <h1 class="the-navbar__title" :class="{ '--nested': isNested }">{{ title }}</h1>
       </router-link>
       <button-row class="the-navbar__trending">
         <base-button v-for="{ tag, route } in TOP_TAGS" :key="tag" :text="tag" :link="route" />
@@ -38,10 +36,10 @@ import BaseButton from './BaseButton'
 const NAVBAR_SCROLL_THRESHOLD = 60
 
 const TOP_TAGS = [
-  { tag: '#SpaceX', route: '/lsp/SpaceX' },
-  { tag: '#Arianespace', route: '/lsp/Arianespace' },
-  { tag: '#ULA', route: '/lsp/United Launch Alliance' },
-  { tag: '#ISRO', route: '/lsp/Indian Space Research Organization' },
+  { tag: '#SpaceX', route: '/providers/SpaceX' },
+  { tag: '#Arianespace', route: '/providers/Arianespace' },
+  { tag: '#ULA', route: '/providers/United Launch Alliance' },
+  { tag: '#ISRO', route: '/providers/Indian Space Research Organization' },
 ]
 
 export default {

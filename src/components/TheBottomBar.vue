@@ -82,6 +82,7 @@ export default {
     ...mapActions(['toggleMenu', 'toggleSearch', 'setSearch', 'setMenu']),
     navigate() {
       this.reset()
+      window.scrollTo({ top: 0, behavior: 'smooth' })
     },
     onScroll() {
       if (window.innerHeight + window.scrollY > document.getElementById('app').offsetHeight - 60) {

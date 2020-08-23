@@ -59,18 +59,18 @@ const router = new Router({
       meta: { title: 'Launch Providers' },
     },
     {
-      path: '/providers',
-      name: 'providers',
-      component: Topic,
-      props: { icon: 'building', title: 'Launch Providers', state: 'providers' },
-      meta: { title: 'Launch Providers' },
-    },
-    {
       path: '/lsp/:name',
       name: 'lsp',
       component: List,
       props: { icon: 'building', state: 'lsp', query: { filterKey: 'lsp.name' } },
       meta: { title: 'Launch Provider' },
+    },
+    {
+      path: '/providers',
+      name: 'providers',
+      component: Topic,
+      props: { icon: 'building', title: 'Launch Providers', state: 'providers' },
+      meta: { title: 'Launch Providers' },
     },
     {
       path: '/providers/:name',

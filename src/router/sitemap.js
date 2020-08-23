@@ -6,16 +6,25 @@ const paths = [
     path: '/search',
   },
   {
+    path: '/providers',
+  },
+  {
+    path: '/locations',
+  },
+  {
+    path: '/rockets',
+  },
+  {
     path: '/subscriptions',
   },
   {
-    path: '/lsp/SpaceX',
+    path: '/providers/SpaceX',
   },
   {
-    path: '/lsp/Arianespace',
+    path: '/providers/Arianespace',
   },
   {
-    path: '/lsp/Rocket%20Lab%20Ltd',
+    path: '/providers/Rocket%20Lab%20Ltd',
   },
   {
     path: '/about',

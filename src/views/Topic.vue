@@ -56,6 +56,11 @@ export default {
       this.$router.push({ path: `/${this.state}/${encodeURIComponent(id)}` })
     },
   },
+  metaInfo() {
+    return {
+      title: this.title,
+    }
+  },
 }
 </script>
 

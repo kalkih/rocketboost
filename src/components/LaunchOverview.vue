@@ -127,6 +127,21 @@ export default {
     this.$store.dispatch('launches/unsetCurrent', { id: this.id })
     this.$store.dispatch('launches/getLaunch', { id: this.id })
   },
+  metaInfo() {
+    return {
+      title: this.launchTitle,
+      meta: [
+        {
+          property: 'og:title',
+          content: this.launchTitle,
+        },
+        {
+          property: 'og:description',
+          cotent: this.launch.mission.description,
+        },
+      ],
+    }
+  },
 }
 </script>
 

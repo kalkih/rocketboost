@@ -79,6 +79,11 @@ export default {
     notificationService.setupNotificationWatcher()
     updateService.setupUpdateWatcher()
   },
+  metaInfo() {
+    return {
+      titleTemplate: `%s | ${process.env.VUE_APP_NAME}`,
+    }
+  },
 }
 </script>
 

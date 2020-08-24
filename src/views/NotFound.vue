@@ -16,6 +16,11 @@ export default {
   destroyed() {
     this.$store.dispatch('theme/setPageTheme', 'default')
   },
+  metaInfo() {
+    return {
+      title: '404',
+    }
+  },
 }
 </script>
 

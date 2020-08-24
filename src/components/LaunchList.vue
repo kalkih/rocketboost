@@ -174,6 +174,18 @@ export default {
     }
     this.refresh({ state, ...getQuery })
   },
+  metaInfo() {
+    const title = this.filter || this.search
+    return {
+      title,
+      meta: [
+        {
+          property: 'og:title',
+          content: title,
+        },
+      ],
+    }
+  },
 }
 </script>
 

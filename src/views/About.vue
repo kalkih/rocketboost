@@ -47,6 +47,11 @@ export default {
       return `mailto:${this.contact}`
     },
   },
+  metaInfo() {
+    return {
+      title: 'About',
+    }
+  },
 }
 </script>
 

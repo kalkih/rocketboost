@@ -133,6 +133,11 @@ export default {
       this.$router.push({ path: `/${topic}/${encodeURIComponent(id)}` })
     },
   },
+  metaInfo() {
+    return {
+      title: 'Subscriptions',
+    }
+  },
 }
 </script>
 

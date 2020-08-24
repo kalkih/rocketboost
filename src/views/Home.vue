@@ -12,5 +12,11 @@ export default {
   components: {
     LaunchList,
   },
+  metaInfo() {
+    return {
+      title: process.env.VUE_APP_NAME,
+      titleTemplate: '',
+    }
+  },
 }
 </script>

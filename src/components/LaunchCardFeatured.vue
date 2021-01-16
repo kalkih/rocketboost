@@ -15,7 +15,7 @@ export default {
   margin: 2em auto 0 auto;
   background: none;
   box-shadow: none;
-  width: auto;
+  width: 100%;
 
   &:hover {
     background: none;

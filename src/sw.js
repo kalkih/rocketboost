@@ -9,9 +9,6 @@ const PUSH_TYPE = {
 /* eslint-disable no-restricted-globals */
 importScripts('./env-vars.js')
 
-workbox.precaching.precacheAndRoute(self.__precacheManifest)
-workbox.routing.registerNavigationRoute('/')
-
 const handlePush = async (event) => {
   const channel = new BroadcastChannel('sw-push')
   const message = JSON.parse(event.data.text())
@@ -36,7 +33,7 @@ const handlePush = async (event) => {
 self.addEventListener('notificationclick', (event) => {
   const { id, topic } = event.notification.data || {}
   event.notification.close()
-  clients.openWindow(`${BASE_URL}/${topic}/${id}`)
+  clients.openWindow(`${BASE_URL}${topic}/${id}`)
 })
 
 self.addEventListener('push', (event) => {
@@ -54,3 +51,11 @@ self.addEventListener('message', (e) => {
       break
   }
 })
+
+workbox.core.clientsClaim()
+
+workbox.routing.registerNavigationRoute('/')
+
+// The precaching code provided by Workbox.
+self.__precacheManifest = [].concat(self.__precacheManifest || [])
+workbox.precaching.precacheAndRoute(self.__precacheManifest, {})

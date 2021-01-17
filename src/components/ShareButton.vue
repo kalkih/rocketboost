@@ -27,7 +27,8 @@ export default {
         const { url, title, text } = this
         await navigator.share({ url, title, text })
       } catch {
-        console.log('Sharing is not supported on current device')
+        // eslint-disable-next-line no-console
+        console.info('Sharing is not supported on current device')
       }
     },
   },

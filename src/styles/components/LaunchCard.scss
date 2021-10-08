@@ -30,7 +30,7 @@
   }
 
   &__title {
-    font-weight: 600;
+    font-weight: 700;
     font-size: 1.8em;
     margin-top: 0;
     margin-bottom: 1em;
@@ -68,7 +68,7 @@
     &--secondary {
       transition: opacity 0.1s;
       flex: 1;
-      font-weight: 600;
+      font-weight: 700;
       opacity: var(--secondary-title-opacity);
     }
   }

@@ -85,7 +85,7 @@
       </template>
     </div>
     <div class="subscriptions__content" v-else>
-      <h2 class="nothing">nothing yet...</h2>
+      <h2 class="nothing">You have no subscription</h2>
     </div>
   </div>
 </template>
@@ -247,8 +247,9 @@ export default {
     padding: 0 0.6em;
 
     .nothing {
-      font-size: 2.4em;
+      font-size: 1.8em;
       align-self: center;
+      text-align: center;
     }
   }
 }

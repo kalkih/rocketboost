@@ -78,10 +78,9 @@ export default {
     width: 100%;
     height: 70%;
     font-size: 2.5em;
-    font-weight: 400;
     text-align: center;
     z-index: 100;
-    font-weight: 500;
+    font-weight: 600;
 
     @media only screen and (min-width: 640px) {
       font-size: 4em;

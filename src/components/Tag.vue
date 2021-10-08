@@ -72,7 +72,7 @@ export default {
     bottom: 0;
     left: 0;
     width: calc(1em + (0.6em * 2));
-    border-right: 1px solid rgba(0, 0, 0, 0.25);
+    border-right: 1px solid rgba(0, 0, 0, 0.15);
   }
 
   &.--hover {

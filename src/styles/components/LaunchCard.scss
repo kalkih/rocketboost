@@ -59,9 +59,10 @@
       }
 
       &:after {
-        content: ' \2022 ';
+        content: '\2022';
         opacity: 0.6;
         color: var(--primary-text-color);
+        margin: 0 .3em;
       }
     }
     &--secondary {

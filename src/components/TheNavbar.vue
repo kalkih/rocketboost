@@ -17,11 +17,13 @@
           class="search"
           :class="{ active: search }"
           @click="toggleSearch"
+          v-touch-feedback
         />
         <font-awesome-icon
           :icon="menu ? 'times' : 'bars'"
           :class="{ active: menu }"
           @click="toggleMenu"
+          v-touch-feedback
         />
       </nav>
     </div>

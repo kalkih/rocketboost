@@ -9,7 +9,7 @@
     "lint": "vue-cli-service lint",
     "build:report": "vue-cli-service build --report",
     "build:watch": "vue-cli-service build --watch --mode production",
-    "serve:dist": "vue-cli-service build && http-server dist -p 8080 serve -s dist/index.html"
+    "serve:dist": "vue-cli-service build && http-server dist -p 8080 --proxy localhost:8080 serve -s dist/index.html"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.15",

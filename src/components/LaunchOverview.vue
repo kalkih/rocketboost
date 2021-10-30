@@ -173,7 +173,7 @@ $margin: 20px;
 
   &__actions {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     flex-wrap: wrap;
     width: 100%;
     font-size: 0.8em;

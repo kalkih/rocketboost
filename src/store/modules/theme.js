@@ -1,5 +1,5 @@
 const initialState = () => ({
-  theme: 'default',
+  theme: 'light',
   pageTheme: 'earth',
 })
 

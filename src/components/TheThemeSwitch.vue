@@ -2,14 +2,14 @@
   <div class="the-theme-switch">
     <font-awesome-icon icon="glasses" />
     <div class="the-theme-switch__switch">
-      <span :class="{ active: isActive('dark') }" @click="setTheme('dark')" v-touch-feedback
-        >Dark</span
-      >
-      <span :class="{ active: isActive('default') }" @click="setTheme('default')" v-touch-feedback
-        >Default</span
-      >
       <span :class="{ active: isActive('light') }" @click="setTheme('light')" v-touch-feedback
         >Light</span
+      >
+      <span :class="{ active: isActive('dynamic') }" @click="setTheme('dynamic')" v-touch-feedback
+        >colorful</span
+      >
+      <span :class="{ active: isActive('dark') }" @click="setTheme('dark')" v-touch-feedback
+        >Dark</span
       >
     </div>
   </div>

@@ -61,15 +61,20 @@ export default {
   overflow: hidden;
 
   li {
+    $base-delay: 0.15s;
+    $delay-interval: 0.1s;
     animation: fade-in 0.35s ease forwards;
     opacity: 0;
-    animation-delay: 0.15s;
+    animation-delay: #{$base-delay + $delay-interval};
 
+    &:nth-of-type(3) {
+      animation-delay: #{$base-delay + $delay-interval * 2};
+    }
     &:nth-of-type(2) {
-      animation-delay: 0.25s;
+      animation-delay: #{$base-delay + $delay-interval * 3};
     }
     &:nth-of-type(1) {
-      animation-delay: 0.35s;
+      animation-delay: #{$base-delay + $delay-interval * 4};
     }
   }
   nav {
@@ -126,8 +131,8 @@ export default {
     position: absolute;
     bottom: 0;
     padding: 1.2em;
-    animation: fade-in 0.35s ease forwards;
-    animation-delay: 0.45s;
+    animation: fade-in 0.45s ease forwards;
+    animation-delay: 0.05s;
     opacity: 0;
   }
 }

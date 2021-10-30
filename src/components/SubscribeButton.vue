@@ -73,7 +73,9 @@ export default {
         } else {
           await this.subscribe(subscription)
         }
-      } catch {
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.error(error)
         this.addToast({ text: NOTIFICATIONS_NOT_SUPPORTED })
       }
       this.loading = false

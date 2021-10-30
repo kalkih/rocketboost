@@ -64,7 +64,7 @@ const actions = {
   },
   async getPushSubscription({ commit, state }) {
     if (!navigator.serviceWorker.controller) {
-      throw new Error()
+      throw new Error('No service worker installed')
     }
     const swreg = await navigator.serviceWorker.ready
     let subscription = {}
@@ -75,7 +75,7 @@ const actions = {
     }
 
     if (!subscription) {
-      throw new Error()
+      throw new Error('Failed creating subscription')
     }
 
     if (state.endpoint !== subscription.endpoint) {

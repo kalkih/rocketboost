@@ -190,7 +190,6 @@ $margin: 20px;
     }
 
     @media only screen and (min-width: 640px) {
-      justify-content: space-between;
       font-size: 0.8em;
       padding: 0 $margin * 2;
     }

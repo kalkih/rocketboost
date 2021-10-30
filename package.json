@@ -3,7 +3,6 @@
   "version": "0.3.1",
   "description": "Rocket launch PWA built with VueJS",
   "author": "Karl Kihlström <mrkihlstrom@gmail.com>",
-  "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -23,19 +22,19 @@
     "lodash": "^4.17.19",
     "register-service-worker": "^1.5.2",
     "smoothscroll-polyfill": "^0.4.3",
-    "vue": "^2.6.10",
+    "vue": "^2.6.14",
     "vue-meta": "^2.4.0",
     "vue-observe-visibility": "^0.4.3",
-    "vue-router": "^3.3.4",
+    "vue-router": "^3.5.3",
     "vue-timeago": "^5.1.1",
     "vuex": "^3.0.1",
     "vuex-persistedstate": "^2.5.4"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.5.10",
-    "@vue/cli-plugin-eslint": "^4.5.10",
-    "@vue/cli-plugin-pwa": "^4.5.10",
-    "@vue/cli-service": "^4.5.10",
+    "@vue/cli-plugin-babel": "^4.5.15",
+    "@vue/cli-plugin-eslint": "^4.5.15",
+    "@vue/cli-plugin-pwa": "^4.5.15",
+    "@vue/cli-service": "^4.5.15",
     "@vue/eslint-config-airbnb": "^5.1.0",
     "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/eslint-config-standard": "^4.0.0",
@@ -44,14 +43,15 @@
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-vue": "^5.2.3",
-    "http-server": "^0.12.3",
+    "http-server": "^14.0.0",
     "node-sass": "^4.14.1",
     "prettier": "2.0.5",
     "sass-loader": "^10.1.1",
     "sitemap-webpack-plugin": "^0.6.0",
     "vue-cli-plugin-webpack-bundle-analyzer": "^4.0.0",
     "vue-svg-loader": "^0.12.0",
-    "vue-template-compiler": "^2.6.10",
+    "vue-template-compiler": "^2.6.14",
     "webpack-bundle-analyzer": "^3.3.2"
-  }
+  },
+  "license": "MIT"
 }

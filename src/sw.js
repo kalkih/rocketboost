@@ -54,8 +54,7 @@ self.addEventListener('message', (e) => {
 
 workbox.core.clientsClaim()
 
-workbox.routing.registerNavigationRoute('/')
-
 // The precaching code provided by Workbox.
 self.__precacheManifest = [].concat(self.__precacheManifest || [])
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {})
+workbox.routing.registerNavigationRoute('/')

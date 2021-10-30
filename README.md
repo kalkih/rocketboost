@@ -2,7 +2,7 @@
 
 Rocket launch tracking PWA built with VueJS, VueX & ❤️
 
-## [Web App](https://rocket.karls.app) | [Android App](https://play.google.com/store/apps/details?id=me.kvrl.rocketboost)
+## [Web App](https://rocket.kvrl.me) | [Android App](https://play.google.com/store/apps/details?id=me.kvrl.rocketboost)
 
 ## Project setup
 

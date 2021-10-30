@@ -22,6 +22,12 @@
   --button-background-color--hover: transparent;
   --button-border-color: rgba(255, 255, 255, 0.5);
 
+  --tag-border-radius: 20px;
+  --tag-background-color: var(--button-background-color);
+  --tag-background-color--hover: var(--button-background-color--hover);
+  --tag-border-color: transparent;
+  --tag-border-color--hover: var(--button-border-color);
+
   --search-input-background: rgba(255, 255, 255, 0.05);
   --search-input-background--focus: rgba(255, 255, 255, 0.1);
 
